@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sojin Oh</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/cursor.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- Custom heart cursor -->
+<div id="cursor-heart">
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M32 52 C32 52, 9 37, 9 22 C9 14.5, 15 9, 21 9 C26 9, 30 12.5, 32 16 C34 12.5, 38 9, 43 9 C49 9, 55 14.5, 55 22 C55 37, 32 52, 32 52Z"
+      fill="#FEFFAF" opacity="0.85"/>
+    <circle cx="26" cy="25" r="2" fill="#042C53"/>
+    <circle cx="38" cy="25" r="2" fill="#042C53"/>
+    <path d="M26 33 Q32 38.5 38 33" stroke="#042C53" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+<canvas id="cursor-sparkle-canvas" width="90" height="90"></canvas>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="logo-wrap">
+      <svg id="nav-logo" width="26" height="26" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 52 C32 52, 9 37, 9 22 C9 14.5, 15 9, 21 9 C26 9, 30 12.5, 32 16 C34 12.5, 38 9, 43 9 C49 9, 55 14.5, 55 22 C55 37, 32 52, 32 52Z" fill="#FEFFAF" opacity="0.85"/>
+        <circle cx="26" cy="25" r="2" fill="#4E7AB5"/>
+        <circle cx="38" cy="25" r="2" fill="#4E7AB5"/>
+        <path d="M26 33 Q32 38.5 38 33" stroke="#4E7AB5" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="nav-name">Sojin Oh</span>
+  </div>
+  <div class="nav-links">
+    <span>Home</span><span>About Me</span><span>My Work</span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="layout">
+
+    <!-- Left copy -->
+    <div class="left">
+      <h1><span class="hi">Hi,</span><br>I'm Sojin.</h1>
+      <p>I spent 6 years building software, and realized what I really cared about was the <b>people</b> behind the screen.</p>
+      <a class="cta" href="#">View my work ↗</a>
+      <div class="socials">
+        <div class="sdot">in</div>
+        <div class="sdot">✉</div>
+      </div>
+    </div>
+
+    <!-- Chat widget -->
+    <div class="chat-area" id="chat">
+      <div class="chat-header">
+        <svg class="chat-header-avatar" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 52 C32 52, 9 37, 9 22 C9 14.5, 15 9, 21 9 C26 9, 30 12.5, 32 16 C34 12.5, 38 9, 43 9 C49 9, 55 14.5, 55 22 C55 37, 32 52, 32 52Z" fill="#FEFFAF" opacity="0.85"/>
+          <circle cx="26" cy="25" r="2" fill="#4E7AB5"/>
+          <circle cx="38" cy="25" r="2" fill="#4E7AB5"/>
+          <path d="M26 33 Q32 38.5 38 33" stroke="#4E7AB5" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="chat-header-info">
+          <div class="chat-header-name">Sojin</div>
+          <div class="chat-header-status">
+            <div class="status-dot"></div>active now
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-scroll" id="chatScroll">
+        <div class="choices-anchor">
+          <div class="choices-label" id="choicesLabel">
+            <div class="choices-label-line"></div>
+            <span class="choices-label-text">ask me something</span>
+            <div class="choices-label-line"></div>
+          </div>
+          <div class="choices-row" id="choices"></div>
+        </div>
+      </div>
+
+      <div class="chat-fade" id="chatFade"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JS: load data first, then chat logic, then cursor -->
+<script src="js/data.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/cursor.js"></script>
+
+</body>
+</html>

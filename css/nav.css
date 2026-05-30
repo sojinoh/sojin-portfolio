@@ -1,0 +1,40 @@
+/* ── Nav ───────────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-brand { display: flex; align-items: center; gap: 9px; }
+
+.logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#nav-logo { filter: none; }
+
+.nav-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 25px;
+  color: var(--yellow);
+  letter-spacing: 0.01em;
+  font-style: italic;
+}
+
+.nav-links { display: flex; gap: 2.2rem; }
+
+.nav-links span {
+  font-size: 14px;
+  color: var(--yellow);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-links span:hover { color: var(--yellow); }

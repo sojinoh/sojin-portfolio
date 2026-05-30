@@ -1,0 +1,80 @@
+/* ── Hero layout ───────────────────────────────────────────── */
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 3.5rem 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.layout {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+/* ── Left copy block ───────────────────────────────────────── */
+.left { flex: 0 0 auto; }
+
+.left h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 62px;
+  color: var(--yellow);
+  line-height: 1.04;
+  margin-bottom: 1.2rem;
+}
+
+.left h1 .hi { font-style: italic; color: var(--sky); }
+
+.left p {
+  font-size: 13.5px;
+  color: var(--yellow-dim);
+  line-height: 1.85;
+  max-width: 230px;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+/* ── CTA button ────────────────────────────────────────────── */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--blue);
+  background: var(--yellow);
+  border-radius: 28px;
+  padding: 12px 26px;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.cta:hover { background: var(--yellow-hover); transform: translateY(-1px); }
+
+/* ── Social dots ───────────────────────────────────────────── */
+.socials { display: flex; gap: 8px; margin-top: 1.8rem; }
+
+.sdot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(254, 255, 175, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: rgba(254, 255, 175, 0.6);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.sdot:hover { border-color: var(--yellow); color: var(--yellow); }
