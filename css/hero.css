@@ -14,7 +14,7 @@
   align-items: center;
   gap: 6rem;
   width: 100%;
-  max-width: 960px;
+  max-width: 1080px;
 }
 
 /* ── Left copy block ───────────────────────────────────────── */
@@ -46,8 +46,8 @@
   gap: 8px;
   font-size: 11px;
   font-weight: 500;
-  color: var(--blue);
-  background: var(--yellow);
+  color: var(--blue-deep);
+  background: var(--sky);
   border-radius: 28px;
   padding: 12px 26px;
   letter-spacing: 0.07em;
@@ -56,7 +56,7 @@
   transition: background 0.2s, transform 0.15s;
 }
 
-.cta:hover { background: var(--yellow-hover); transform: translateY(-1px); }
+.cta:hover { background: var(--sky-light); transform: translateY(-1px); }
 
 /* ── Social dots ───────────────────────────────────────────── */
 .socials { display: flex; gap: 8px; margin-top: 1.8rem; }
