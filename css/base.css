@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'SojinsHandwriting';
-  src: url('../fonts/Sojinhandwriting-Regular.otf') format('opentype'),
-       url('../fonts/Sojinhandwriting-Regular.ttf') format('truetype');
+  src: url('../fonts/Sojin-Regular.otf') format('opentype'),
+       url('../fonts/Sojin-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -18,6 +18,19 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+
+.doodle {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: min(500px, 42vw);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.25s ease;
+}
+#doodle-hover { opacity: 0; }
+body.doodle-reacting #doodle-default { opacity: 0; }
+body.doodle-reacting #doodle-hover   { opacity: 1; }
 html, body { height: 100%; }
 
 body {

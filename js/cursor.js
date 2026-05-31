@@ -123,4 +123,5 @@ function tickSparkles() {
   requestAnimationFrame(tickSparkles);
 }
 
+updateCursorPos(mx, my);
 tickSparkles();

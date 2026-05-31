@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Work — Sojin Oh</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/cursor.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<div id="cursor-heart">
+  <svg viewBox="0 0 64 64" fill="none">
+    <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+    <circle cx="26" cy="25" r="2" fill="white"/>
+    <circle cx="38" cy="25" r="2" fill="white"/>
+    <path d="M26 33 Q32 38.5 38 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+<canvas id="cursor-sparkle-canvas" width="90" height="90"></canvas>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <svg class="nav-heart-icon" viewBox="0 0 64 64" fill="none">
+      <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="#4E7AB5" opacity="0.9"/>
+      <circle cx="26" cy="25" r="2" fill="white"/>
+      <circle cx="38" cy="25" r="2" fill="white"/>
+      <path d="M26 33 Q32 38.5 38 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">SOJIN OH</span>
+  </a>
+  <nav class="nav-links">
+    <a class="nav-img-link" href="index.html">HOME</a>
+    <a class="nav-img-link" href="about.html">ABOUT ME</a>
+    <a class="nav-img-link active" href="work.html">MY WORK</a>
+  </nav>
+</nav>
+
+<main class="page-main">
+
+  <section class="page-section">
+    <p class="intro-text">Browser features for millions, infrastructure rewrites, and a cafeteria menu site that started it all.</p>
+  </section>
+
+  <section class="page-section">
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="industry">Industry</button>
+      <button class="filter-tab" data-filter="project">Projects</button>
+    </div>
+
+    <div class="work-grid">
+
+      <div class="work-card" data-category="industry">
+        <div class="work-card-header">
+          <span class="work-card-title">Browsing History & Autocomplete</span>
+          <span class="work-card-date">2020 – 2026</span>
+        </div>
+        <div class="work-card-context">Amazon · Silk Browser on Fire TV</div>
+        <p class="work-card-desc">Launched browsing history and autocomplete for millions of Fire TV users, working cross-functionally with UX and product. Validated via A/B experimentation.</p>
+        <div class="work-card-tags">
+          <span class="work-tag">Java</span>
+          <span class="work-tag">TypeScript</span>
+          <span class="work-tag">Android</span>
+          <span class="work-tag">A/B Testing</span>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="industry">
+        <div class="work-card-header">
+          <span class="work-card-title">Safe Browsing — Vega OS</span>
+          <span class="work-card-date">2022 – 2024</span>
+        </div>
+        <div class="work-card-context">Amazon · Away Team</div>
+        <p class="work-card-desc">Delivered Safe Browsing for Silk on Vega OS, removing Chrome dependency while preserving performance and UI continuity.</p>
+        <div class="work-card-tags">
+          <span class="work-tag">Java</span>
+          <span class="work-tag">Android</span>
+          <span class="work-tag">Security</span>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="industry">
+        <div class="work-card-header">
+          <span class="work-card-title">WebView — Next-Gen Fire OS</span>
+          <span class="work-card-date">2023 – 2025</span>
+        </div>
+        <div class="work-card-context">Amazon · Away Team</div>
+        <p class="work-card-desc">Onboarded WebView to next-gen Fire OS platforms for tablet and TV, aligned with modern Android/AOSP standards.</p>
+        <div class="work-card-tags">
+          <span class="work-tag">Android</span>
+          <span class="work-tag">AOSP</span>
+          <span class="work-tag">Fire OS</span>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="industry">
+        <div class="work-card-header">
+          <span class="work-card-title">Silk Infrastructure Migration</span>
+          <span class="work-card-date">2021 – 2023</span>
+        </div>
+        <div class="work-card-context">Amazon · Silk Infrastructure</div>
+        <p class="work-card-desc">Led full migration of Silk infrastructure to AWS-native architecture. Improved CI/CD to increase reliability and developer efficiency across all Fire releases.</p>
+        <div class="work-card-tags">
+          <span class="work-tag">AWS</span>
+          <span class="work-tag">CI/CD</span>
+          <span class="work-tag">Go</span>
+          <span class="work-tag">Java</span>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="industry">
+        <div class="work-card-header">
+          <span class="work-card-title">SAP & Salesforce Integration</span>
+          <span class="work-card-date">2019 – 2020</span>
+        </div>
+        <div class="work-card-context">Concord USA</div>
+        <p class="work-card-desc">Built REST APIs and MuleSoft workflows to streamline data exchange between SAP and Salesforce systems.</p>
+        <div class="work-card-tags">
+          <span class="work-tag">Java</span>
+          <span class="work-tag">MuleSoft</span>
+          <span class="work-tag">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="project">
+        <div class="work-card-header">
+          <span class="work-card-title">AI Agent — Super Mario Bros</span>
+          <span class="work-card-date">2019</span>
+        </div>
+        <div class="work-card-context">Capstone · Macalester College</div>
+        <p class="work-card-desc">Reinforcement learning agent that learned to play Mario autonomously — sparked my curiosity about the gap between AI capability and human impact.</p>
+        <div class="work-card-tags">
+          <span class="work-tag">Python</span>
+          <span class="work-tag">Reinforcement Learning</span>
+          <span class="work-tag">AI</span>
+        </div>
+      </div>
+
+      <div class="work-card" data-category="project">
+        <div class="work-card-header">
+          <span class="work-card-title">Cafeteria Menu Website</span>
+          <span class="work-card-date">2015</span>
+        </div>
+        <div class="work-card-context">Personal · Seoul, Korea</div>
+        <p class="work-card-desc">Built a photo menu site for English-speaking teachers who couldn't read the Korean cafeteria menu. My first lesson in how small design decisions shape daily life.</p>
+        <div class="work-card-tags">
+          <span class="work-tag">HTML / CSS</span>
+          <span class="work-tag">JavaScript</span>
+          <span class="work-tag">Accessibility</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="js/cursor.js"></script>
+<script>
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      document.querySelectorAll('.work-card').forEach(card => {
+        card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
