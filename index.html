@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sojin Oh</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/cursor.css">
@@ -32,12 +31,12 @@
       <circle cx="38" cy="25" r="2" fill="#042C53"/>
       <path d="M26 33 Q32 38.5 38 33" stroke="#042C53" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     </svg>
-    <img class="nav-logo-img" src="images/nav-logo.png" alt="Sojin Oh">
+    <span class="nav-logo-text">SOJIN OH</span>
   </a>
   <nav class="nav-links">
-    <a class="nav-img-link" href="#"><img src="images/nav-home.png" alt="HOME"></a>
-    <a class="nav-img-link" href="#"><img src="images/nav-about.png" alt="ABOUT ME"></a>
-    <a class="nav-img-link" href="#"><img src="images/nav-work.png" alt="MY WORK"></a>
+    <a class="nav-img-link" href="#">HOME</a>
+    <a class="nav-img-link" href="#">ABOUT ME</a>
+    <a class="nav-img-link" href="#">MY WORK</a>
   </nav>
 </nav>
 
@@ -45,9 +44,7 @@
 <main class="hero">
   <div class="hero-content">
     <div class="heading-wrap">
-      <div class="wipe-wrap">
-        <img class="heading-img wipe" src="images/heading.png" alt="Hi, I'm Sojin">
-      </div>
+      <div class="heading-text" id="heading-text"></div>
     </div>
     <a class="cta" href="#">View my work ↗</a>
     <div class="socials">
@@ -73,6 +70,45 @@
 <img src="images/doodle.png" alt="" class="doodle" aria-hidden="true">
 
 <script src="js/cursor.js"></script>
+<script>
+  (function () {
+    const el = document.getElementById('heading-text');
+    const segments = [
+      { text: 'Hi,', hi: true },
+      { text: " I'm Sojin", hi: false }
+    ];
+    const allChars = [];
+    for (const seg of segments) {
+      for (const char of seg.text) allChars.push({ char, hi: seg.hi });
+    }
+
+    const cursor = document.createElement('span');
+    cursor.className = 'type-cursor';
+    el.appendChild(cursor);
+
+    const pauseAfter = 'Hi,'.length - 1;
+    let i = 0;
+    function typeNext() {
+      if (i >= allChars.length) {
+        setTimeout(() => {
+          cursor.style.transition = 'opacity 0.5s';
+          cursor.style.opacity = '0';
+          setTimeout(() => cursor.remove(), 500);
+        }, 900);
+        return;
+      }
+      const { char, hi } = allChars[i];
+      const span = document.createElement('span');
+      if (hi) span.className = 'heading-hi';
+      span.textContent = char === ' ' ? ' ' : char;
+      el.insertBefore(span, cursor);
+      const delay = i === pauseAfter ? 520 : 130;
+      i++;
+      setTimeout(typeNext, delay);
+    }
+    typeNext();
+  })();
+</script>
 
 </body>
 </html>

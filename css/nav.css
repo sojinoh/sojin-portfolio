@@ -12,7 +12,10 @@
   align-items: center;
   gap: 9px;
   text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
+.nav-brand:hover { transform: scale(1.05); }
 
 .nav-heart-icon {
   height: 40px;
@@ -20,10 +23,12 @@
   flex-shrink: 0;
 }
 
-.nav-logo-img {
-  height: 68px;
-  width: auto;
-  display: block;
+.nav-logo-text {
+  font-family: 'SojinsHandwriting', cursive;
+  font-size: 26px;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: 0.08em;
 }
 
 .nav-links {
@@ -36,15 +41,16 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  opacity: 0.85;
-  transition: opacity 0.2s;
+  opacity: 0.75;
+  transition: opacity 0.2s, color 0.2s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: 'SojinsHandwriting', cursive;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1;
 }
 
-.nav-img-link:hover { opacity: 1; }
-
-.nav-img-link img {
-  height: 18px;
-  width: auto;
-  display: block;
-  vertical-align: bottom;
+.nav-img-link:hover {
+  opacity: 1;
+  color: var(--accent);
+  transform: translateY(-3px);
 }

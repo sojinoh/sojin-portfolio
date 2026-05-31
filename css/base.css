@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'SojinsHandwriting';
+  src: url('../fonts/Sojinhandwriting-Regular.otf') format('opentype'),
+       url('../fonts/Sojinhandwriting-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --bg:          #FFFFFF;
   --text:        #111111;
@@ -19,6 +27,6 @@ body {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'SojinsHandwriting', cursive;
   color: var(--text);
 }
