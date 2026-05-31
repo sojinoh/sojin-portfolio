@@ -1,157 +1,78 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="original">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sojin Oh</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600;1,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/chat.css">
   <link rel="stylesheet" href="css/cursor.css">
 </head>
 <body>
 
 <!-- Custom heart cursor -->
 <div id="cursor-heart">
-  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M32 52 C32 52, 9 37, 9 22 C9 14.5, 15 9, 21 9 C26 9, 30 12.5, 32 16 C34 12.5, 38 9, 43 9 C49 9, 55 14.5, 55 22 C55 37, 32 52, 32 52Z"
-      fill="currentColor" opacity="0.9"/>
-    <circle cx="26" cy="25" r="2" fill="#181028"/>
-    <circle cx="38" cy="25" r="2" fill="#181028"/>
-    <path d="M26 33 Q32 38.5 38 33" stroke="#181028" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <svg viewBox="0 0 64 64" fill="none">
+    <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+    <circle cx="26" cy="25" r="2" fill="#042C53"/>
+    <circle cx="38" cy="25" r="2" fill="#042C53"/>
+    <path d="M26 33 Q32 38.5 38 33" stroke="#042C53" stroke-width="2.5" fill="none" stroke-linecap="round"/>
   </svg>
 </div>
 <canvas id="cursor-sparkle-canvas" width="90" height="90"></canvas>
 
-<!-- Header -->
-<header class="site-header">
-  <a class="header-brand" href="index.html">
-    <div class="logo-wrap">
-      <svg id="nav-logo" width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M32 52 C32 52, 9 37, 9 22 C9 14.5, 15 9, 21 9 C26 9, 30 12.5, 32 16 C34 12.5, 38 9, 43 9 C49 9, 55 14.5, 55 22 C55 37, 32 52, 32 52Z" fill="currentColor" opacity="0.9"/>
-        <circle cx="26" cy="25" r="2" fill="#181028"/>
-        <circle cx="38" cy="25" r="2" fill="#181028"/>
-        <path d="M26 33 Q32 38.5 38 33" stroke="#181028" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="header-name">Sojin Oh</span>
+<!-- Nav -->
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <svg class="nav-heart-icon" viewBox="0 0 64 64" fill="none">
+      <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="#4E7AB5" opacity="0.9"/>
+      <circle cx="26" cy="25" r="2" fill="#042C53"/>
+      <circle cx="38" cy="25" r="2" fill="#042C53"/>
+      <path d="M26 33 Q32 38.5 38 33" stroke="#042C53" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <img class="nav-logo-img" src="images/nav-logo.png" alt="Sojin Oh">
   </a>
-  <div class="header-links">
-    <a class="header-link" href="https://www.linkedin.com/in/sojinoh/" target="_blank" rel="noopener" aria-label="LinkedIn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.8"/>
-        <path d="M7 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="7" cy="7.5" r="1.1" fill="currentColor"/>
-        <path d="M11 17v-3.5a2.5 2.5 0 0 1 5 0V17M11 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </a>
-    <a class="header-link" href="mailto:sojinohh@gmail.com" aria-label="Email">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
-        <path d="M2 8l10 6.5L22 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
-    </a>
-  </div>
-</header>
+  <nav class="nav-links">
+    <a class="nav-img-link" href="#"><img src="images/nav-home.png" alt="HOME"></a>
+    <a class="nav-img-link" href="#"><img src="images/nav-about.png" alt="ABOUT ME"></a>
+    <a class="nav-img-link" href="#"><img src="images/nav-work.png" alt="MY WORK"></a>
+  </nav>
+</nav>
 
-<!-- Full-screen chat -->
-<main class="chat-main">
-  <div class="chat-frame">
-
-    <!-- Left: thread list -->
-    <nav class="thread-list" id="threadList">
-
-      <button class="thread-item thread-item--active" data-thread="sojin">
-        <div class="thread-avi thread-avi--accent">
-          <svg width="15" height="15" viewBox="0 0 64 64" fill="none">
-            <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="white" opacity="0.92"/>
-            <circle cx="26" cy="25" r="2" fill="currentColor"/>
-            <circle cx="38" cy="25" r="2" fill="currentColor"/>
-            <path d="M26 33Q32 38 38 33" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          </svg>
-          <div class="thread-online"></div>
-        </div>
-        <div class="thread-text">
-          <div class="thread-name">Introduction</div>
-          <div class="thread-preview">hi! 👋 · active now</div>
-        </div>
-      </button>
-
-      <button class="thread-item" data-thread="about">
-        <div class="thread-avi thread-avi--about">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="12" cy="8" r="4"/>
-            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <div class="thread-text">
-          <div class="thread-name">About Me</div>
-          <div class="thread-preview">background · goals</div>
-        </div>
-        <div class="thread-badge">4</div>
-      </button>
-
-      <button class="thread-item" data-thread="work">
-        <div class="thread-avi thread-avi--work">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-            <rect x="2" y="7" width="20" height="14" rx="2"/>
-            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-          </svg>
-        </div>
-        <div class="thread-text">
-          <div class="thread-name">My Work</div>
-          <div class="thread-preview">Amazon · side projects</div>
-        </div>
-        <div class="thread-badge">3</div>
-      </button>
-
-    </nav>
-
-    <!-- Right: chat area -->
-    <div class="chat-window">
-
-      <div class="chat-status" id="chatStatus">
-        <div class="status-dot"></div>
-        <span id="chatStatusLabel">Sojin · active now</span>
+<!-- Hero -->
+<main class="hero">
+  <div class="hero-content">
+    <div class="heading-wrap">
+      <div class="wipe-wrap">
+        <img class="heading-img wipe" src="images/heading.png" alt="Hi, I'm Sojin">
       </div>
-
-      <div class="chat-scroll-wrap">
-        <div class="chat-scroll" id="chatScroll">
-          <div class="choices-anchor">
-            <div class="choices-label" id="choicesLabel">
-              <div class="choices-label-line"></div>
-              <span class="choices-label-text">suggested</span>
-              <div class="choices-label-line"></div>
-            </div>
-            <div class="choices-row" id="choices"></div>
-          </div>
-        </div>
-        <div class="chat-fade" id="chatFade"></div>
-      </div>
-
-
     </div>
-
+    <a class="cta" href="#">View my work ↗</a>
+    <div class="socials">
+      <a class="social-icon" href="https://www.linkedin.com/in/sojinoh/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M7 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="7" cy="7.5" r="1.1" fill="currentColor"/>
+          <path d="M11 17v-3.5a2.5 2.5 0 0 1 5 0V17M11 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="mailto:sojinohh@gmail.com" aria-label="Email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M2 8l10 6.5L22 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
   </div>
 </main>
 
-<script src="js/data.js"></script>
-<script src="js/chat.js"></script>
+<!-- Doodle corner illustration -->
+<img src="images/doodle.png" alt="" class="doodle" aria-hidden="true">
+
 <script src="js/cursor.js"></script>
-<script>
-  (function () {
-    const p = new URLSearchParams(location.search);
-    const t = p.get('theme');
-    if (t) document.documentElement.setAttribute('data-theme', t);
-  })();
-
-  document.addEventListener('DOMContentLoaded', function () {
-    initChat();
-
-  });
-</script>
 
 </body>
 </html>

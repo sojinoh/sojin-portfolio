@@ -1,55 +1,50 @@
-/* ── Site header ─────────────────────────────────────────────── */
-.site-header {
-  height: 52px;
+.nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 1.6rem;
+  align-items: center;
+  padding: 1rem 3.5rem;
   position: relative;
   z-index: 10;
-  background: var(--header-bg);
-  border-bottom: none;
 }
 
-.header-brand {
+.nav-brand {
   display: flex;
   align-items: center;
   gap: 9px;
   text-decoration: none;
 }
 
-.logo-wrap { display: flex; align-items: center; }
-
-.header-name {
-  font-family: 'DM Serif Display', serif;
-  font-size: 19px;
-  font-style: italic;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 0.01em;
+.nav-heart-icon {
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
 }
 
-/* ── Header link icons ───────────────────────────────────────── */
-.header-links {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.nav-logo-img {
+  height: 68px;
+  width: auto;
+  display: block;
 }
 
-.header-link {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1.5px solid var(--bubble-in-bd);
+.nav-links {
+  display: flex;
+  align-items: flex-end;
+  gap: 3.5rem;
+}
+
+.nav-img-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: var(--muted);
   text-decoration: none;
-  transition: border-color 0.2s, color 0.2s;
+  opacity: 0.85;
+  transition: opacity 0.2s;
 }
 
-.header-link:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+.nav-img-link:hover { opacity: 1; }
+
+.nav-img-link img {
+  height: 18px;
+  width: auto;
+  display: block;
+  vertical-align: bottom;
 }
