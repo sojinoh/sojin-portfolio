@@ -1,19 +1,18 @@
-// ── Avatar SVG ──────────────────────────────────────────────
-const AVATAR_SVG = `<svg class="avatar" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M32 52 C32 52, 9 37, 9 22 C9 14.5, 15 9, 21 9 C26 9, 30 12.5, 32 16 C34 12.5, 38 9, 43 9 C49 9, 55 14.5, 55 22 C55 37, 32 52, 32 52Z" fill="#FEFFAF" opacity="0.85"/>
-  <circle cx="26" cy="25" r="2" fill="#4E7AB5"/>
-  <circle cx="38" cy="25" r="2" fill="#4E7AB5"/>
-  <path d="M26 33 Q32 38.5 38 33" stroke="#4E7AB5" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-</svg>`;
 
-// ── DOM refs ─────────────────────────────────────────────────
+// ── DOM refs ──────────────────────────────────────────────────
 const chatScroll    = document.getElementById('chatScroll');
 const chatFade      = document.getElementById('chatFade');
 const choicesAnchor = document.querySelector('.choices-anchor');
 
 chatFade.style.opacity = '0';
 
-// ── Scroll helpers ───────────────────────────────────────────
+// ── Session ID — increments on thread switch to cancel stale sequences
+let sessionId = 0;
+
+// ── Busy flag ──────────────────────────────────────────────────
+let isBusy = false;
+
+// ── Scroll helpers ────────────────────────────────────────────
 function updateFade() {
   const atBottom = chatScroll.scrollHeight - chatScroll.scrollTop - chatScroll.clientHeight < 16;
   chatFade.style.opacity = atBottom ? '0' : '1';
@@ -26,7 +25,7 @@ function scrollToBottom() {
   setTimeout(updateFade, 50);
 }
 
-// ── Message builders ─────────────────────────────────────────
+// ── Message builders ──────────────────────────────────────────
 function addSystemNote(text) {
   const el = document.createElement('div');
   el.className = 'msg-time';
@@ -43,7 +42,7 @@ function addSystemNote(text) {
 function addTyping() {
   const el = document.createElement('div');
   el.className = 'typing';
-  el.innerHTML = AVATAR_SVG + '<div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+  el.innerHTML = '<div class="typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
   chatScroll.insertBefore(el, choicesAnchor);
   requestAnimationFrame(() => requestAnimationFrame(() => { el.classList.add('show'); scrollToBottom(); }));
   return el;
@@ -53,11 +52,10 @@ function removeTyping(el) {
   if (el && el.parentNode) el.remove();
 }
 
-function addInBubble(html, showAvatar) {
+function addInBubble(html) {
   const row = document.createElement('div');
   row.className = 'bubble-in-row';
-  row.innerHTML = (showAvatar ? AVATAR_SVG : '<div class="bubble-spacer"></div>') +
-    '<div class="bubble bubble-in">' + html + '</div>';
+  row.innerHTML = '<div class="bubble bubble-in">' + html + '</div>';
   chatScroll.insertBefore(row, choicesAnchor);
   requestAnimationFrame(() => requestAnimationFrame(() => { row.classList.add('show'); scrollToBottom(); }));
   return row;
@@ -80,32 +78,52 @@ function addOutBubble(text) {
   return { bubble: el, receipt };
 }
 
-// ── Sequencer ────────────────────────────────────────────────
-// Runs an array of steps in order, each after its own delay.
-// Typing steps store their DOM node on step._el so the next
-// content step can remove the indicator before appearing.
+// ── Sequencer ─────────────────────────────────────────────────
 function runSequence(steps, onDone) {
+  const mySession = sessionId;
   function run(i) {
+    if (sessionId !== mySession) return;
     if (i >= steps.length) { if (onDone) onDone(); return; }
     const step = steps[i];
     const prev = steps[i - 1];
     setTimeout(() => {
+      if (sessionId !== mySession) return;
       if (prev && prev._el && step.type !== 'typing') {
         removeTyping(prev._el);
         prev._el = null;
       }
       if      (step.type === 'note')   addSystemNote(step.text);
       else if (step.type === 'typing') step._el = addTyping();
-      else if (step.type === 'in')     addInBubble(step.text, true);
-      else if (step.type === 'in-')    addInBubble(step.text, false);
-      else if (step.type === 'out')    addOutBubble(step.text);
+      else if (step.type === 'in')     addInBubble(step.text);
+      else if (step.type === 'in-')    addInBubble(step.text);
       run(i + 1);
     }, step.delay != null ? step.delay : 600);
   }
   run(0);
 }
 
-// ── Chips ────────────────────────────────────────────────────
+// ── Clear chat ────────────────────────────────────────────────
+function clearChat() {
+  sessionId++;
+  isBusy = false;
+  chatFade.style.opacity = '0';
+
+  while (chatScroll.firstChild && chatScroll.firstChild !== choicesAnchor) {
+    chatScroll.removeChild(chatScroll.firstChild);
+  }
+
+  choicesAnchor.style.display = '';
+  const row   = document.getElementById('choices');
+  const label = document.getElementById('choicesLabel');
+  row.innerHTML = '';
+  row.classList.remove('show');
+  row.style.opacity = '0';
+  label.classList.remove('show');
+
+  remaining = ALL_QUESTIONS.slice();
+}
+
+// ── Chips ─────────────────────────────────────────────────────
 let remaining = ALL_QUESTIONS.slice();
 
 function renderChips() {
@@ -115,7 +133,7 @@ function renderChips() {
     const btn = document.createElement('button');
     btn.className = 'choice-chip';
     btn.textContent = item.q;
-    btn.onclick = () => handleChoice(item);
+    btn.onclick = () => { if (!isBusy) handleChoice(item); };
     row.appendChild(btn);
   });
 }
@@ -129,57 +147,130 @@ function showChips() {
   scrollToBottom();
 }
 
-// ── Opening sequence ─────────────────────────────────────────
-runSequence([
-  { type: 'note',   text: 'Sojin has entered the chat', delay: 500 },
-  { type: 'typing', delay: 800 },
-  { type: 'in',     text: 'hi! 👋', delay: 900 },
-  { type: 'typing', delay: 500 },
-  { type: 'in-',    text: "I spent 6 years as a software engineer at Amazon, shipping features for millions of Fire TV users. 🔥", delay: 700 },
-  { type: 'typing', delay: 400 },
-  { type: 'in-',    text: "This fall I'm starting my Master's at UW HCDE — learning to build technology that actually serves people, not just metrics. 📊", delay: 700 },
-], showChips);
+function hideChips() {
+  const cr    = document.getElementById('choices');
+  const label = document.getElementById('choicesLabel');
+  cr.classList.remove('show');
+  cr.style.opacity = '0';
+  label.classList.remove('show');
+}
 
-// ── Handle chip selection ────────────────────────────────────
+// ── Thread switching ──────────────────────────────────────────
+let currentThread = 'sojin';
+
+function switchThread(threadId) {
+  if (threadId === currentThread) return;
+  currentThread = threadId;
+
+  document.querySelectorAll('.thread-item').forEach(el => {
+    el.classList.toggle('thread-item--active', el.dataset.thread === threadId);
+  });
+
+  const item = document.querySelector(`[data-thread="${threadId}"]`);
+  if (item) {
+    const badge = item.querySelector('.thread-badge');
+    if (badge) badge.style.display = 'none';
+  }
+
+  clearChat();
+
+  if (threadId === 'sojin')  initChat();
+  else if (threadId === 'work')  initWorkThread();
+  else if (threadId === 'about') initAboutThread();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.thread-item').forEach(el => {
+    el.addEventListener('click', () => switchThread(el.dataset.thread));
+  });
+});
+
+// ── Opening sequence ──────────────────────────────────────────
+function initChat() {
+  runSequence([
+    { type: 'note',   text: 'Sojin has entered the chat', delay: 600 },
+    { type: 'typing', delay: 1200 },
+    { type: 'in',     text: 'hi!&nbsp;👋', delay: 1200 },
+    { type: 'typing', delay: 900 },
+    { type: 'in-',    text: "I spent 6 years building software at Amazon — and realized what I really cared about was the people behind the screen.", delay: 1200 },
+    { type: 'typing', delay: 700 },
+    { type: 'in-',    text: "Ask me anything ✨ or pick something below.", delay: 1100 },
+  ], showChips);
+}
+
+// ── My Work thread ────────────────────────────────────────────
+function initWorkThread() {
+  choicesAnchor.style.display = 'none';
+  runSequence([
+    { type: 'note',   text: 'My Work', delay: 400 },
+    { type: 'typing', delay: 1000 },
+    { type: 'in',     text: "here's what I've been building 💻", delay: 1100 },
+    { type: 'typing', delay: 800 },
+    { type: 'in-',    text: "📺 Amazon Silk Browser (2018–2024)\nThe built-in browser on Fire TV and Fire tablets. I shipped search recommendations, home screen redesigns, and video playback improvements for millions of users.", delay: 1200 },
+    { type: 'typing', delay: 800 },
+    { type: 'in-',    text: "🍱 Cafeteria Menu Site (high school)\nBuilt a photo menu website for English-speaking teachers who couldn't read Korean menus — they'd been packing lunch every day just to avoid the uncertainty.", delay: 1200 },
+    { type: 'typing', delay: 700 },
+    { type: 'in-',    text: "🎓 More coming — starting my Master's at UW HCDE this fall. I can't wait to share what I build there.", delay: 1100 },
+  ]);
+}
+
+// ── About Me thread ───────────────────────────────────────────
+function initAboutThread() {
+  choicesAnchor.style.display = 'none';
+  runSequence([
+    { type: 'note',   text: 'About Me', delay: 400 },
+    { type: 'typing', delay: 1000 },
+    { type: 'in',     text: "the quick version ✨", delay: 1100 },
+    { type: 'typing', delay: 800 },
+    { type: 'in-',    text: "Software engineer turned human-centered designer. 6 years building at Amazon, now starting a Master's at UW HCDE this fall 🎓", delay: 1200 },
+    { type: 'typing', delay: 700 },
+    { type: 'in-',    text: "Based in Seattle ☁️, originally from Korea 🇰🇷. I care about the gap between what technology promises and what it actually delivers to real people.", delay: 1200 },
+    { type: 'typing', delay: 700 },
+    { type: 'in-',    text: "Outside work: long walks, matcha, and convincing myself I'll finish that book I started 😄", delay: 1100 },
+  ]);
+}
+
+// ── Handle chip selection ──────────────────────────────────────
 function handleChoice(item) {
-  const choicesRow   = document.getElementById('choices');
-  const choicesLabel = document.getElementById('choicesLabel');
-
-  choicesRow.classList.remove('show');
-  choicesRow.style.opacity = '0';
-  choicesLabel.classList.remove('show');
+  isBusy = true;
+  hideChips();
   remaining = remaining.filter(r => r.q !== item.q);
 
   const { receipt } = addOutBubble(item.q);
-
-  const steps = [{ type: 'typing', delay: 500 }];
-  item.parts.forEach((part, i) => {
-    steps.push({ type: i === 0 ? 'in' : 'in-', text: part, delay: i === 0 ? 1000 : 550 });
-    if (i < item.parts.length - 1) steps.push({ type: 'typing', delay: 300 });
-  });
-
   const isLast = remaining.length === 0;
+
+  const steps = [{ type: 'typing', delay: 800 }];
+  item.parts.forEach((part, i) => {
+    steps.push({ type: i === 0 ? 'in' : 'in-', text: part, delay: i === 0 ? 1300 : 800 });
+    if (i < item.parts.length - 1) steps.push({ type: 'typing', delay: 500 });
+  });
 
   runSequence(steps, () => {
     receipt.textContent = 'Read';
+    isBusy = false;
     if (isLast) {
-      setTimeout(() => {
-        const t = addTyping();
-        setTimeout(() => {
-          removeTyping(t);
-          addInBubble("Anyway, I've loved chatting! 🥰", true);
-          setTimeout(() => {
-            const t2 = addTyping();
-            setTimeout(() => {
-              removeTyping(t2);
-              addInBubble('Feel free to look around and check out my work below ✨', false);
-              choicesAnchor.style.display = 'none';
-            }, 1000);
-          }, 700);
-        }, 900);
-      }, 400);
+      showFarewell();
     } else {
       setTimeout(() => { showChips(); scrollToBottom(); }, 500);
     }
   });
+}
+
+// ── Farewell ──────────────────────────────────────────────────
+function showFarewell() {
+  setTimeout(() => {
+    const t = addTyping();
+    setTimeout(() => {
+      removeTyping(t);
+      addInBubble("Anyway, I've loved chatting! 🥰");
+      setTimeout(() => {
+        const t2 = addTyping();
+        setTimeout(() => {
+          removeTyping(t2);
+          addInBubble('Feel free to reach out directly 💌');
+          choicesAnchor.style.display = 'none';
+        }, 1000);
+      }, 700);
+    }, 900);
+  }, 400);
 }

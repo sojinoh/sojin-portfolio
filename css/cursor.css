@@ -2,6 +2,11 @@
 * { cursor: none !important; }
 
 /* ── Heart cursor ──────────────────────────────────────────── */
+#cursor-heart,
+#nav-logo {
+  color: var(--heart-color, #d4a0e8);
+}
+
 #cursor-heart {
   position: fixed;
   pointer-events: none;
