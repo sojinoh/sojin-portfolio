@@ -36,6 +36,7 @@
 body.doodle-reacting #doodle-default { opacity: 0; }
 body.doodle-reacting #doodle-hover   { opacity: 1; }
 html { font-size: 20px; }
+@media (max-width: 700px) { html { font-size: 16px; } }
 html, body { height: 100%; }
 
 body {

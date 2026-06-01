@@ -1,7 +1,18 @@
 body { overflow-y: auto; }
 
+/* ── Scroll reveal ───────────────────────────────────────────── */
+.sr {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.sr.sr-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .page-main {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2.5rem 3rem 8rem;
 }
@@ -32,7 +43,7 @@ body { overflow-y: auto; }
   font-size: 1.35rem;
   line-height: 1.7;
   color: var(--text);
-  max-width: 680px;
+  max-width: none;
   margin: 0.5rem 0 1.8rem;
 }
 
@@ -125,6 +136,8 @@ body { overflow-y: auto; }
 }
 
 .skill-tag {
+  display: inline-flex;
+  align-items: center;
   font-size: 0.95rem;
   padding: 6px 18px;
   border: 1.5px solid var(--border);
@@ -133,6 +146,7 @@ body { overflow-y: auto; }
   box-shadow: 0 3px 0 rgba(0,0,0,0.35), 0 4px 8px rgba(0,0,0,0.12);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  line-height: 1;
 }
 
 /* ── Side by side (languages + awards) ──────────────────────── */
@@ -245,6 +259,8 @@ body { overflow-y: auto; }
 }
 
 .work-tag {
+  display: inline-flex;
+  align-items: center;
   font-size: 0.88rem;
   padding: 4px 12px;
   background: rgba(0,0,0,0);
@@ -253,6 +269,7 @@ body { overflow-y: auto; }
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  line-height: 1;
 }
 
 /* ── Stat callouts ───────────────────────────────────────────── */
@@ -650,4 +667,30 @@ body { overflow-y: auto; }
   .page-main { padding: 2rem 1.5rem 6rem; }
   .side-by-side { grid-template-columns: 1fr; }
   .work-grid { grid-template-columns: 1fr; }
+
+  .page-section h2 { font-size: 1.8rem; }
+  .intro-text { font-size: 1.15rem; }
+
+  .stats-row { gap: 0.7rem; }
+  .stat { min-width: 0; padding: 1rem; }
+  .stat-number { font-size: 2rem; }
+  .stat-label { font-size: 0.8rem; }
+
+  .timeline { margin: 0 -1.5rem; padding: 0 1.5rem 2rem; }
+
+  .filter-bar { gap: 0.4rem; flex-wrap: wrap; }
+  .filter-dd-btn { padding: 7px 14px; font-size: 0.9rem; }
+  .filter-meta { font-size: 0.75rem; }
+
+  .work-card { padding: 1.1rem; }
+
+  .skill-tag { font-size: 0.85rem; padding: 5px 14px; }
+
+  .filter-sort-btn, .filter-clear-btn { font-size: 0.85rem; }
+}
+
+@media (max-width: 480px) {
+  .page-section h2 { font-size: 1.5rem; }
+  .stat-number { font-size: 1.7rem; }
+  .filter-dd-btn { padding: 6px 12px; font-size: 0.82rem; }
 }

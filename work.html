@@ -100,7 +100,7 @@
 
     <div class="work-grid">
 
-      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2020">
+      <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2020">
         <div class="work-card-header">
           <span class="work-card-title">Browsing History & Autocomplete</span>
           <span class="work-card-date">2020 – 2026</span>
@@ -232,7 +232,8 @@
       .forEach(c => grid.appendChild(c));
 
     cards.forEach(card => {
-      const okDiscipline = filterState.discipline.size === 0 || filterState.discipline.has(card.dataset.discipline);
+      const disciplines = card.dataset.discipline.split(' ');
+      const okDiscipline = filterState.discipline.size === 0 || [...filterState.discipline].some(d => disciplines.includes(d));
       const okType       = filterState.type.size === 0       || filterState.type.has(card.dataset.type);
       card.classList.toggle('hidden', !(okDiscipline && okType));
     });

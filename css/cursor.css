@@ -1,5 +1,12 @@
-/* ── Hide default cursor ───────────────────────────────────── */
-* { cursor: none !important; }
+/* ── Hide default cursor (desktop only) ────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+@media not all and (hover: hover) and (pointer: fine) {
+  #cursor-heart,
+  #cursor-sparkle-canvas { display: none !important; }
+}
 
 /* ── Heart cursor ──────────────────────────────────────────── */
 #cursor-heart,

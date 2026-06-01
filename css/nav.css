@@ -27,7 +27,7 @@
 
 .nav-logo-text {
   font-family: 'SojinsHandwriting', cursive;
-  font-size: 32px;
+  font-size: 40px;
   color: var(--nav-text);
   line-height: 1;
   letter-spacing: 0.08em;
@@ -47,7 +47,7 @@
   opacity: 0.75;
   transition: opacity 0.2s, color 0.2s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   font-family: 'SojinsHandwriting', cursive;
-  font-size: 22px;
+  font-size: 28px;
   color: var(--nav-text);
   line-height: 1;
   text-transform: uppercase;
@@ -60,5 +60,19 @@
   opacity: 1;
   color: var(--accent);
   transform: translateY(-3px);
+}
+
+@media (max-width: 700px) {
+  .nav { padding: 0.75rem 1.5rem; }
+  .nav-logo-text { font-size: 26px; }
+  .nav-heart-icon { height: 28px; width: 28px; }
+  .nav-links { gap: 1.6rem; }
+  .nav-img-link { font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+  .nav-logo-text { font-size: 22px; }
+  .nav-links { gap: 1rem; }
+  .nav-img-link { font-size: 17px; }
 }
 
