@@ -53,16 +53,48 @@
   align-items: center;
   gap: 10px;
   font-family: 'SojinsHandwriting', cursive;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
   color: #fff;
   background: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  border-radius: 36px;
-  padding: 16px 36px;
+  border-radius: 28px;
+  padding: 11px 26px;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
+}
+
+.cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'SojinsHandwriting', cursive;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+  border-radius: 28px;
+  padding: 11px 26px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.cta-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .cta:hover {
@@ -93,9 +125,10 @@
 
 @media (max-width: 700px) {
   .hero { padding: 1rem 1.5rem 3rem; }
-  .doodle { width: min(220px, 55vw); opacity: 0.5; }
+  .doodle { width: min(220px, 55vw); opacity: 0.5; bottom: 3.5rem; }
   .heading-text { font-size: clamp(48px, 14vw, 90px); white-space: normal; text-align: center; }
-  .cta { font-size: 18px; padding: 13px 28px; }
+  .cta { font-size: 16px; padding: 10px 22px; }
+  .cta-secondary { font-size: 16px; padding: 10px 22px; }
   .socials { margin-top: 1.6rem; }
 }
 
