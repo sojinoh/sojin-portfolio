@@ -27,10 +27,11 @@
 
 .nav-logo-text {
   font-family: 'SojinsHandwriting', cursive;
-  font-size: 26px;
+  font-size: 32px;
   color: var(--nav-text);
   line-height: 1;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .nav-links {
@@ -46,9 +47,13 @@
   opacity: 0.75;
   transition: opacity 0.2s, color 0.2s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   font-family: 'SojinsHandwriting', cursive;
-  font-size: 18px;
+  font-size: 22px;
   color: var(--nav-text);
   line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 16px;
+  margin: -12px -16px;
 }
 
 .nav-img-link:hover {

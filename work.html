@@ -47,15 +47,60 @@
   </section>
 
   <section class="page-section">
-    <div class="filter-tabs">
-      <button class="filter-tab active" data-filter="all">All</button>
-      <button class="filter-tab" data-filter="industry">Industry</button>
-      <button class="filter-tab" data-filter="project">Projects</button>
+
+    <div class="filter-bar">
+      <div class="filter-dropdown">
+        <button class="filter-dd-btn" id="dd-discipline-btn">
+          <span class="filter-dd-label">Discipline</span>
+          <svg class="filter-dd-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,3 5,7 8,3"/>
+          </svg>
+        </button>
+        <div class="filter-dd-panel hidden" id="dd-discipline-panel">
+          <div class="filter-dd-option" data-key="discipline" data-val="engineering">
+            <span class="filter-dd-check"></span><span>Engineering</span>
+          </div>
+          <div class="filter-dd-option" data-key="discipline" data-val="design">
+            <span class="filter-dd-check"></span><span>Design & UX</span>
+          </div>
+          <div class="filter-dd-option" data-key="discipline" data-val="ai">
+            <span class="filter-dd-check"></span><span>AI & ML</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-dropdown">
+        <button class="filter-dd-btn" id="dd-type-btn">
+          <span class="filter-dd-label">Type</span>
+          <svg class="filter-dd-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,3 5,7 8,3"/>
+          </svg>
+        </button>
+        <div class="filter-dd-panel hidden" id="dd-type-panel">
+          <div class="filter-dd-option" data-key="type" data-val="industry">
+            <span class="filter-dd-check"></span><span>Industry</span>
+          </div>
+          <div class="filter-dd-option" data-key="type" data-val="project">
+            <span class="filter-dd-check"></span><span>Projects</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="filter-clear-btn hidden" id="clear-btn">✕ Clear</button>
+    </div>
+    <div class="filter-meta">
+      <span id="filter-count"></span>
+      <button class="filter-sort-btn" id="sort-btn">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="sort-icon">
+          <polyline points="2,4 5.5,7.5 9,4"/>
+        </svg>
+        <span id="sort-label">Newest</span>
+      </button>
     </div>
 
     <div class="work-grid">
 
-      <div class="work-card" data-category="industry">
+      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2020">
         <div class="work-card-header">
           <span class="work-card-title">Browsing History & Autocomplete</span>
           <span class="work-card-date">2020 – 2026</span>
@@ -70,7 +115,7 @@
         </div>
       </div>
 
-      <div class="work-card" data-category="industry">
+      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2022">
         <div class="work-card-header">
           <span class="work-card-title">Safe Browsing — Vega OS</span>
           <span class="work-card-date">2022 – 2024</span>
@@ -84,7 +129,7 @@
         </div>
       </div>
 
-      <div class="work-card" data-category="industry">
+      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2023">
         <div class="work-card-header">
           <span class="work-card-title">WebView — Next-Gen Fire OS</span>
           <span class="work-card-date">2023 – 2025</span>
@@ -98,7 +143,7 @@
         </div>
       </div>
 
-      <div class="work-card" data-category="industry">
+      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2021">
         <div class="work-card-header">
           <span class="work-card-title">Silk Infrastructure Migration</span>
           <span class="work-card-date">2021 – 2023</span>
@@ -113,7 +158,7 @@
         </div>
       </div>
 
-      <div class="work-card" data-category="industry">
+      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2019">
         <div class="work-card-header">
           <span class="work-card-title">SAP & Salesforce Integration</span>
           <span class="work-card-date">2019 – 2020</span>
@@ -127,7 +172,7 @@
         </div>
       </div>
 
-      <div class="work-card" data-category="project">
+      <div class="work-card" data-type="project" data-discipline="ai" data-year="2019">
         <div class="work-card-header">
           <span class="work-card-title">AI Agent — Super Mario Bros</span>
           <span class="work-card-date">2019</span>
@@ -141,7 +186,7 @@
         </div>
       </div>
 
-      <div class="work-card" data-category="project">
+      <div class="work-card" data-type="project" data-discipline="design" data-year="2015">
         <div class="work-card-header">
           <span class="work-card-title">Cafeteria Menu Website</span>
           <span class="work-card-date">2015</span>
@@ -163,17 +208,117 @@
 <script src="js/cursor.js"></script>
 <script src="js/theme.js"></script>
 <script>
-  document.querySelectorAll('.filter-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.dataset.filter;
-      document.querySelectorAll('.work-card').forEach(card => {
-        card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
-      });
+  const cards     = [...document.querySelectorAll('.work-card')];
+  const grid      = document.querySelector('.work-grid');
+  const countEl   = document.getElementById('filter-count');
+  const clearBtn  = document.getElementById('clear-btn');
+  const sortBtn   = document.getElementById('sort-btn');
+  const sortLabel = document.getElementById('sort-label');
+  const sortIcon  = document.getElementById('sort-icon');
+
+  const filterState = { discipline: new Set(), type: new Set() };
+  let sortDir = 'desc';
+
+  const ddLabels = {
+    discipline: { default: 'Discipline', engineering: 'Engineering', design: 'Design & UX', ai: 'AI & ML' },
+    type:       { default: 'Type', industry: 'Industry', project: 'Projects' }
+  };
+
+  function applyFilters() {
+    [...cards]
+      .sort((a, b) => sortDir === 'desc'
+        ? +b.dataset.year - +a.dataset.year
+        : +a.dataset.year - +b.dataset.year)
+      .forEach(c => grid.appendChild(c));
+
+    cards.forEach(card => {
+      const okDiscipline = filterState.discipline.size === 0 || filterState.discipline.has(card.dataset.discipline);
+      const okType       = filterState.type.size === 0       || filterState.type.has(card.dataset.type);
+      card.classList.toggle('hidden', !(okDiscipline && okType));
+    });
+
+    const visible = cards.filter(c => !c.classList.contains('hidden')).length;
+    countEl.textContent = `${visible} project${visible !== 1 ? 's' : ''}`;
+
+    const hasFilters = filterState.discipline.size > 0 || filterState.type.size > 0;
+    clearBtn.classList.toggle('hidden', !hasFilters);
+  }
+
+  function updateDropdownBtn(key) {
+    const btn   = document.getElementById(`dd-${key}-btn`);
+    const label = btn.querySelector('.filter-dd-label');
+    const set   = filterState[key];
+    if (set.size === 0) {
+      label.textContent = ddLabels[key].default;
+      btn.classList.remove('has-selection');
+    } else if (set.size === 1) {
+      label.textContent = ddLabels[key][[...set][0]];
+      btn.classList.add('has-selection');
+    } else {
+      label.textContent = `${set.size} Selected`;
+      btn.classList.add('has-selection');
+    }
+  }
+
+  function closeAllDropdowns() {
+    document.querySelectorAll('.filter-dd-panel').forEach(p => p.classList.add('hidden'));
+    document.querySelectorAll('.filter-dd-btn').forEach(b => b.classList.remove('open'));
+  }
+
+  // Dropdown toggle
+  document.querySelectorAll('.filter-dd-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const panel = btn.closest('.filter-dropdown').querySelector('.filter-dd-panel');
+      const isOpen = !panel.classList.contains('hidden');
+      closeAllDropdowns();
+      if (!isOpen) {
+        panel.classList.remove('hidden');
+        btn.classList.add('open');
+      }
     });
   });
-</script>
 
+  document.addEventListener('click', closeAllDropdowns);
+
+  // Option toggle
+  document.querySelectorAll('.filter-dd-option').forEach(option => {
+    option.addEventListener('click', e => {
+      e.stopPropagation();
+      const { key, val } = option.dataset;
+      if (filterState[key].has(val)) {
+        filterState[key].delete(val);
+        option.classList.remove('selected');
+      } else {
+        filterState[key].add(val);
+        option.classList.add('selected');
+      }
+      updateDropdownBtn(key);
+      applyFilters();
+    });
+  });
+
+  // Sort toggle
+  sortBtn.addEventListener('click', () => {
+    sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+    sortLabel.textContent = sortDir === 'desc' ? 'Newest' : 'Oldest';
+    sortIcon.querySelector('polyline').setAttribute('points',
+      sortDir === 'desc' ? '2,4 5.5,7.5 9,4' : '2,7.5 5.5,4 9,7.5');
+    sortBtn.classList.toggle('active', sortDir === 'asc');
+    applyFilters();
+  });
+
+  // Clear all
+  clearBtn.addEventListener('click', () => {
+    filterState.discipline.clear();
+    filterState.type.clear();
+    document.querySelectorAll('.filter-dd-option.selected').forEach(o => o.classList.remove('selected'));
+    updateDropdownBtn('discipline');
+    updateDropdownBtn('type');
+    applyFilters();
+  });
+
+  applyFilters();
+</script>
 </body>
 </html>

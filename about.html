@@ -43,10 +43,10 @@
 <main class="page-main">
 
   <section class="page-section">
-    <p class="intro-text">Software engineer turned human-centered designer. 5+ years shipping browser features for millions — now pursuing what I wish I'd known how to do sooner.</p>
+    <p class="intro-text">Software engineer turned human-centered designer. 6 years shipping browser features for millions — now pursuing what I wish I'd known how to do sooner.</p>
     <div class="stats-row">
       <div class="stat">
-        <div class="stat-number">5+</div>
+        <div class="stat-number">6</div>
         <div class="stat-label">years at Amazon</div>
       </div>
       <div class="stat">
@@ -180,15 +180,15 @@
   const timeline = document.querySelector('.timeline');
   const stops = document.querySelectorAll('.timeline-stop');
   if (stops.length && timeline) {
-    function activate(stop) {
+    function activate(stop, scroll = true) {
       stops.forEach(s => s.classList.remove('active'));
       stop.classList.add('active');
-      stop.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (scroll) stop.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       document.querySelectorAll('.timeline-arrow').forEach(a => a.classList.remove('shimmering'));
       const next = stop.nextElementSibling;
       if (next && next.classList.contains('timeline-arrow')) next.classList.add('shimmering');
     }
-    activate(stops[0]);
+    activate(stops[0], false);
     stops.forEach(stop => stop.addEventListener('click', () => activate(stop)));
   }
 </script>

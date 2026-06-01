@@ -42,10 +42,11 @@
 
 /* ── System note ─────────────────────────────────────────────── */
 .msg-time {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--faint);
   text-align: center;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   align-self: center;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -54,7 +55,7 @@
 
 /* ── Bubble base ─────────────────────────────────────────────── */
 .bubble {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.65;
   padding: 10px 14px;
   font-weight: 400;
@@ -87,7 +88,7 @@
   color: var(--accent-text, #fff);
   border-radius: 16px 16px 4px 16px;
   align-self: flex-end;
-  font-size: 13px;
+  font-size: 16px;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -147,7 +148,7 @@
 .choices-label-line { flex: 1; height: 0.5px; background: var(--bubble-in-bd); }
 
 .choices-label-text {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--faint);
   letter-spacing: 0.1em;
   font-weight: 500;
@@ -177,7 +178,7 @@
   border-radius: 20px;
   padding: 9px 18px;
   font-family: 'SojinsHandwriting', cursive;
-  font-size: 12px;
+  font-size: 15px;
   color: var(--muted);
   cursor: pointer;
   text-align: right;
@@ -186,6 +187,7 @@
   max-width: 100%;
   font-weight: 400;
   animation: chipSlideIn 0.35s ease both;
+  text-transform: capitalize;
 }
 
 .choice-chip:nth-child(1) { animation-delay: 0.05s; }
@@ -203,10 +205,12 @@
 
 /* ── Read receipt ────────────────────────────────────────────── */
 .read-receipt {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--faint);
   align-self: flex-end;
   margin-top: -2px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   opacity: 0;
   transition: opacity 0.4s 0.3s;
 }
