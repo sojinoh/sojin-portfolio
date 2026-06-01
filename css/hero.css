@@ -55,7 +55,7 @@
   font-family: 'SojinsHandwriting', cursive;
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--bg);
   background: var(--accent);
   border-radius: 28px;
   padding: 12px 26px;
@@ -65,9 +65,9 @@
 }
 
 .cta:hover {
-  background: #3d6aa5;
+  filter: brightness(0.88);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(78, 122, 181, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .socials {

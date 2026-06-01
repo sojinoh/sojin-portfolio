@@ -7,14 +7,16 @@
 }
 
 :root {
-  --bg:          #FFFFFF;
-  --text:        #111111;
-  --accent:      #4E7AB5;
-  --sky:         #B8D9F8;
-  --sky-deep:    #042C53;
-  --muted:       rgba(17, 17, 17, 0.45);
-  --border:      rgba(17, 17, 17, 0.18);
-  --heart-color: #4E7AB5;
+  --bg:          #051510;
+  --text:        #D1FAE5;
+  --accent:      #10B981;
+  --sky:         #A7F3D0;
+  --sky-deep:    #022C22;
+  --nav-bg:      #065F46;
+  --nav-text:    #D1FAE5;
+  --muted:       rgba(150, 235, 195, 0.45);
+  --border:      rgba(150, 235, 195, 0.18);
+  --heart-color: #10B981;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
@@ -27,6 +29,8 @@
   pointer-events: none;
   z-index: 1;
   transition: opacity 0.25s ease;
+  filter: invert(1);
+  mix-blend-mode: lighten;
 }
 #doodle-hover { opacity: 0; }
 body.doodle-reacting #doodle-default { opacity: 0; }

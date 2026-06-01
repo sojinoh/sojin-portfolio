@@ -1,0 +1,160 @@
+/* ── Sky Blue ────────────────────────────────────────────────── */
+[data-theme="sky"] {
+  --bg: #0B1929; --text: #E8F4FF; --accent: #4FA8E8;
+  --nav-bg: #B8D9F8; --nav-text: #0B1929;
+  --sky: #C8E8FF; --sky-deep: #0B3060;
+  --muted: rgba(180,215,245,0.45); --border: rgba(180,215,245,0.18);
+  --heart-color: #4FA8E8;
+}
+/* ── Deep Purple ─────────────────────────────────────────────── */
+[data-theme="purple"] {
+  --bg: #1A0A2E; --text: #EDE8FF; --accent: #A855F7;
+  --nav-bg: #4C1D95; --nav-text: #EDE8FF;
+  --sky: #E9D5FF; --sky-deep: #3B0764;
+  --muted: rgba(216,196,255,0.45); --border: rgba(216,196,255,0.18);
+  --heart-color: #A855F7;
+}
+/* ── Crimson ─────────────────────────────────────────────────── */
+[data-theme="crimson"] {
+  --bg: #1A0810; --text: #FFE8EC; --accent: #E84565;
+  --nav-bg: #8B1A2A; --nav-text: #FFE8EC;
+  --sky: #FFD0DA; --sky-deep: #5A0015;
+  --muted: rgba(255,210,220,0.45); --border: rgba(255,210,220,0.18);
+  --heart-color: #E84565;
+}
+/* ── Forest ──────────────────────────────────────────────────── */
+[data-theme="forest"] {
+  --bg: #0A1A0F; --text: #E0F5E8; --accent: #3DAA6A;
+  --nav-bg: #1A4D2E; --nav-text: #E0F5E8;
+  --sky: #C8F0D8; --sky-deep: #083520;
+  --muted: rgba(185,235,210,0.45); --border: rgba(185,235,210,0.18);
+  --heart-color: #3DAA6A;
+}
+/* ── Midnight ────────────────────────────────────────────────── */
+[data-theme="midnight"] {
+  --bg: #0A0A0F; --text: #F0F0F5; --accent: #8899CC;
+  --nav-bg: #1C1C2A; --nav-text: #F0F0F5;
+  --sky: #D8DCEF; --sky-deep: #111128;
+  --muted: rgba(200,205,235,0.45); --border: rgba(200,205,235,0.18);
+  --heart-color: #8899CC;
+}
+/* ── Rose Gold ───────────────────────────────────────────────── */
+[data-theme="rosegold"] {
+  --bg: #1A0F10; --text: #FFF0F0; --accent: #E8A0A5;
+  --nav-bg: #C4858A; --nav-text: #1A0F10;
+  --sky: #FFE0E3; --sky-deep: #5A2025;
+  --muted: rgba(255,200,205,0.45); --border: rgba(255,200,205,0.18);
+  --heart-color: #E8A0A5;
+}
+/* ── Emerald ─────────────────────────────────────────────────── */
+[data-theme="emerald"] {
+  --bg: #051510; --text: #D1FAE5; --accent: #10B981;
+  --nav-bg: #065F46; --nav-text: #D1FAE5;
+  --sky: #A7F3D0; --sky-deep: #022C22;
+  --muted: rgba(150,235,195,0.45); --border: rgba(150,235,195,0.18);
+  --heart-color: #10B981;
+}
+/* ── Sunset ──────────────────────────────────────────────────── */
+[data-theme="sunset"] {
+  --bg: #1A0D05; --text: #FFF0E8; --accent: #F97316;
+  --nav-bg: #C2512A; --nav-text: #FFF0E8;
+  --sky: #FFE4CC; --sky-deep: #7A2010;
+  --muted: rgba(255,210,170,0.45); --border: rgba(255,210,170,0.18);
+  --heart-color: #F97316;
+}
+/* ── Mint ────────────────────────────────────────────────────── */
+[data-theme="mint"] {
+  --bg: #081814; --text: #E0FBF8; --accent: #2DD4BF;
+  --nav-bg: #5EEAD4; --nav-text: #081818;
+  --sky: #CCFBF1; --sky-deep: #042520;
+  --muted: rgba(160,240,230,0.45); --border: rgba(160,240,230,0.18);
+  --heart-color: #2DD4BF;
+}
+/* ── Lavender ────────────────────────────────────────────────── */
+[data-theme="lavender"] {
+  --bg: #14101E; --text: #F3EEFF; --accent: #C4B5FD;
+  --nav-bg: #9D8EC4; --nav-text: #14101E;
+  --sky: #EDE9FF; --sky-deep: #2E1F60;
+  --muted: rgba(210,195,255,0.45); --border: rgba(210,195,255,0.18);
+  --heart-color: #C4B5FD;
+}
+/* ── Coral ───────────────────────────────────────────────────── */
+[data-theme="coral"] {
+  --bg: #1A0D0A; --text: #FFF5F3; --accent: #F87171;
+  --nav-bg: #D45D4A; --nav-text: #FFF5F3;
+  --sky: #FFD8D0; --sky-deep: #7A1A10;
+  --muted: rgba(255,200,185,0.45); --border: rgba(255,200,185,0.18);
+  --heart-color: #F87171;
+}
+/* ── Teal ────────────────────────────────────────────────────── */
+[data-theme="teal"] {
+  --bg: #081820; --text: #E0F7FF; --accent: #22D3EE;
+  --nav-bg: #0E7490; --nav-text: #E0F7FF;
+  --sky: #BAF3FF; --sky-deep: #082840;
+  --muted: rgba(160,230,248,0.45); --border: rgba(160,230,248,0.18);
+  --heart-color: #22D3EE;
+}
+/* ── Gold ────────────────────────────────────────────────────── */
+[data-theme="gold"] {
+  --bg: #150F00; --text: #FFFBE8; --accent: #F59E0B;
+  --nav-bg: #92620A; --nav-text: #FFFBE8;
+  --sky: #FEF3C7; --sky-deep: #5C3A00;
+  --muted: rgba(245,215,130,0.45); --border: rgba(245,215,130,0.18);
+  --heart-color: #F59E0B;
+}
+/* ── Slate ───────────────────────────────────────────────────── */
+[data-theme="slate"] {
+  --bg: #0D1520; --text: #E8EEF8; --accent: #6B90C0;
+  --nav-bg: #334D6E; --nav-text: #E8EEF8;
+  --sky: #D8E8F8; --sky-deep: #0F2540;
+  --muted: rgba(180,205,235,0.45); --border: rgba(180,205,235,0.18);
+  --heart-color: #6B90C0;
+}
+/* ── Blush ───────────────────────────────────────────────────── */
+[data-theme="blush"] {
+  --bg: #1A0E14; --text: #FFE8F3; --accent: #F472B6;
+  --nav-bg: #E8A0B8; --nav-text: #1A0E14;
+  --sky: #FFD6E8; --sky-deep: #7A1040;
+  --muted: rgba(255,185,215,0.45); --border: rgba(255,185,215,0.18);
+  --heart-color: #F472B6;
+}
+/* ── Sage ────────────────────────────────────────────────────── */
+[data-theme="sage"] {
+  --bg: #0F1610; --text: #F0F8F0; --accent: #86EFAC;
+  --nav-bg: #6B8F71; --nav-text: #0F1610;
+  --sky: #D8F0DC; --sky-deep: #1A3A1C;
+  --muted: rgba(180,230,185,0.45); --border: rgba(180,230,185,0.18);
+  --heart-color: #86EFAC;
+}
+/* ── Indigo ──────────────────────────────────────────────────── */
+[data-theme="indigo"] {
+  --bg: #0F1035; --text: #E0E8FF; --accent: #818CF8;
+  --nav-bg: #3730A3; --nav-text: #E0E8FF;
+  --sky: #C7D2FE; --sky-deep: #1E1A60;
+  --muted: rgba(180,190,255,0.45); --border: rgba(180,190,255,0.18);
+  --heart-color: #818CF8;
+}
+/* ── Peach ───────────────────────────────────────────────────── */
+[data-theme="peach"] {
+  --bg: #1A0F08; --text: #FFF4EC; --accent: #FB923C;
+  --nav-bg: #E0925A; --nav-text: #1A0F08;
+  --sky: #FFE8D0; --sky-deep: #7A3010;
+  --muted: rgba(255,215,175,0.45); --border: rgba(255,215,175,0.18);
+  --heart-color: #FB923C;
+}
+/* ── Arctic ──────────────────────────────────────────────────── */
+[data-theme="arctic"] {
+  --bg: #07101A; --text: #E8F5FF; --accent: #67C8E8;
+  --nav-bg: #97C8E8; --nav-text: #07101A;
+  --sky: #D0EEFF; --sky-deep: #053060;
+  --muted: rgba(160,220,245,0.45); --border: rgba(160,220,245,0.18);
+  --heart-color: #67C8E8;
+}
+/* ── Mauve ───────────────────────────────────────────────────── */
+[data-theme="mauve"] {
+  --bg: #180E18; --text: #F8EEF8; --accent: #C084FC;
+  --nav-bg: #9D6FAA; --nav-text: #180E18;
+  --sky: #F0D8FF; --sky-deep: #4A1060;
+  --muted: rgba(220,180,240,0.45); --border: rgba(220,180,240,0.18);
+  --heart-color: #C084FC;
+}

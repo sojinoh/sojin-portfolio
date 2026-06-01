@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Sojin Oh</title>
+  <script>const _t=new URLSearchParams(location.search).get('theme');const _v=['sky','purple','crimson','forest','midnight','rosegold','emerald','sunset','mint','lavender','coral','teal','gold','slate','blush','sage','indigo','peach','arctic','mauve'];document.documentElement.setAttribute('data-theme',_v.includes(_t)?_t:'emerald');</script>
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/themes.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/cursor.css">
   <link rel="stylesheet" href="css/pages.css">
@@ -24,7 +26,7 @@
 <nav class="nav">
   <a class="nav-brand" href="index.html">
     <svg class="nav-heart-icon" viewBox="0 0 64 64" fill="none">
-      <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="#4E7AB5" opacity="0.9"/>
+      <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
       <circle cx="26" cy="25" r="2" fill="white"/>
       <circle cx="38" cy="25" r="2" fill="white"/>
       <path d="M26 33 Q32 38.5 38 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -58,37 +60,69 @@
     </div>
   </section>
 
-  <section class="page-section">
+  <section class="page-section section-timeline">
     <h2>Journey</h2>
     <div class="timeline">
+      <div class="timeline-track">
 
-      <div class="timeline-item">
-        <div class="timeline-date">Sep 2026 →</div>
-        <div class="timeline-title">M.S. Human Centered Design & Engineering</div>
-        <div class="timeline-sub">University of Washington · Seattle, WA</div>
+        <div class="timeline-stop">
+          <div class="timeline-date">Sep 2015 – May 2019</div>
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-title">B.A. Computer Science & Statistics</div>
+            <div class="timeline-sub">Macalester College · Saint Paul, MN</div>
+            <div class="timeline-detail">GPA 3.90 · Summa Cum Laude · Kofi Annan Scholarship</div>
+          </div>
+        </div>
+
+        <span class="timeline-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6,3 12,9 6,15"/>
+          </svg>
+        </span>
+
+        <div class="timeline-stop">
+          <div class="timeline-date">Jul 2019 – Jun 2020</div>
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-title">Data Integration Consultant</div>
+            <div class="timeline-sub">Concord USA · Hopkins, MN</div>
+            <div class="timeline-detail">REST APIs · MuleSoft · SAP & Salesforce</div>
+          </div>
+        </div>
+
+        <span class="timeline-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6,3 12,9 6,15"/>
+          </svg>
+        </span>
+
+        <div class="timeline-stop">
+          <div class="timeline-date">Jul 2020 – May 2026</div>
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-title">Software Development Engineer I → II</div>
+            <div class="timeline-sub">Amazon · Silk Browser, Fire TV</div>
+            <div class="timeline-detail">Browsing features · Safe Browsing · WebView · Infrastructure</div>
+          </div>
+        </div>
+
+        <span class="timeline-arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6,3 12,9 6,15"/>
+          </svg>
+        </span>
+
+        <div class="timeline-stop">
+          <div class="timeline-date">Sep 2026 →</div>
+          <div class="timeline-node"></div>
+          <div class="timeline-card">
+            <div class="timeline-title">M.S. Human Centered Design & Engineering</div>
+            <div class="timeline-sub">University of Washington · Seattle, WA</div>
+          </div>
+        </div>
+
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Jul 2020 – May 2026</div>
-        <div class="timeline-title">Software Development Engineer I → II</div>
-        <div class="timeline-sub">Amazon · Silk Browser, Fire TV</div>
-        <div class="timeline-detail">Browsing features · Safe Browsing · WebView · Infrastructure</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Jul 2019 – Jun 2020</div>
-        <div class="timeline-title">Data Integration Consultant</div>
-        <div class="timeline-sub">Concord USA · Hopkins, MN</div>
-        <div class="timeline-detail">REST APIs · MuleSoft · SAP & Salesforce</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-date">Sep 2015 – May 2019</div>
-        <div class="timeline-title">B.A. Computer Science & Statistics</div>
-        <div class="timeline-sub">Macalester College · Saint Paul, MN</div>
-        <div class="timeline-detail">GPA 3.90 · Summa Cum Laude · Kofi Annan Scholarship</div>
-      </div>
-
     </div>
   </section>
 
@@ -141,19 +175,21 @@
 </main>
 
 <script src="js/cursor.js"></script>
+<script src="js/theme.js"></script>
 <script>
-  const items = document.querySelectorAll('.timeline-item');
-  if (items.length) {
-    items[0].classList.add('active');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          items.forEach(i => i.classList.remove('active'));
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.5, rootMargin: '-5% 0px -45% 0px' });
-    items.forEach(item => observer.observe(item));
+  const timeline = document.querySelector('.timeline');
+  const stops = document.querySelectorAll('.timeline-stop');
+  if (stops.length && timeline) {
+    function activate(stop) {
+      stops.forEach(s => s.classList.remove('active'));
+      stop.classList.add('active');
+      stop.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      document.querySelectorAll('.timeline-arrow').forEach(a => a.classList.remove('shimmering'));
+      const next = stop.nextElementSibling;
+      if (next && next.classList.contains('timeline-arrow')) next.classList.add('shimmering');
+    }
+    activate(stops[0]);
+    stops.forEach(stop => stop.addEventListener('click', () => activate(stop)));
   }
 </script>
 </body>
