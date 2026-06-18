@@ -46,14 +46,23 @@
     });
   });
 
+  const WEB3FORMS_ACCESS_KEY = '45920915-ddf2-4afe-9697-1083c00e2e3a';
+
   submitBtn.addEventListener('click', () => {
     const note = textArea.value.trim();
-    const subject = encodeURIComponent('Portfolio feedback: ' + (selectedRating || 'no rating'));
-    const body = encodeURIComponent(
-      "Satisfaction: " + (selectedRating || 'Not answered') + "\n\n" +
-      "Anything to add/improve:\n" + (note || '(nothing — just the rating!)')
-    );
-    window.location.href = `mailto:sojinohh@gmail.com?subject=${subject}&body=${body}`;
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: 'Portfolio feedback: ' + (selectedRating || 'no rating'),
+        from_name: 'Portfolio Feedback Widget',
+        page: window.location.href,
+        satisfaction: selectedRating || 'Not answered',
+        message: note || '(nothing — just the rating!)',
+      }),
+    }).catch(err => console.error('Feedback submission failed:', err));
 
     card.innerHTML = '<div class="feedback-thanks">Thanks so much for sharing! 🙏💛</div>';
     dismissForSession();
