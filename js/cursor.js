@@ -35,7 +35,7 @@ document.addEventListener('mousemove', e => {
 document.addEventListener('mouseleave', () => updateCursorPos(-200, -200));
 
 // ── Hover / click states ─────────────────────────────────────
-const HOVER_SELECTORS = 'a, button, [role="button"], .choice-chip, .nav-links span, .sdot, .cta';
+const HOVER_SELECTORS = 'a, button, [role="button"], .choice-chip, .nav-links span, .sdot, .cta, .work-card, .timeline-v-stop';
 
 document.addEventListener('mouseover', e => {
   if (e.target.closest(HOVER_SELECTORS)) {
@@ -65,7 +65,7 @@ document.addEventListener('mouseup', () => {
 });
 
 // ── Sparkles ─────────────────────────────────────────────────
-const SPARKLE_COLORS = ['#B8D9F8', '#D6EAFB', '#FEFFAF', '#4E7AB5', '#B8D9F8'];
+const SPARKLE_COLORS = ['#C1502E', '#221A14', '#C9A227', '#A8754A', '#C1502E'];
 let sparkles = [];
 
 function spawnSparkle(burst) {

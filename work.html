@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Work — Sojin Oh</title>
-  <script>const _t=new URLSearchParams(location.search).get('theme');const _v=['sky','purple','crimson','forest','midnight','rosegold','emerald','sunset','mint','lavender','coral','teal','gold','slate','blush','sage','indigo','peach','arctic','mauve'];document.documentElement.setAttribute('data-theme',_v.includes(_t)?_t:'emerald');</script>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/themes.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/cursor.css">
-  <link rel="stylesheet" href="css/pages.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500;6..72,600;6..72,700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css?v=1781768619">
+  <link rel="stylesheet" href="css/nav.css?v=1781768619">
+  <link rel="stylesheet" href="css/cursor.css?v=1781768619">
+  <link rel="stylesheet" href="css/pages.css?v=1781768619">
 </head>
 <body>
 
@@ -24,6 +25,7 @@
 <canvas id="cursor-sparkle-canvas" width="90" height="90"></canvas>
 
 <nav class="nav">
+  <div class="nav-inner">
   <a class="nav-brand" href="index.html">
     <svg class="nav-heart-icon" viewBox="0 0 64 64" fill="none">
       <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
@@ -31,172 +33,206 @@
       <circle cx="38" cy="25" r="2" fill="white"/>
       <path d="M26 33 Q32 38.5 38 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
     </svg>
-    <span class="nav-logo-text">SOJIN OH</span>
+    <span class="nav-logo-text">Sojin Oh</span>
   </a>
   <nav class="nav-links">
-    <a class="nav-img-link" href="index.html">HOME</a>
-    <a class="nav-img-link" href="about.html">ABOUT ME</a>
-    <a class="nav-img-link active" href="work.html">MY WORK</a>
+    <a class="nav-img-link" href="index.html">Home</a>
+    <a class="nav-img-link" href="glance.html">At a Glance</a>
+    <a class="nav-img-link" href="about.html">About Me</a>
+    <a class="nav-img-link active" href="work.html">Projects</a>
   </nav>
+  </div>
 </nav>
 
 <main class="page-main">
 
-  <section class="page-section">
-    <p class="intro-text">Browser features for millions, infrastructure rewrites, and a cafeteria menu site that started it all.</p>
-  </section>
+  <section class="page-section work-layout">
 
-  <section class="page-section">
+    <aside class="work-sidebar">
+      <h2 class="work-sidebar-title">Filters</h2>
 
-    <div class="filter-bar">
-      <div class="filter-dropdown">
-        <button class="filter-dd-btn" id="dd-discipline-btn">
-          <span class="filter-dd-label">Discipline</span>
-          <svg class="filter-dd-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="2,3 5,7 8,3"/>
+      <div class="filter-group">
+        <div class="filter-group-label">Discipline</div>
+        <label class="filter-check"><input type="checkbox" data-key="discipline" value="engineering"><span>Engineering</span></label>
+        <label class="filter-check"><input type="checkbox" data-key="discipline" value="design"><span>Design & UX</span></label>
+        <label class="filter-check"><input type="checkbox" data-key="discipline" value="ai"><span>AI & ML</span></label>
+      </div>
+
+      <div class="filter-group">
+        <div class="filter-group-label">Type</div>
+        <label class="filter-check"><input type="checkbox" data-key="type" value="industry"><span>Industry</span></label>
+        <label class="filter-check"><input type="checkbox" data-key="type" value="project"><span>Projects</span></label>
+      </div>
+    </aside>
+
+    <div class="work-main">
+
+      <div class="filter-meta">
+        <span id="filter-count"></span>
+        <button class="filter-sort-btn" id="sort-btn">
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="sort-icon">
+            <polyline points="2,4 5.5,7.5 9,4"/>
           </svg>
+          <span id="sort-label">Newest</span>
         </button>
-        <div class="filter-dd-panel hidden" id="dd-discipline-panel">
-          <div class="filter-dd-option" data-key="discipline" data-val="engineering">
-            <span class="filter-dd-check"></span><span>Engineering</span>
-          </div>
-          <div class="filter-dd-option" data-key="discipline" data-val="design">
-            <span class="filter-dd-check"></span><span>Design & UX</span>
-          </div>
-          <div class="filter-dd-option" data-key="discipline" data-val="ai">
-            <span class="filter-dd-check"></span><span>AI & ML</span>
-          </div>
-        </div>
       </div>
 
-      <div class="filter-dropdown">
-        <button class="filter-dd-btn" id="dd-type-btn">
-          <span class="filter-dd-label">Type</span>
-          <svg class="filter-dd-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="2,3 5,7 8,3"/>
-          </svg>
-        </button>
-        <div class="filter-dd-panel hidden" id="dd-type-panel">
-          <div class="filter-dd-option" data-key="type" data-val="industry">
-            <span class="filter-dd-check"></span><span>Industry</span>
+      <div class="work-grid" id="work-grid">
+
+        <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2022"
+             data-title="Browsing History" data-context="Amazon · Silk Browser on Fire TV"
+             data-image="images/history.png"
+             data-video="videos/history_demo_video.mov"
+             data-extra-image="images/JIT.png"
+             data-extra-image-label="Just-in-time onboarding tutorial"
+             data-desc="Navigating the web on a Fire TV remote was painful — typing a URL with a virtual keyboard, every time. I led the design and delivery of browsing history so customers could just go back to a page they'd visited. I also designed the just-in-time tutorial that taught customers the new feature existed. It launched as Silk's first Weblab-powered A/B experiment and rolled out to 100% of Fire TV customers in June 2022.">
+          <img class="work-card-image" src="images/history.png" alt="Browsing history screen on Fire TV, listing previously visited pages">
+          <div class="work-card-header">
+            <span class="work-card-title">Browsing History</span>
+            <span class="work-card-date">2021 – 2022</span>
           </div>
-          <div class="filter-dd-option" data-key="type" data-val="project">
-            <span class="filter-dd-check"></span><span>Projects</span>
+          <div class="work-card-context">Amazon · Silk Browser on Fire TV</div>
+          <div class="work-card-tags">
+            <span class="work-tag">Java</span>
+            <span class="work-tag">Android</span>
+            <span class="work-tag">Weblab A/B Testing</span>
           </div>
         </div>
+
+        <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2022"
+             data-title="Autocomplete Improvement" data-context="Amazon · Silk Browser on Fire TV"
+             data-video-before="videos/previousAutocomplete.mp4" data-video-after="videos/improvedAutocomplete.mp4"
+             data-image="images/autocomplete-thumb.png"
+             data-desc="Silk on Fire TV's autocomplete used to suggest from a hard-coded list of top sites — the same suggestions for everyone, whether or not they were relevant to you. I rebuilt it on Chromium's autocomplete system, generating suggestions from each customer's own browsing history, bookmarks, and search provider instead. Launched to 100% of Silk on FTV customers, with a measurable lift in search revenue.">
+          <img class="work-card-image" src="images/autocomplete-thumb.png" alt="Fire TV autocomplete suggesting businessinsider.com as the user types">
+          <div class="work-card-header">
+            <span class="work-card-title">Autocomplete Improvement</span>
+            <span class="work-card-date">2021 – 2022</span>
+          </div>
+          <div class="work-card-context">Amazon · Silk Browser on Fire TV</div>
+          <div class="work-card-tags">
+            <span class="work-tag">Java</span>
+            <span class="work-tag">TypeScript</span>
+            <span class="work-tag">Android</span>
+            <span class="work-tag">A/B Testing</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2023"
+             data-title="Voice Search Hint Text" data-context="Amazon · Silk Browser on Fire TV"
+             data-image="images/hinttext.png"
+             data-desc="A small feature: show a greyed-out hint like 'Try saying amazon.com' in the keyboard when voice input was available. While testing across devices, I noticed the hint text was nearly invisible against the keyboard background on some Fire TVs. It wasn't in scope, but I checked the contrast ratio anyway, confirmed it failed accessibility guidelines, and filed it with the OS team. The feature itself was later canceled due to a platform-level keyboard limitation — but the contrast gap I caught got fixed anyway.">
+          <img class="work-card-image" src="images/hinttext.png" alt="Fire TV keyboard showing a low-contrast voice search hint text reading 'Try saying Amazon.com'">
+          <div class="work-card-header">
+            <span class="work-card-title">Voice Search Hint Text</span>
+            <span class="work-card-date">2023</span>
+          </div>
+          <div class="work-card-context">Amazon · Silk Browser on Fire TV</div>
+          <div class="work-card-tags">
+            <span class="work-tag">Accessibility</span>
+            <span class="work-tag">Color Contrast</span>
+            <span class="work-tag">Cross-team</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-type="project" data-discipline="ai" data-year="2018"
+             data-title="AI Agent — Super Mario Bros" data-context="COMP 380 Capstone · Macalester College"
+             data-image="images/mario-screenshot.gif"
+             data-repo="https://github.com/lionely/MARlQ"
+             data-desc="With two classmates, I trained an agent to play the original Super Mario Bros using ε-greedy Q-learning — no game rules given, just trial, error, and a reward signal. We represented Mario's surroundings as a grid 'box,' and had to hand-engineer a custom 'R_JUMP' action after realizing the odds of Mario randomly mashing jump+right six times in a row to clear a pipe were essentially zero. After ~7,167 training episodes, Mario was learning, just slowly. Humans, it turns out, are hard to simulate.">
+          <img class="work-card-image" src="images/mario-screenshot.gif" alt="Super Mario Bros level 1-1, the level the AI agent was trained on">
+          <div class="work-card-header">
+            <span class="work-card-title">AI Agent — Super Mario Bros</span>
+            <span class="work-card-date">2018</span>
+          </div>
+          <div class="work-card-context">COMP 380 Capstone · Macalester College</div>
+          <div class="work-card-tags">
+            <span class="work-tag">Python</span>
+            <span class="work-tag">Reinforcement Learning</span>
+            <span class="work-tag">Q-Learning</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-type="project" data-discipline="engineering design" data-year="2017"
+             data-title="Beacon — 911 Location Detection" data-context="1st Place · Macathon 2017, Macalester College"
+             data-image="images/beacon-screenshot.png"
+             data-repo="https://github.com/sojinoh/cobenesoka"
+             data-desc="An app that detects when you dial 911 and silently transmits your location to the call center — built in 24 hours because landline-era 911 infrastructure often can't locate cell calls. Stripped down to one button, since that's all an emergency leaves room for.">
+          <img class="work-card-image" src="images/beacon-screenshot.png" alt="Beacon app on a phone showing a one-tap location-sharing screen">
+          <div class="work-card-header">
+            <span class="work-card-title">Beacon — 911 Location Detection</span>
+            <span class="work-card-date">2017</span>
+          </div>
+          <div class="work-card-context">1st Place · Macathon 2017, Macalester College</div>
+          <div class="work-card-tags">
+            <span class="work-tag">Android</span>
+            <span class="work-tag">Location Services</span>
+            <span class="work-tag">Hackathon</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-type="project" data-discipline="design" data-year="2015"
+             data-title="Cafeteria Menu Website" data-context="Personal · Bugil High School, Korea"
+             data-image="images/glp-menu-screenshot.png"
+             data-repo="https://github.com/sojinoh/GLP-Menu-For-Today"
+             data-desc="A photo menu site for English-speaking teachers who couldn't read the Korean cafeteria menu. The script put each Korean menu item into an array and pulled the first Google Image search result for it — a clumsy algorithm, but it worked, and it was the first thing I ever built that someone genuinely depended on.">
+          <img class="work-card-image" src="images/glp-menu-screenshot.png" alt="Today's Lunch Menu website showing the week's cafeteria menu as photos">
+          <div class="work-card-header">
+            <span class="work-card-title">Cafeteria Menu Website</span>
+            <span class="work-card-date">2015</span>
+          </div>
+          <div class="work-card-context">Personal · Bugil High School, Korea</div>
+          <div class="work-card-tags">
+            <span class="work-tag">HTML / CSS</span>
+            <span class="work-tag">JavaScript</span>
+            <span class="work-tag">Google Image API</span>
+          </div>
+        </div>
+
       </div>
 
-      <button class="filter-clear-btn hidden" id="clear-btn">✕ Clear</button>
-    </div>
-    <div class="filter-meta">
-      <span id="filter-count"></span>
-      <button class="filter-sort-btn" id="sort-btn">
-        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="sort-icon">
-          <polyline points="2,4 5.5,7.5 9,4"/>
-        </svg>
-        <span id="sort-label">Newest</span>
-      </button>
-    </div>
-
-    <div class="work-grid">
-
-      <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2020">
-        <div class="work-card-header">
-          <span class="work-card-title">Browsing History & Autocomplete</span>
-          <span class="work-card-date">2020 – 2026</span>
+      <div class="project-detail hidden" id="project-detail">
+        <div class="project-detail-header">
+          <div class="project-detail-heading">
+            <div class="project-detail-eyebrow">Project</div>
+            <h2 id="pd-title"></h2>
+            <div class="project-detail-meta-row">
+              <div class="project-detail-context" id="pd-context"></div>
+              <a class="pd-repo hidden" id="pd-repo" target="_blank" rel="noopener">
+                <span class="pd-repo-icon"></span>
+                <span class="pd-repo-label">GitHub</span>
+              </a>
+            </div>
+          </div>
+          <button class="project-detail-close" id="pd-close" aria-label="Close">✕</button>
         </div>
-        <div class="work-card-context">Amazon · Silk Browser on Fire TV</div>
-        <p class="work-card-desc">Launched browsing history and autocomplete for millions of Fire TV users, working cross-functionally with UX and product. Validated via A/B experimentation.</p>
-        <div class="work-card-tags">
-          <span class="work-tag">Java</span>
-          <span class="work-tag">TypeScript</span>
-          <span class="work-tag">Android</span>
-          <span class="work-tag">A/B Testing</span>
+        <div class="img-placeholder project-detail-image" id="pd-image"></div>
+        <div class="pd-videos hidden" id="pd-videos">
+          <div class="pd-video-block">
+            <div class="pd-video-label">Before</div>
+            <video id="pd-video-before" controls playsinline></video>
+          </div>
+          <div class="pd-video-block">
+            <div class="pd-video-label">After</div>
+            <video id="pd-video-after" controls playsinline></video>
+          </div>
         </div>
-      </div>
-
-      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2022">
-        <div class="work-card-header">
-          <span class="work-card-title">Safe Browsing — Vega OS</span>
-          <span class="work-card-date">2022 – 2024</span>
+        <div class="pd-video-single hidden" id="pd-video-single">
+          <video id="pd-video" controls playsinline></video>
         </div>
-        <div class="work-card-context">Amazon · Away Team</div>
-        <p class="work-card-desc">Delivered Safe Browsing for Silk on Vega OS, removing Chrome dependency while preserving performance and UI continuity.</p>
-        <div class="work-card-tags">
-          <span class="work-tag">Java</span>
-          <span class="work-tag">Android</span>
-          <span class="work-tag">Security</span>
+        <div class="pd-extra-image hidden" id="pd-extra-image-wrap">
+          <div class="pd-video-label" id="pd-extra-image-label"></div>
+          <img id="pd-extra-image" alt="">
         </div>
-      </div>
-
-      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2023">
-        <div class="work-card-header">
-          <span class="work-card-title">WebView — Next-Gen Fire OS</span>
-          <span class="work-card-date">2023 – 2025</span>
-        </div>
-        <div class="work-card-context">Amazon · Away Team</div>
-        <p class="work-card-desc">Onboarded WebView to next-gen Fire OS platforms for tablet and TV, aligned with modern Android/AOSP standards.</p>
-        <div class="work-card-tags">
-          <span class="work-tag">Android</span>
-          <span class="work-tag">AOSP</span>
-          <span class="work-tag">Fire OS</span>
-        </div>
-      </div>
-
-      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2021">
-        <div class="work-card-header">
-          <span class="work-card-title">Silk Infrastructure Migration</span>
-          <span class="work-card-date">2021 – 2023</span>
-        </div>
-        <div class="work-card-context">Amazon · Silk Infrastructure</div>
-        <p class="work-card-desc">Led full migration of Silk infrastructure to AWS-native architecture. Improved CI/CD to increase reliability and developer efficiency across all Fire releases.</p>
-        <div class="work-card-tags">
-          <span class="work-tag">AWS</span>
-          <span class="work-tag">CI/CD</span>
-          <span class="work-tag">Go</span>
-          <span class="work-tag">Java</span>
-        </div>
-      </div>
-
-      <div class="work-card" data-type="industry" data-discipline="engineering" data-year="2019">
-        <div class="work-card-header">
-          <span class="work-card-title">SAP & Salesforce Integration</span>
-          <span class="work-card-date">2019 – 2020</span>
-        </div>
-        <div class="work-card-context">Concord USA</div>
-        <p class="work-card-desc">Built REST APIs and MuleSoft workflows to streamline data exchange between SAP and Salesforce systems.</p>
-        <div class="work-card-tags">
-          <span class="work-tag">Java</span>
-          <span class="work-tag">MuleSoft</span>
-          <span class="work-tag">REST APIs</span>
-        </div>
-      </div>
-
-      <div class="work-card" data-type="project" data-discipline="ai" data-year="2019">
-        <div class="work-card-header">
-          <span class="work-card-title">AI Agent — Super Mario Bros</span>
-          <span class="work-card-date">2019</span>
-        </div>
-        <div class="work-card-context">Capstone · Macalester College</div>
-        <p class="work-card-desc">Reinforcement learning agent that learned to play Mario autonomously — sparked my curiosity about the gap between AI capability and human impact.</p>
-        <div class="work-card-tags">
-          <span class="work-tag">Python</span>
-          <span class="work-tag">Reinforcement Learning</span>
-          <span class="work-tag">AI</span>
-        </div>
-      </div>
-
-      <div class="work-card" data-type="project" data-discipline="design" data-year="2015">
-        <div class="work-card-header">
-          <span class="work-card-title">Cafeteria Menu Website</span>
-          <span class="work-card-date">2015</span>
-        </div>
-        <div class="work-card-context">Personal · Seoul, Korea</div>
-        <p class="work-card-desc">Built a photo menu site for English-speaking teachers who couldn't read the Korean cafeteria menu. My first lesson in how small design decisions shape daily life.</p>
-        <div class="work-card-tags">
-          <span class="work-tag">HTML / CSS</span>
-          <span class="work-tag">JavaScript</span>
-          <span class="work-tag">Accessibility</span>
+        <p class="project-detail-desc" id="pd-desc"></p>
+        <div class="work-card-tags" id="pd-tags"></div>
+        <div class="project-detail-footer">
+          <button class="project-detail-back" id="pd-back">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 8H3M7 4 3 8l4 4"/>
+            </svg>
+            Back to projects
+          </button>
         </div>
       </div>
 
@@ -228,23 +264,16 @@
 </footer>
 
 <script src="js/cursor.js"></script>
-<script src="js/theme.js"></script>
 <script>
   const cards     = [...document.querySelectorAll('.work-card')];
-  const grid      = document.querySelector('.work-grid');
+  const grid      = document.getElementById('work-grid');
   const countEl   = document.getElementById('filter-count');
-  const clearBtn  = document.getElementById('clear-btn');
   const sortBtn   = document.getElementById('sort-btn');
   const sortLabel = document.getElementById('sort-label');
   const sortIcon  = document.getElementById('sort-icon');
 
   const filterState = { discipline: new Set(), type: new Set() };
   let sortDir = 'desc';
-
-  const ddLabels = {
-    discipline: { default: 'Discipline', engineering: 'Engineering', design: 'Design & UX', ai: 'AI & ML' },
-    type:       { default: 'Type', industry: 'Industry', project: 'Projects' }
-  };
 
   function applyFilters() {
     [...cards]
@@ -262,61 +291,16 @@
 
     const visible = cards.filter(c => !c.classList.contains('hidden')).length;
     countEl.textContent = `${visible} project${visible !== 1 ? 's' : ''}`;
-
-    const hasFilters = filterState.discipline.size > 0 || filterState.type.size > 0;
-    clearBtn.classList.toggle('hidden', !hasFilters);
   }
 
-  function updateDropdownBtn(key) {
-    const btn   = document.getElementById(`dd-${key}-btn`);
-    const label = btn.querySelector('.filter-dd-label');
-    const set   = filterState[key];
-    if (set.size === 0) {
-      label.textContent = ddLabels[key].default;
-      btn.classList.remove('has-selection');
-    } else if (set.size === 1) {
-      label.textContent = ddLabels[key][[...set][0]];
-      btn.classList.add('has-selection');
-    } else {
-      label.textContent = `${set.size} Selected`;
-      btn.classList.add('has-selection');
-    }
-  }
-
-  function closeAllDropdowns() {
-    document.querySelectorAll('.filter-dd-panel').forEach(p => p.classList.add('hidden'));
-    document.querySelectorAll('.filter-dd-btn').forEach(b => b.classList.remove('open'));
-  }
-
-  // Dropdown toggle
-  document.querySelectorAll('.filter-dd-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const panel = btn.closest('.filter-dropdown').querySelector('.filter-dd-panel');
-      const isOpen = !panel.classList.contains('hidden');
-      closeAllDropdowns();
-      if (!isOpen) {
-        panel.classList.remove('hidden');
-        btn.classList.add('open');
-      }
-    });
-  });
-
-  document.addEventListener('click', closeAllDropdowns);
-
-  // Option toggle
-  document.querySelectorAll('.filter-dd-option').forEach(option => {
-    option.addEventListener('click', e => {
-      e.stopPropagation();
-      const { key, val } = option.dataset;
-      if (filterState[key].has(val)) {
-        filterState[key].delete(val);
-        option.classList.remove('selected');
-      } else {
-        filterState[key].add(val);
-        option.classList.add('selected');
-      }
-      updateDropdownBtn(key);
+  // Checkbox filters: apply instantly on change
+  document.querySelectorAll('.filter-check input').forEach(input => {
+    input.addEventListener('change', () => {
+      filterState.discipline.clear();
+      filterState.type.clear();
+      document.querySelectorAll('.filter-check input:checked').forEach(checked => {
+        filterState[checked.dataset.key].add(checked.value);
+      });
       applyFilters();
     });
   });
@@ -331,17 +315,91 @@
     applyFilters();
   });
 
-  // Clear all
-  clearBtn.addEventListener('click', () => {
-    filterState.discipline.clear();
-    filterState.type.clear();
-    document.querySelectorAll('.filter-dd-option.selected').forEach(o => o.classList.remove('selected'));
-    updateDropdownBtn('discipline');
-    updateDropdownBtn('type');
-    applyFilters();
+  applyFilters();
+
+  // Project detail panel
+  const detail    = document.getElementById('project-detail');
+  const pdTitle   = document.getElementById('pd-title');
+  const pdContext = document.getElementById('pd-context');
+  const pdDesc    = document.getElementById('pd-desc');
+  const pdTags    = document.getElementById('pd-tags');
+  const pdImage   = document.getElementById('pd-image');
+  const pdRepo    = document.getElementById('pd-repo');
+  const pdVideos       = document.getElementById('pd-videos');
+  const pdVideoBefore  = document.getElementById('pd-video-before');
+  const pdVideoAfter   = document.getElementById('pd-video-after');
+  const pdVideoSingleWrap = document.getElementById('pd-video-single');
+  const pdVideoSingle  = document.getElementById('pd-video');
+  const pdExtraImageWrap  = document.getElementById('pd-extra-image-wrap');
+  const pdExtraImage      = document.getElementById('pd-extra-image');
+  const pdExtraImageLabel = document.getElementById('pd-extra-image-label');
+
+  function resetVideos() {
+    [pdVideoBefore, pdVideoAfter, pdVideoSingle].forEach(v => {
+      v.pause();
+      v.removeAttribute('src');
+      v.load();
+    });
+    pdVideos.classList.add('hidden');
+    pdVideoSingleWrap.classList.add('hidden');
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      pdTitle.textContent   = card.dataset.title;
+      pdContext.textContent = card.dataset.context;
+      pdDesc.textContent    = card.dataset.desc;
+      pdTags.innerHTML      = card.querySelector('.work-card-tags').innerHTML;
+
+      if (card.dataset.image) {
+        pdImage.classList.remove('img-placeholder');
+        pdImage.style.backgroundImage = `url('${card.dataset.image}')`;
+        pdImage.style.backgroundSize = 'cover';
+        pdImage.style.backgroundPosition = 'center';
+      } else {
+        pdImage.classList.add('img-placeholder');
+        pdImage.style.backgroundImage = '';
+      }
+
+      if (card.dataset.repo) {
+        pdRepo.href = card.dataset.repo;
+        pdRepo.classList.remove('hidden');
+      } else {
+        pdRepo.classList.add('hidden');
+      }
+
+      resetVideos();
+      if (card.dataset.videoBefore && card.dataset.videoAfter) {
+        pdVideoBefore.src = card.dataset.videoBefore;
+        pdVideoAfter.src  = card.dataset.videoAfter;
+        pdVideos.classList.remove('hidden');
+      } else if (card.dataset.video) {
+        pdVideoSingle.src = card.dataset.video;
+        pdVideoSingleWrap.classList.remove('hidden');
+      }
+
+      if (card.dataset.extraImage) {
+        pdExtraImage.src = card.dataset.extraImage;
+        pdExtraImage.alt = card.dataset.extraImageLabel || '';
+        pdExtraImageLabel.textContent = card.dataset.extraImageLabel || '';
+        pdExtraImageWrap.classList.remove('hidden');
+      } else {
+        pdExtraImageWrap.classList.add('hidden');
+      }
+
+      grid.classList.add('hidden');
+      detail.classList.remove('hidden');
+    });
   });
 
-  applyFilters();
+  function closeDetail() {
+    detail.classList.add('hidden');
+    grid.classList.remove('hidden');
+    resetVideos();
+  }
+
+  document.getElementById('pd-close').addEventListener('click', closeDetail);
+  document.getElementById('pd-back').addEventListener('click', closeDetail);
 </script>
 </body>
 </html>

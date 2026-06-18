@@ -1,39 +1,50 @@
-@font-face {
-  font-family: 'SojinsHandwriting';
-  src: url('../fonts/Sojin-Regular.otf') format('opentype'),
-       url('../fonts/Sojin-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
 :root {
-  --bg:          #051510;
-  --text:        #D1FAE5;
-  --accent:      #10B981;
-  --sky:         #A7F3D0;
-  --sky-deep:    #022C22;
-  --nav-bg:      #065F46;
-  --nav-text:    #D1FAE5;
-  --muted:       rgba(150, 235, 195, 0.45);
-  --border:      rgba(150, 235, 195, 0.18);
-  --heart-color: #10B981;
+  --bg:          #F6F0E6;
+  --text:        #221A14;
+  --accent:      #C1502E;
+  --sky:         #ECE2D0;
+  --sky-deep:    #FFFFFF;
+  --nav-bg:      #EFE6D4;
+  --nav-text:    #221A14;
+  --muted:       rgba(34, 26, 20, 0.55);
+  --border:      rgba(34, 26, 20, 0.16);
+  --heart-color: #C1502E;
+
+  /* chat easter egg */
+  --faint:        rgba(34, 26, 20, 0.38);
+  --bubble-in-bg: #EEE4D2;
+  --bubble-in-bd: rgba(34, 26, 20, 0.14);
+  --typing-bg:    rgba(193, 80, 46, 0.14);
+  --typing-bd:    rgba(193, 80, 46, 0.28);
+  --chip-bg:      rgba(193, 80, 46, 0.09);
+  --fade-color:   var(--bg);
+  --accent-text:  #fff;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
 
+/* ── Image placeholder (diagonal X box, until real images are in) ── */
+.img-placeholder {
+  background-color: var(--sky);
+  border: 1px solid var(--border);
+  background-image:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), var(--border) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to top left,  transparent calc(50% - 0.5px), var(--border) 50%, transparent calc(50% + 0.5px));
+}
+
 /* ── Footer ──────────────────────────────────────────────────── */
 .page-footer {
-  background: #071b13;
-  padding: 1.4rem 3rem;
+  background: var(--nav-bg);
+  padding: 1.4rem 3.5rem;
   flex-shrink: 0;
 }
 
 .page-footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .page-footer-copy {
@@ -72,19 +83,18 @@
 .doodle {
   position: fixed;
   bottom: 4rem;
-  right: 0;
+  right: max(0px, calc(50% - 600px));
   width: min(500px, 42vw);
   pointer-events: none;
   z-index: 1;
   transition: opacity 0.25s ease;
-  filter: invert(1);
-  mix-blend-mode: lighten;
+  mix-blend-mode: multiply;
 }
 #doodle-hover { opacity: 0; }
 body.doodle-reacting #doodle-default { opacity: 0; }
 body.doodle-reacting #doodle-hover   { opacity: 1; }
-html { font-size: 20px; }
-@media (max-width: 700px) { html { font-size: 16px; } }
+html { font-size: 16px; }
+@media (max-width: 700px) { html { font-size: 15px; } }
 html, body { height: 100%; }
 
 body {
@@ -94,6 +104,6 @@ body {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  font-family: 'SojinsHandwriting', cursive;
+  font-family: 'Newsreader', serif;
   color: var(--text);
 }
