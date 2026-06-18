@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/nav.css?v=1781768619">
   <link rel="stylesheet" href="css/cursor.css?v=1781768619">
   <link rel="stylesheet" href="css/pages.css?v=1781768619">
+  <link rel="stylesheet" href="css/feedback.css?v=1781768619">
 </head>
 <body>
 
@@ -154,6 +155,41 @@
 
 </main>
 
+<!-- Feedback bubble -->
+<button class="feedback-toggle hidden" id="feedback-toggle" aria-label="Leave feedback">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/>
+    <circle cx="8.5" cy="10" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="15.5" cy="10" r="1" fill="currentColor" stroke="none"/>
+    <path d="M8 14.5c1.2 1.4 2.6 2 4 2s2.8-.6 4-2"/>
+  </svg>
+</button>
+
+<div class="feedback-card hidden" id="feedback-card">
+  <button class="feedback-close" id="feedback-close" aria-label="Minimize">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M3 13h10"/>
+    </svg>
+  </button>
+  <div class="feedback-question feedback-title">Did you find what you were looking for?</div>
+  <div class="feedback-emojis" id="feedback-emojis">
+    <button class="feedback-emoji" data-label="Lost me">🥴<span>Lost me</span></button>
+    <button class="feedback-emoji" data-label="Meh">😕<span>Meh</span></button>
+    <button class="feedback-emoji" data-label="Decent">🙂<span>Decent</span></button>
+    <button class="feedback-emoji" data-label="Loved it">😍<span>Loved it</span></button>
+    <button class="feedback-emoji" data-label="Obsessed">🤩<span>Obsessed</span></button>
+  </div>
+  <hr class="feedback-divider">
+  <label class="feedback-question feedback-text-label" for="feedback-text">Anything I should do differently?</label>
+  <div class="feedback-quick-replies" id="feedback-quick-replies">
+    <button class="feedback-quick-reply" type="button">All good, loved it! 🎉</button>
+    <button class="feedback-quick-reply" type="button">More project details please 🔍</button>
+    <button class="feedback-quick-reply" type="button">More about your design process 🎨</button>
+  </div>
+  <textarea class="feedback-text" id="feedback-text" rows="3" placeholder="Type away, or tap a bubble above..."></textarea>
+  <button class="feedback-submit" id="feedback-submit" disabled>Send feedback 💌</button>
+</div>
+
 <footer class="page-footer">
   <div class="page-footer-inner">
     <div class="page-socials">
@@ -199,5 +235,12 @@
 
   sections.forEach(section => observer.observe(section));
 </script>
+<button class="scroll-hint hidden" id="scroll-hint" aria-label="Scroll down">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 6l5 5 5-5"/>
+  </svg>
+</button>
+<script src="js/feedback.js"></script>
+<script src="js/scroll-hint.js"></script>
 </body>
 </html>

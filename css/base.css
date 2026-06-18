@@ -34,9 +34,14 @@
 
 /* ── Footer ──────────────────────────────────────────────────── */
 .page-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   background: var(--nav-bg);
   padding: 1.4rem 3.5rem;
   flex-shrink: 0;
+  z-index: 10;
 }
 
 .page-footer-inner {
@@ -80,6 +85,34 @@
   .page-footer { padding: 1.2rem 1.5rem; }
 }
 
+/* ── Scroll hint ──────────────────────────────────────────────── */
+.scroll-hint {
+  position: fixed;
+  bottom: 6.2rem;
+  right: 2.2rem;
+  z-index: 15;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--nav-bg);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, border-color 0.2s, color 0.2s;
+}
+
+.scroll-hint:hover { border-color: var(--accent); color: var(--accent); }
+
+.scroll-hint.hidden { opacity: 0; pointer-events: none; }
+
+@media (max-width: 700px) {
+  .scroll-hint { right: 1.2rem; bottom: 5.6rem; width: 34px; height: 34px; }
+}
+
 .doodle {
   position: fixed;
   bottom: 4rem;
@@ -89,6 +122,8 @@
   z-index: 1;
   transition: opacity 0.25s ease;
   mix-blend-mode: multiply;
+  mask-image: linear-gradient(to right, black 0%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 88%, transparent 100%);
 }
 #doodle-hover { opacity: 0; }
 body.doodle-reacting #doodle-default { opacity: 0; }
@@ -106,4 +141,9 @@ body {
   overflow: hidden;
   font-family: 'Newsreader', serif;
   color: var(--text);
+  padding-bottom: 4.7rem;
+}
+
+@media (max-width: 700px) {
+  body { padding-bottom: 4.2rem; }
 }

@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/nav.css?v=1781768619">
   <link rel="stylesheet" href="css/cursor.css?v=1781768619">
   <link rel="stylesheet" href="css/pages.css?v=1781768619">
+  <link rel="stylesheet" href="css/feedback.css?v=1781768619">
 </head>
 <body>
 
@@ -49,19 +50,30 @@
   <section class="page-section work-layout">
 
     <aside class="work-sidebar">
-      <h2 class="work-sidebar-title">Filters</h2>
-
-      <div class="filter-group">
-        <div class="filter-group-label">Discipline</div>
-        <label class="filter-check"><input type="checkbox" data-key="discipline" value="engineering"><span>Engineering</span></label>
-        <label class="filter-check"><input type="checkbox" data-key="discipline" value="design"><span>Design & UX</span></label>
-        <label class="filter-check"><input type="checkbox" data-key="discipline" value="ai"><span>AI & ML</span></label>
+      <div class="work-sidebar-header">
+        <h2 class="work-sidebar-title">Filters</h2>
+        <button class="work-sidebar-toggle" id="filter-toggle" aria-expanded="true" aria-controls="filter-panel" aria-label="Toggle filters">
+          <svg class="filter-toggle-icon" width="12" height="12" viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,4 5.5,7.5 9,4"/>
+          </svg>
+        </button>
       </div>
 
-      <div class="filter-group">
-        <div class="filter-group-label">Type</div>
-        <label class="filter-check"><input type="checkbox" data-key="type" value="industry"><span>Industry</span></label>
-        <label class="filter-check"><input type="checkbox" data-key="type" value="project"><span>Projects</span></label>
+      <div class="filter-panel" id="filter-panel">
+        <div class="filter-panel-inner">
+          <div class="filter-group">
+            <div class="filter-group-label">Discipline</div>
+            <label class="filter-check"><input type="checkbox" data-key="discipline" value="engineering"><span>Engineering</span></label>
+            <label class="filter-check"><input type="checkbox" data-key="discipline" value="design"><span>Design & UX</span></label>
+            <label class="filter-check"><input type="checkbox" data-key="discipline" value="ai"><span>AI & ML</span></label>
+          </div>
+
+          <div class="filter-group">
+            <div class="filter-group-label">Type</div>
+            <label class="filter-check"><input type="checkbox" data-key="type" value="industry"><span>Industry</span></label>
+            <label class="filter-check"><input type="checkbox" data-key="type" value="project"><span>Projects</span></label>
+          </div>
+        </div>
       </div>
     </aside>
 
@@ -79,68 +91,60 @@
 
       <div class="work-grid" id="work-grid">
 
-        <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2022"
+        <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2021"
              data-title="Browsing History" data-context="Amazon · Silk Browser on Fire TV"
              data-image="images/history.png"
-             data-video="videos/history_demo_video.mov"
+             data-video="videos/history_demo_video.mov" data-video-label="Browsing history feature demo"
              data-extra-image="images/JIT.png"
-             data-extra-image-label="Just-in-time onboarding tutorial"
-             data-desc="Navigating the web on a Fire TV remote was painful — typing a URL with a virtual keyboard, every time. I led the design and delivery of browsing history so customers could just go back to a page they'd visited. I also designed the just-in-time tutorial that taught customers the new feature existed. It launched as Silk's first Weblab-powered A/B experiment and rolled out to 100% of Fire TV customers in June 2022.">
-          <img class="work-card-image" src="images/history.png" alt="Browsing history screen on Fire TV, listing previously visited pages">
+             data-extra-image-label="Just-in-time tutorial"
+             data-extra-image-step="3"
+             data-problem="Navigating the web on a Fire TV remote meant retyping every URL on a virtual keyboard, every time."
+             data-problem-sub="There was no way to revisit a page without typing it from scratch — one of the most-requested fixes from Silk customers."
+             data-approach="Worked with Product and UX to design a TV-native history experience, since no comparable interaction model existed on Fire TV remotes||Built the FireTVHistoryManager component on Chromium's history APIs to surface and revisit past pages||Designed and shipped a just-in-time tutorial so customers would discover the feature on their own||Set up Silk's first Weblab-powered A/B experiment to validate the launch, including the underlying metrics integration"
+             data-impact="100% Rollout|Shipped to all Silk-on-Fire-TV customers in 2021||No Engagement Drop|A/B testing showed session time, app starts, and page loads all held steady||New Feature Unlocked|The same component became the foundation for Peek Row, a 'recently visited' shortcut later added to the Fire TV home screen">
+          <img class="work-card-image" src="images/history.png" alt="Browsing history page on Silk on Fire TV">
           <div class="work-card-header">
             <span class="work-card-title">Browsing History</span>
-            <span class="work-card-date">2021 – 2022</span>
+            <span class="work-card-date">2021</span>
           </div>
           <div class="work-card-context">Amazon · Silk Browser on Fire TV</div>
           <div class="work-card-tags">
             <span class="work-tag">Java</span>
-            <span class="work-tag">Android</span>
-            <span class="work-tag">Weblab A/B Testing</span>
-          </div>
-        </div>
-
-        <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2022"
-             data-title="Autocomplete Improvement" data-context="Amazon · Silk Browser on Fire TV"
-             data-video-before="videos/previousAutocomplete.mp4" data-video-after="videos/improvedAutocomplete.mp4"
-             data-image="images/autocomplete-thumb.png"
-             data-desc="Silk on Fire TV's autocomplete used to suggest from a hard-coded list of top sites — the same suggestions for everyone, whether or not they were relevant to you. I rebuilt it on Chromium's autocomplete system, generating suggestions from each customer's own browsing history, bookmarks, and search provider instead. Launched to 100% of Silk on FTV customers, with a measurable lift in search revenue.">
-          <img class="work-card-image" src="images/autocomplete-thumb.png" alt="Fire TV autocomplete suggesting businessinsider.com as the user types">
-          <div class="work-card-header">
-            <span class="work-card-title">Autocomplete Improvement</span>
-            <span class="work-card-date">2021 – 2022</span>
-          </div>
-          <div class="work-card-context">Amazon · Silk Browser on Fire TV</div>
-          <div class="work-card-tags">
-            <span class="work-tag">Java</span>
-            <span class="work-tag">TypeScript</span>
             <span class="work-tag">Android</span>
             <span class="work-tag">A/B Testing</span>
           </div>
         </div>
 
-        <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2023"
-             data-title="Voice Search Hint Text" data-context="Amazon · Silk Browser on Fire TV"
-             data-image="images/hinttext.png"
-             data-desc="A small feature: show a greyed-out hint like 'Try saying amazon.com' in the keyboard when voice input was available. While testing across devices, I noticed the hint text was nearly invisible against the keyboard background on some Fire TVs. It wasn't in scope, but I checked the contrast ratio anyway, confirmed it failed accessibility guidelines, and filed it with the OS team. The feature itself was later canceled due to a platform-level keyboard limitation — but the contrast gap I caught got fixed anyway.">
-          <img class="work-card-image" src="images/hinttext.png" alt="Fire TV keyboard showing a low-contrast voice search hint text reading 'Try saying Amazon.com'">
+        <div class="work-card" data-type="industry" data-discipline="engineering design" data-year="2021"
+             data-title="Autocomplete Improvement" data-context="Amazon · Silk Browser on Fire TV"
+             data-video-before="videos/previousAutocomplete.mp4" data-video-after="videos/improvedAutocomplete.mp4"
+             data-image="images/autocomplete-thumb.png"
+             data-problem="Fire TV's autocomplete suggested from one hard-coded list of top sites."
+             data-problem-sub="The same handful of suggestions for every customer, regardless of what they actually visited."
+             data-approach="Rebuilt autocomplete on Chromium's autocomplete system instead of the static list||Sourced suggestions from each customer's own browsing history, bookmarks, and default search provider||Partnered with the Bison companion-app team to fix a related cross-surface bug so suggestions stayed consistent between the Fire TV remote and the app"
+             data-impact="Full Rollout|Replaced the static list for all Silk-on-Fire-TV customers||Revenue Lift|A/B testing showed a measurable increase in search revenue">
+          <img class="work-card-image" src="images/autocomplete-thumb.png" alt="Silk on Fire TV autocomplete feature">
           <div class="work-card-header">
-            <span class="work-card-title">Voice Search Hint Text</span>
-            <span class="work-card-date">2023</span>
+            <span class="work-card-title">Autocomplete Improvement</span>
+            <span class="work-card-date">2021</span>
           </div>
           <div class="work-card-context">Amazon · Silk Browser on Fire TV</div>
           <div class="work-card-tags">
-            <span class="work-tag">Accessibility</span>
-            <span class="work-tag">Color Contrast</span>
-            <span class="work-tag">Cross-team</span>
+            <span class="work-tag">Java</span>
+            <span class="work-tag">Android</span>
+            <span class="work-tag">A/B Testing</span>
           </div>
         </div>
 
-        <div class="work-card" data-type="project" data-discipline="ai" data-year="2018"
+        <div class="work-card" data-type="project" data-discipline="ai engineering" data-year="2018"
              data-title="AI Agent — Super Mario Bros" data-context="COMP 380 Capstone · Macalester College"
              data-image="images/mario-screenshot.gif"
              data-repo="https://github.com/lionely/MARlQ"
-             data-desc="With two classmates, I trained an agent to play the original Super Mario Bros using ε-greedy Q-learning — no game rules given, just trial, error, and a reward signal. We represented Mario's surroundings as a grid 'box,' and had to hand-engineer a custom 'R_JUMP' action after realizing the odds of Mario randomly mashing jump+right six times in a row to clear a pipe were essentially zero. After ~7,167 training episodes, Mario was learning, just slowly. Humans, it turns out, are hard to simulate.">
-          <img class="work-card-image" src="images/mario-screenshot.gif" alt="Super Mario Bros level 1-1, the level the AI agent was trained on">
+             data-problem="Train an agent to clear World 1-1 of the original Super Mario Bros using reinforcement learning."
+             data-problem-sub="With two classmates, no game rules given — just trial, error, and a reward signal."
+             data-approach="Built on an OpenAI Gym Mario environment, representing Mario's surroundings as a 13×16 grid 'box' of state values (empty, object, enemy, Mario)||Implemented ε-greedy Q-learning, tuning epsilon, alpha, and gamma to balance exploration vs. exploitation||Hand-engineered a custom 'R_JUMP' action after realizing the odds of Mario randomly mashing jump+right six times in a row to clear a pipe were essentially zero||Added a standing-still penalty after noticing Mario learned to dodge negative reward by simply not moving"
+             data-impact="7,167 Episodes|Total training run; Mario reliably learned the first stretch of the level, but progress stayed slow and noisy||Learning-Rate Bug Found|Traced the inconsistent progress to an under-tuned alpha (learning rate) overwriting already-learned actions||Next Step: Deep Q-Learning|Concluded a neural network would scale better than a hand-tuned Q-table — and that humans are surprisingly hard to simulate">
+          <img class="work-card-image" src="images/mario-screenshot.gif" alt="Trained AI agent playing Super Mario Bros level 1-1">
           <div class="work-card-header">
             <span class="work-card-title">AI Agent — Super Mario Bros</span>
             <span class="work-card-date">2018</span>
@@ -157,8 +161,11 @@
              data-title="Beacon — 911 Location Detection" data-context="1st Place · Macathon 2017, Macalester College"
              data-image="images/beacon-screenshot.png"
              data-repo="https://github.com/sojinoh/cobenesoka"
-             data-desc="An app that detects when you dial 911 and silently transmits your location to the call center — built in 24 hours because landline-era 911 infrastructure often can't locate cell calls. Stripped down to one button, since that's all an emergency leaves room for.">
-          <img class="work-card-image" src="images/beacon-screenshot.png" alt="Beacon app on a phone showing a one-tap location-sharing screen">
+             data-problem="911 infrastructure is built for landlines and often can't pinpoint a caller's location from a cell phone."
+             data-problem-sub="Built in 24 hours at Macalester's Macathon hackathon."
+             data-approach="Built an app that runs in the background and silently transmits GPS data to a server the moment it detects an active 911 call||Surveyed potential users on what they'd actually want in an emergency before designing anything||Stripped the UI down to one big button — in an emergency, that's the only interaction that matters"
+             data-impact="1st Place Win|Out of all teams at Macathon 2017||Single-Button Design|Judges and beta testers said it was exactly right for an emergency">
+          <img class="work-card-image" src="images/beacon-screenshot.png" alt="Beacon app with a one-tap location-sharing screen">
           <div class="work-card-header">
             <span class="work-card-title">Beacon — 911 Location Detection</span>
             <span class="work-card-date">2017</span>
@@ -171,11 +178,14 @@
           </div>
         </div>
 
-        <div class="work-card" data-type="project" data-discipline="design" data-year="2015"
+        <div class="work-card" data-type="project" data-discipline="design engineering" data-year="2015"
              data-title="Cafeteria Menu Website" data-context="Personal · Bugil High School, Korea"
              data-image="images/glp-menu-screenshot.png"
              data-repo="https://github.com/sojinoh/GLP-Menu-For-Today"
-             data-desc="A photo menu site for English-speaking teachers who couldn't read the Korean cafeteria menu. The script put each Korean menu item into an array and pulled the first Google Image search result for it — a clumsy algorithm, but it worked, and it was the first thing I ever built that someone genuinely depended on.">
+             data-problem="Bugil High School's English-speaking teachers couldn't read the Korean cafeteria menu."
+             data-problem-sub="Direct translation produced nonsense — one dish translated literally to 'six times.'"
+             data-approach="Taught myself HTML, JavaScript, and Google's Image Search API from scratch over two weeks||Sidestepped translation entirely — pulled the first Google Image result for each Korean menu item instead of translating the text"
+             data-impact="Used Daily|By the school's English-speaking faculty, every day||Checked Every Morning|One teacher said she checked the site each morning before deciding whether to pack lunch">
           <img class="work-card-image" src="images/glp-menu-screenshot.png" alt="Today's Lunch Menu website showing the week's cafeteria menu as photos">
           <div class="work-card-header">
             <span class="work-card-title">Cafeteria Menu Website</span>
@@ -204,27 +214,13 @@
               </a>
             </div>
           </div>
-          <button class="project-detail-close" id="pd-close" aria-label="Close">✕</button>
+          <button class="project-detail-close" id="pd-close" aria-label="Close">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M3 3l10 10M13 3 3 13"/>
+            </svg>
+          </button>
         </div>
-        <div class="img-placeholder project-detail-image" id="pd-image"></div>
-        <div class="pd-videos hidden" id="pd-videos">
-          <div class="pd-video-block">
-            <div class="pd-video-label">Before</div>
-            <video id="pd-video-before" controls playsinline></video>
-          </div>
-          <div class="pd-video-block">
-            <div class="pd-video-label">After</div>
-            <video id="pd-video-after" controls playsinline></video>
-          </div>
-        </div>
-        <div class="pd-video-single hidden" id="pd-video-single">
-          <video id="pd-video" controls playsinline></video>
-        </div>
-        <div class="pd-extra-image hidden" id="pd-extra-image-wrap">
-          <div class="pd-video-label" id="pd-extra-image-label"></div>
-          <img id="pd-extra-image" alt="">
-        </div>
-        <p class="project-detail-desc" id="pd-desc"></p>
+        <div class="project-detail-desc" id="pd-desc"></div>
         <div class="work-card-tags" id="pd-tags"></div>
         <div class="project-detail-footer">
           <button class="project-detail-back" id="pd-back">
@@ -241,9 +237,43 @@
 
 </main>
 
+<!-- Feedback bubble -->
+<button class="feedback-toggle hidden" id="feedback-toggle" aria-label="Leave feedback">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/>
+    <circle cx="8.5" cy="10" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="15.5" cy="10" r="1" fill="currentColor" stroke="none"/>
+    <path d="M8 14.5c1.2 1.4 2.6 2 4 2s2.8-.6 4-2"/>
+  </svg>
+</button>
+
+<div class="feedback-card hidden" id="feedback-card">
+  <button class="feedback-close" id="feedback-close" aria-label="Minimize">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M3 13h10"/>
+    </svg>
+  </button>
+  <div class="feedback-question feedback-title">Did you find what you were looking for?</div>
+  <div class="feedback-emojis" id="feedback-emojis">
+    <button class="feedback-emoji" data-label="Lost me">🥴<span>Lost me</span></button>
+    <button class="feedback-emoji" data-label="Meh">😕<span>Meh</span></button>
+    <button class="feedback-emoji" data-label="Decent">🙂<span>Decent</span></button>
+    <button class="feedback-emoji" data-label="Loved it">😍<span>Loved it</span></button>
+    <button class="feedback-emoji" data-label="Obsessed">🤩<span>Obsessed</span></button>
+  </div>
+  <hr class="feedback-divider">
+  <label class="feedback-question feedback-text-label" for="feedback-text">Anything I should do differently?</label>
+  <div class="feedback-quick-replies" id="feedback-quick-replies">
+    <button class="feedback-quick-reply" type="button">All good, loved it! 🎉</button>
+    <button class="feedback-quick-reply" type="button">More project details please 🔍</button>
+    <button class="feedback-quick-reply" type="button">More about your design process 🎨</button>
+  </div>
+  <textarea class="feedback-text" id="feedback-text" rows="3" placeholder="Type away, or tap a bubble above..."></textarea>
+  <button class="feedback-submit" id="feedback-submit" disabled>Send feedback 💌</button>
+</div>
+
 <footer class="page-footer">
   <div class="page-footer-inner">
-    <span class="page-footer-copy">© 2026 Sojin Oh</span>
     <div class="page-socials">
       <a class="page-social-icon" href="https://www.linkedin.com/in/sojinoh/" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -259,7 +289,14 @@
           <path d="M2 8l10 6.5L22 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
       </a>
+      <a class="page-social-icon" href="Sojin_Oh_Resume.pdf" download aria-label="Download Resume">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v12M7.5 10.5 12 15l4.5-4.5"/>
+          <path d="M4 19h16"/>
+        </svg>
+      </a>
     </div>
+    <span class="page-footer-copy">© 2026 Sojin Oh</span>
   </div>
 </footer>
 
@@ -317,74 +354,110 @@
 
   applyFilters();
 
+  // Filter panel collapse toggle
+  const filterToggle = document.getElementById('filter-toggle');
+  const filterPanel  = document.getElementById('filter-panel');
+  filterToggle.addEventListener('click', () => {
+    const collapsed = filterPanel.classList.toggle('collapsed');
+    filterToggle.classList.toggle('collapsed', collapsed);
+    filterToggle.setAttribute('aria-expanded', String(!collapsed));
+  });
+
+  // Auto-collapse filters on small screens
+  function collapseFilters() {
+    filterPanel.classList.add('collapsed');
+    filterToggle.classList.add('collapsed');
+    filterToggle.setAttribute('aria-expanded', 'false');
+  }
+  const mobileQuery = window.matchMedia('(max-width: 700px)');
+  if (mobileQuery.matches) collapseFilters();
+  mobileQuery.addEventListener('change', e => { if (e.matches) collapseFilters(); });
+
   // Project detail panel
   const detail    = document.getElementById('project-detail');
   const pdTitle   = document.getElementById('pd-title');
   const pdContext = document.getElementById('pd-context');
   const pdDesc    = document.getElementById('pd-desc');
   const pdTags    = document.getElementById('pd-tags');
-  const pdImage   = document.getElementById('pd-image');
   const pdRepo    = document.getElementById('pd-repo');
-  const pdVideos       = document.getElementById('pd-videos');
-  const pdVideoBefore  = document.getElementById('pd-video-before');
-  const pdVideoAfter   = document.getElementById('pd-video-after');
-  const pdVideoSingleWrap = document.getElementById('pd-video-single');
-  const pdVideoSingle  = document.getElementById('pd-video');
-  const pdExtraImageWrap  = document.getElementById('pd-extra-image-wrap');
-  const pdExtraImage      = document.getElementById('pd-extra-image');
-  const pdExtraImageLabel = document.getElementById('pd-extra-image-label');
 
-  function resetVideos() {
-    [pdVideoBefore, pdVideoAfter, pdVideoSingle].forEach(v => {
-      v.pause();
-      v.removeAttribute('src');
-      v.load();
-    });
-    pdVideos.classList.add('hidden');
-    pdVideoSingleWrap.classList.add('hidden');
+  function pdDividerSection(label, body) {
+    return `<div class="pd-section"><div class="pd-divider"><span>${label}</span></div>${body}</div>`;
+  }
+
+  function pdProblemBody(lead, sub) {
+    return `<p class="pd-problem-lead">${lead}</p>` + (sub ? `<p class="pd-problem-sub">${sub}</p>` : '');
+  }
+
+  function pdStepsBody(content, inlineMedia) {
+    const items = content.split('||');
+    return `<div class="pd-steps">${items.map((item, i) => {
+      const stepNum = i + 1;
+      const media = (inlineMedia && inlineMedia[stepNum]) || '';
+      return `<div class="pd-step"><div class="pd-step-num">${String(stepNum).padStart(2, '0')}</div><div class="pd-step-text">${item}${media}</div></div>`;
+    }).join('')}</div>`;
+  }
+
+  function pdStatsBody(content) {
+    const items = content.split('||').map(i => i.split('|'));
+    return `<div class="pd-stats">${items.map(([num, caption]) =>
+      `<div class="pd-stat"><span class="pd-stat-num">${num}</span><span class="pd-stat-caption">${caption}</span></div>`
+    ).join('')}</div>`;
+  }
+
+  function pdImageFigure(src, alt) {
+    const label = alt || 'Screenshot';
+    return `<div class="pd-figure"><img src="${src}" alt="${alt || ''}"><div class="pd-figure-caption">${label}</div></div>`;
+  }
+
+  function pdVideoFigure(card) {
+    if (card.dataset.videoBefore && card.dataset.videoAfter) {
+      return `<div class="pd-figure-pair">
+        <div class="pd-figure-block"><video controls playsinline src="${card.dataset.videoBefore}"></video><div class="pd-figure-caption">Before</div></div>
+        <div class="pd-figure-block"><video controls playsinline src="${card.dataset.videoAfter}"></video><div class="pd-figure-caption">After</div></div>
+      </div>`;
+    }
+    if (card.dataset.video) {
+      const label = card.dataset.videoLabel || 'Demo';
+      return `<div class="pd-figure"><video controls playsinline src="${card.dataset.video}"></video><div class="pd-figure-caption">${label}</div></div>`;
+    }
+    return '';
+  }
+
+  function pdExtraImageFigure(card) {
+    if (!card.dataset.extraImage) return '';
+    const label = card.dataset.extraImageLabel || 'Screenshot';
+    return `<div class="pd-figure"><img src="${card.dataset.extraImage}" alt="${card.dataset.extraImageLabel || ''}"><div class="pd-figure-caption">${label}</div></div>`;
   }
 
   cards.forEach(card => {
     card.addEventListener('click', () => {
       pdTitle.textContent   = card.dataset.title;
       pdContext.textContent = card.dataset.context;
-      pdDesc.textContent    = card.dataset.desc;
       pdTags.innerHTML      = card.querySelector('.work-card-tags').innerHTML;
 
-      if (card.dataset.image) {
-        pdImage.classList.remove('img-placeholder');
-        pdImage.style.backgroundImage = `url('${card.dataset.image}')`;
-        pdImage.style.backgroundSize = 'cover';
-        pdImage.style.backgroundPosition = 'center';
-      } else {
-        pdImage.classList.add('img-placeholder');
-        pdImage.style.backgroundImage = '';
-      }
+      const mainImageAlt = card.querySelector('.work-card-image')?.alt || '';
+      const problemMedia = card.dataset.image ? pdImageFigure(card.dataset.image, mainImageAlt) : '';
+      const extraImageStep = parseInt(card.dataset.extraImageStep) || 0;
+      const extraImageHtml = pdExtraImageFigure(card);
+      const inlineStepMedia = extraImageStep ? { [extraImageStep]: extraImageHtml } : null;
+      const workMedia = pdVideoFigure(card) + (extraImageStep ? '' : extraImageHtml);
+
+      pdDesc.innerHTML =
+        pdDividerSection('The Problem', pdProblemBody(card.dataset.problem, card.dataset.problemSub) + problemMedia) +
+        pdDividerSection('What I Did', pdStepsBody(card.dataset.approach, inlineStepMedia) + workMedia) +
+        pdDividerSection('Result', pdStatsBody(card.dataset.impact));
+
+      pdDesc.querySelectorAll('video').forEach(v => {
+        v.playbackRate = 2;
+        v.addEventListener('loadedmetadata', () => { v.playbackRate = 2; });
+      });
 
       if (card.dataset.repo) {
         pdRepo.href = card.dataset.repo;
         pdRepo.classList.remove('hidden');
       } else {
         pdRepo.classList.add('hidden');
-      }
-
-      resetVideos();
-      if (card.dataset.videoBefore && card.dataset.videoAfter) {
-        pdVideoBefore.src = card.dataset.videoBefore;
-        pdVideoAfter.src  = card.dataset.videoAfter;
-        pdVideos.classList.remove('hidden');
-      } else if (card.dataset.video) {
-        pdVideoSingle.src = card.dataset.video;
-        pdVideoSingleWrap.classList.remove('hidden');
-      }
-
-      if (card.dataset.extraImage) {
-        pdExtraImage.src = card.dataset.extraImage;
-        pdExtraImage.alt = card.dataset.extraImageLabel || '';
-        pdExtraImageLabel.textContent = card.dataset.extraImageLabel || '';
-        pdExtraImageWrap.classList.remove('hidden');
-      } else {
-        pdExtraImageWrap.classList.add('hidden');
       }
 
       grid.classList.add('hidden');
@@ -395,11 +468,19 @@
   function closeDetail() {
     detail.classList.add('hidden');
     grid.classList.remove('hidden');
-    resetVideos();
+    pdDesc.querySelectorAll('video').forEach(v => v.pause());
   }
 
   document.getElementById('pd-close').addEventListener('click', closeDetail);
   document.getElementById('pd-back').addEventListener('click', closeDetail);
+  if (location.search.includes('autoclick')) cards[0].click();
 </script>
+<button class="scroll-hint hidden" id="scroll-hint" aria-label="Scroll down">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 6l5 5 5-5"/>
+  </svg>
+</button>
+<script src="js/feedback.js"></script>
+<script src="js/scroll-hint.js"></script>
 </body>
 </html>
