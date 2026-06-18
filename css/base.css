@@ -1,24 +1,16 @@
 :root {
-  --bg:          #F6F0E6;
-  --text:        #221A14;
-  --accent:      #C1502E;
-  --sky:         #ECE2D0;
-  --sky-deep:    #FFFFFF;
-  --nav-bg:      #EFE6D4;
-  --nav-text:    #221A14;
-  --muted:       rgba(34, 26, 20, 0.55);
-  --border:      rgba(34, 26, 20, 0.16);
-  --heart-color: #C1502E;
-
-  /* chat easter egg */
-  --faint:        rgba(34, 26, 20, 0.38);
-  --bubble-in-bg: #EEE4D2;
-  --bubble-in-bd: rgba(34, 26, 20, 0.14);
-  --typing-bg:    rgba(193, 80, 46, 0.14);
-  --typing-bd:    rgba(193, 80, 46, 0.28);
-  --chip-bg:      rgba(193, 80, 46, 0.09);
-  --fade-color:   var(--bg);
-  --accent-text:  #fff;
+  --bg:           #FFFFFF;
+  --text:         #1A2233;
+  --accent:       #1A2233;
+  --sky:          #F2F2F2;
+  --sky-deep:     #FFFFFF;
+  --nav-bg:       #FFFFFF;
+  --nav-text:     #1A2233;
+  --muted:        rgba(26, 34, 51, 0.55);
+  --border:       rgba(26, 34, 51, 0.14);
+  --heart-color:  #9B6F9B;
+  --card-elevated: #C7D7EF;
+  --chip-bg:      rgba(26, 34, 51, 0.06);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
@@ -81,6 +73,37 @@
   transform: scale(1.2) translateY(-2px);
 }
 
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s, color 0.2s, border-color 0.2s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.copy-email-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.copy-email-btn.copied {
+  color: var(--accent);
+  border-color: var(--accent);
+  opacity: 1;
+}
+
 @media (max-width: 700px) {
   .page-footer { padding: 1.2rem 1.5rem; }
 }
@@ -139,7 +162,7 @@ body {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  font-family: 'Newsreader', serif;
+  font-family: 'League Spartan', sans-serif;
   color: var(--text);
   padding-bottom: 4.7rem;
 }

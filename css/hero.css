@@ -7,6 +7,23 @@
   z-index: 2;
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -8% -5%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(255, 199, 163, 0.65), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(176, 201, 245, 0.65), transparent 30%),
+    radial-gradient(circle at 60% 92%, rgba(216, 196, 240, 0.55), transparent 34%);
+  background-blend-mode: screen;
+  filter: blur(70px);
+  transform: translate(calc(var(--mx, 0) * 1px), calc(var(--my, 0) * 1px));
+  transition: transform 0.6s ease-out;
+  will-change: transform;
+}
+
 .hero-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -36,7 +53,7 @@
 
 .heading-text {
   display: block;
-  font-family: 'Newsreader', serif;
+  font-family: 'League Spartan', sans-serif;
   font-weight: 600;
   font-size: 56px;
   line-height: 1.1;
@@ -68,7 +85,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Newsreader', serif;
+  font-family: 'League Spartan', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #fff;
@@ -91,7 +108,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Newsreader', serif;
+  font-family: 'League Spartan', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--text);
@@ -106,13 +123,13 @@
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(26, 26, 24, 0.12);
+  box-shadow: 0 8px 24px rgba(26, 34, 51, 0.12);
 }
 
 .cta:hover {
   filter: brightness(0.88);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(26, 26, 24, 0.12);
+  box-shadow: 0 8px 24px rgba(26, 34, 51, 0.12);
 }
 
 .socials {

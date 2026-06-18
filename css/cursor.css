@@ -36,7 +36,7 @@
 }
 
 #cursor-heart.hovering svg {
-  filter: drop-shadow(0 0 7px rgba(193, 80, 46, 0.5)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 0 7px rgba(26, 34, 51, 0.5)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
 }
 
 #cursor-heart.clicking {
@@ -44,7 +44,7 @@
 }
 
 #cursor-heart.clicking svg {
-  filter: drop-shadow(0 0 10px rgba(193, 80, 46, 0.6)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 0 10px rgba(26, 34, 51, 0.6)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
 }
 
 /* ── Sparkle canvas ────────────────────────────────────────── */
