@@ -82,7 +82,6 @@
 .feedback-emoji {
   background: transparent;
   border: none;
-  font-size: 1.35rem;
   padding: 5px;
   border-radius: 8px;
   cursor: pointer;
@@ -92,6 +91,12 @@
   gap: 4px;
   opacity: 0.5;
   transition: opacity 0.2s, transform 0.2s, background 0.2s;
+}
+
+.feedback-emoji-icon {
+  width: 26px;
+  height: 26px;
+  color: var(--heart-color);
 }
 
 .feedback-emoji span {
@@ -126,6 +131,7 @@
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 4px 10px;
+  font-family: 'League Spartan', sans-serif;
   font-size: 0.74rem;
   color: var(--text);
   cursor: pointer;

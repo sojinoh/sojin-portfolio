@@ -159,11 +159,9 @@
 
 <!-- Feedback bubble -->
 <button class="feedback-toggle hidden" id="feedback-toggle" aria-label="Leave feedback">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="9"/>
-    <circle cx="8.5" cy="10" r="1" fill="currentColor" stroke="none"/>
-    <circle cx="15.5" cy="10" r="1" fill="currentColor" stroke="none"/>
-    <path d="M8 14.5c1.2 1.4 2.6 2 4 2s2.8-.6 4-2"/>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 2L11 13"/>
+    <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
   </svg>
 </button>
 
@@ -175,18 +173,58 @@
   </button>
   <div class="feedback-question feedback-title">Did you find what you were looking for?</div>
   <div class="feedback-emojis" id="feedback-emojis">
-    <button class="feedback-emoji" data-label="Lost me">🥴<span>Lost me</span></button>
-    <button class="feedback-emoji" data-label="Meh">😕<span>Meh</span></button>
-    <button class="feedback-emoji" data-label="Decent">🙂<span>Decent</span></button>
-    <button class="feedback-emoji" data-label="Loved it">😍<span>Loved it</span></button>
-    <button class="feedback-emoji" data-label="Obsessed">🤩<span>Obsessed</span></button>
+    <button class="feedback-emoji" data-label="Lost me">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <path d="M24 23l4 4M24 27l4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <path d="M36 23l4 4M36 27l4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 35q2-2.4 4 0q2 2.4 4 0q2-2.4 4 0q2 2.4 4 0" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>Lost me</span>
+    </button>
+    <button class="feedback-emoji" data-label="Meh">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <path d="M24 25h4" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M36 25h4" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M26 35h12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span>Meh</span>
+    </button>
+    <button class="feedback-emoji" data-label="Decent">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <circle cx="26" cy="25" r="2" fill="white"/>
+        <circle cx="38" cy="25" r="2" fill="white"/>
+        <path d="M26 33Q32 38.5 38 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>Decent</span>
+    </button>
+    <button class="feedback-emoji" data-label="Loved it">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="white" transform="translate(26,24) scale(0.16) translate(-32,-30)"/>
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="white" transform="translate(38,24) scale(0.16) translate(-32,-30)"/>
+        <path d="M23 33Q32 42 41 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>Loved it</span>
+    </button>
+    <button class="feedback-emoji" data-label="Obsessed">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <path d="M26,21 L27.2,23.8 L30,25 L27.2,26.2 L26,29 L24.8,26.2 L22,25 L24.8,23.8 Z" fill="white"/>
+        <path d="M38,21 L39.2,23.8 L42,25 L39.2,26.2 L38,29 L36.8,26.2 L34,25 L36.8,23.8 Z" fill="white"/>
+        <ellipse cx="32" cy="36" rx="3.2" ry="4.4" fill="white"/>
+      </svg>
+      <span>Obsessed</span>
+    </button>
   </div>
   <hr class="feedback-divider">
   <label class="feedback-question feedback-text-label" for="feedback-text">Anything I should do differently?</label>
   <div class="feedback-quick-replies" id="feedback-quick-replies">
-    <button class="feedback-quick-reply" type="button">All good, loved it! 🎉</button>
-    <button class="feedback-quick-reply" type="button">More project details please 🔍</button>
-    <button class="feedback-quick-reply" type="button">More about your design process 🎨</button>
+    <button class="feedback-quick-reply" type="button">All good, loved it!</button>
+    <button class="feedback-quick-reply" type="button">More project details please</button>
+    <button class="feedback-quick-reply" type="button">More about your design process</button>
   </div>
   <textarea class="feedback-text" id="feedback-text" rows="3" placeholder="Type away, or tap a bubble above..."></textarea>
   <button class="feedback-submit" id="feedback-submit" disabled>Send feedback 💌</button>
@@ -203,11 +241,12 @@
           <path d="M11 17v-3.5a2.5 2.5 0 0 1 5 0V17M11 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
       </a>
-      <a class="page-social-icon" href="Sojin_Oh_Resume.pdf" download aria-label="Download Resume">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <a class="resume-download-btn" href="Sojin_Oh_Resume.pdf" download aria-label="Download Resume">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 3v12M7.5 10.5 12 15l4.5-4.5"/>
           <path d="M4 19h16"/>
         </svg>
+        Download Resume
       </a>
       <button class="copy-email-btn" data-email="sojinohh@gmail.com" aria-label="Copy email address">Copy Email</button>
     </div>
