@@ -186,12 +186,13 @@
     const el = document.getElementById('heading-text');
     const segments = [
       { text: 'Hi,', hi: true },
-      { text: " I'm Sojin", hi: false }
+      { text: " I'm ", hi: false }
     ];
     const allChars = [];
     for (const seg of segments) {
       for (const char of seg.text) allChars.push({ char, hi: seg.hi });
     }
+    const names = ['Sojin', '소진'];
 
     const cursor = document.createElement('span');
     cursor.className = 'type-cursor';
@@ -201,22 +202,59 @@
     let i = 0;
     function typeNext() {
       if (i >= allChars.length) {
-        setTimeout(() => {
-          cursor.style.transition = 'opacity 0.5s';
-          cursor.style.opacity = '0';
-          setTimeout(() => cursor.remove(), 500);
-        }, 900);
+        typeNameSeq(0);
         return;
       }
       const { char, hi } = allChars[i];
       const span = document.createElement('span');
       if (hi) span.className = 'heading-hi';
-      span.textContent = char === ' ' ? ' ' : char;
+      span.textContent = char === ' ' ? ' ' : char;
       el.insertBefore(span, cursor);
       const delay = i === pauseAfter ? 520 : 130;
       i++;
       setTimeout(typeNext, delay);
     }
+
+    function typeNameSeq(nameIdx) {
+      typeNameChar(names[nameIdx], 0, nameIdx);
+    }
+
+    function typeNameChar(str, idx, nameIdx) {
+      if (idx >= str.length) {
+        const isLast = nameIdx === names.length - 1;
+        if (isLast) {
+          fadeCursor();
+        } else {
+          setTimeout(() => eraseName(str.length, nameIdx), 850);
+        }
+        return;
+      }
+      const span = document.createElement('span');
+      span.className = 'heading-name-char';
+      span.textContent = str[idx];
+      el.insertBefore(span, cursor);
+      setTimeout(() => typeNameChar(str, idx + 1, nameIdx), 130);
+    }
+
+    function eraseName(count, nameIdx) {
+      if (count <= 0) {
+        setTimeout(() => typeNameSeq(nameIdx + 1), 250);
+        return;
+      }
+      const chars = el.querySelectorAll('.heading-name-char');
+      const last = chars[chars.length - 1];
+      if (last) last.remove();
+      setTimeout(() => eraseName(count - 1, nameIdx), 70);
+    }
+
+    function fadeCursor() {
+      setTimeout(() => {
+        cursor.style.transition = 'opacity 0.5s';
+        cursor.style.opacity = '0';
+        setTimeout(() => cursor.remove(), 500);
+      }, 900);
+    }
+
     typeNext();
   })();
 </script>
