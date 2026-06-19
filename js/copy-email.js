@@ -1,11 +1,12 @@
 document.querySelectorAll('.copy-email-btn').forEach(btn => {
-  const original = btn.textContent;
+  const label = btn.querySelector('.copy-email-label');
+  const original = label.textContent;
   btn.addEventListener('click', () => {
     navigator.clipboard.writeText(btn.dataset.email).then(() => {
-      btn.textContent = 'Copied!';
+      label.textContent = 'Copied!';
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.textContent = original;
+        label.textContent = original;
         btn.classList.remove('copied');
       }, 1500);
     });
