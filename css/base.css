@@ -168,4 +168,19 @@ body {
 
 @media (max-width: 700px) {
   body { padding-bottom: 4.2rem; }
+
+  /* Mobile Safari anchors `position: fixed` to the large viewport (toolbar
+     collapsed), so a fixed bottom-0 footer sits below the visible screen
+     until the page is scrolled once. The homepage never scrolls, so the
+     footer would stay hidden forever — keep it in normal flow there instead,
+     sized to the dynamic (currently visible) viewport. */
+  body:has(.hero) {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding-bottom: 0;
+  }
+
+  body:has(.hero) .page-footer {
+    position: static;
+  }
 }
