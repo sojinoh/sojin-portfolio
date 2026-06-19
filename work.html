@@ -50,7 +50,7 @@
   <section class="page-section work-layout">
 
     <div class="work-tabs" id="work-tabs">
-      <button class="work-tab active" data-category="ux">UX</button>
+      <button class="work-tab active" data-category="ux">UX Design</button>
       <button class="work-tab" data-category="swe">Software Engineering</button>
     </div>
 
@@ -74,7 +74,7 @@
              data-extra-image-label="Just-in-time tutorial"
              data-extra-image-step="3"
              data-problem="Navigating the web on a Fire TV remote meant retyping every URL on a virtual keyboard, every time."
-             data-problem-sub="There was no way to revisit a page without typing it from scratch — one of the most-requested fixes from Silk customers."
+             data-problem-sub="There was no way to revisit a page without typing it from scratch, one of the most-requested fixes from Silk customers."
              data-approach="Worked with Product and UX to design a TV-native history experience, since no comparable interaction model existed on Fire TV remotes||Built the FireTVHistoryManager component on Chromium's history APIs to surface and revisit past pages||Designed and shipped a just-in-time tutorial so customers would discover the feature on their own||Set up Silk's first Weblab-powered A/B experiment to validate the launch, including the underlying metrics integration"
              data-impact="100% Rollout|Shipped to all Silk-on-Fire-TV customers in 2021||No Engagement Drop|A/B testing showed session time, app starts, and page loads all held steady||New Feature Unlocked|The same component became the foundation for Peek Row, a 'recently visited' shortcut later added to the Fire TV home screen">
           <img class="work-card-image" src="images/history.png" alt="Browsing history page on Silk on Fire TV">
@@ -114,9 +114,9 @@
              data-image="images/mario-screenshot.gif"
              data-repo="https://github.com/lionely/MARlQ"
              data-problem="Train an agent to clear World 1-1 of the original Super Mario Bros using reinforcement learning."
-             data-problem-sub="With two classmates, no game rules given — just trial, error, and a reward signal."
+             data-problem-sub="With two classmates, no game rules given: just trial, error, and a reward signal."
              data-approach="Built on an OpenAI Gym Mario environment, representing Mario's surroundings as a 13×16 grid 'box' of state values (empty, object, enemy, Mario)||Implemented ε-greedy Q-learning, tuning epsilon, alpha, and gamma to balance exploration vs. exploitation||Hand-engineered a custom 'R_JUMP' action after realizing the odds of Mario randomly mashing jump+right six times in a row to clear a pipe were essentially zero||Added a standing-still penalty after noticing Mario learned to dodge negative reward by simply not moving"
-             data-impact="7,167 Episodes|Total training run; Mario reliably learned the first stretch of the level, but progress stayed slow and noisy||Learning-Rate Bug Found|Traced the inconsistent progress to an under-tuned alpha (learning rate) overwriting already-learned actions||Next Step: Deep Q-Learning|Concluded a neural network would scale better than a hand-tuned Q-table — and that humans are surprisingly hard to simulate">
+             data-impact="7,167 Episodes|Total training run; Mario reliably learned the first stretch of the level, but progress stayed slow and noisy||Learning-Rate Bug Found|Traced the inconsistent progress to an under-tuned alpha (learning rate) overwriting already-learned actions||Next Step: Deep Q-Learning|Concluded a neural network would scale better than a hand-tuned Q-table, and that humans are surprisingly hard to simulate">
           <img class="work-card-image" src="images/mario-screenshot.png" alt="Trained AI agent playing Super Mario Bros level 1-1">
           <div class="work-card-info">
             <span class="work-card-title">AI Agent — Super Mario Bros</span>
@@ -129,13 +129,13 @@
           </div>
         </div>
 
-        <div class="work-card" data-category="ux" data-year="2017"
+        <div class="work-card" data-category="swe" data-year="2017"
              data-title="Beacon — 911 Location Detection" data-context="1st Place · Macathon 2017, Macalester College"
              data-image="images/beacon-screenshot.png"
              data-repo="https://github.com/sojinoh/cobenesoka"
              data-problem="911 infrastructure is built for landlines and often can't pinpoint a caller's location from a cell phone."
              data-problem-sub="Built in 24 hours at Macalester's Macathon hackathon."
-             data-approach="Built an app that runs in the background and silently transmits GPS data to a server the moment it detects an active 911 call||Surveyed potential users on what they'd actually want in an emergency before designing anything||Stripped the UI down to one big button — in an emergency, that's the only interaction that matters"
+             data-approach="Built an app that runs in the background and silently transmits GPS data to a server the moment it detects an active 911 call||Surveyed potential users on what they'd actually want in an emergency before designing anything||Stripped the UI down to one big button: in an emergency, that's the only interaction that matters"
              data-impact="1st Place Win|Out of all teams at Macathon 2017||Single-Button Design|Judges and beta testers said it was exactly right for an emergency">
           <img class="work-card-image" src="images/beacon-screenshot.png" alt="Beacon app with a one-tap location-sharing screen">
           <div class="work-card-info">
@@ -154,8 +154,8 @@
              data-image="images/glp-menu-screenshot.png"
              data-repo="https://github.com/sojinoh/GLP-Menu-For-Today"
              data-problem="Bugil High School's English-speaking teachers couldn't read the Korean cafeteria menu."
-             data-problem-sub="Direct translation produced nonsense — one dish translated literally to 'six times.'"
-             data-approach="Taught myself HTML, JavaScript, and Google's Image Search API from scratch over two weeks||Sidestepped translation entirely — pulled the first Google Image result for each Korean menu item instead of translating the text"
+             data-problem-sub="Direct translation produced nonsense: one dish translated literally to 'six times.'"
+             data-approach="Taught myself HTML, JavaScript, and Google's Image Search API from scratch over two weeks||Sidestepped translation entirely: pulled the first Google Image result for each Korean menu item instead of translating the text"
              data-impact="Used Daily|By the school's English-speaking faculty, every day||Checked Every Morning|One teacher said she checked the site each morning before deciding whether to pack lunch">
           <img class="work-card-image" src="images/glp-menu-screenshot.png" alt="Today's Lunch Menu website showing the week's cafeteria menu as photos">
           <div class="work-card-info">
@@ -166,6 +166,60 @@
             <span class="work-tag">HTML / CSS</span>
             <span class="work-tag">JavaScript</span>
             <span class="work-tag">Google Image API</span>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="ux" data-year="2026"
+             data-title="Portfolio Website" data-context="Personal · A UX Case Study"
+             data-image="images/portfolio-ux-wireframes-1.jpg"
+             data-repo="https://github.com/sojinoh/sojin-portfolio"
+
+             data-motivation-hook="Maybe you assume a site like this is just AI magic. It's not: there's real thought behind it."
+             data-motivation-text="Before any of this, I'd already shipped a first version of this site with no formal process behind it: starting from a chat-interface concept for the homepage, iterating through a few different chat layouts, and eventually landing on a hand-drawn doodle aesthetic with a custom font I built from my own handwriting, set on a dark green palette."
+             data-motivation-images="images/portfolio-ux-v1-chat.jpg|V1 — chat-interface concept||images/portfolio-ux-v1-chat-v2.jpg|V2 — a later chat layout||images/portfolio-ux-v1-green.jpg|V3 — doodle aesthetic, handwriting font, dark green palette"
+             data-motivation-realization="Looking at it with fresh eyes, the handwriting font and low-contrast dark palette were genuinely hard to read. That was the moment I stopped tweaking by feel and went back to an actual UX design process, starting from empathize, not from the UI."
+
+             data-empathize-hook="Before designing anything, I needed to know who I was actually designing for."
+             data-empathize-persona="Rachael, an imagined, assumption-based persona for a time-pressured UX recruiter who reviews dozens of candidate portfolios. No recruiters were actually interviewed for this exercise: she's a proto-persona built from reasonable assumptions about how hiring works."
+             data-empathize-says="“I need to understand your process, not just the final screens.”;“Where's the case study? I only see mockups.”;“I can't spend more than 5 minutes on each portfolio.”;“Show me the problem you were solving.”;“I need to see measurable impact or outcomes.”"
+             data-empathize-thinks="Wants to justify the hire to a hiring manager;Hopes the portfolio matches the company's domain;Questions if the candidate can present work confidently;Needs to see the candidate's role in team projects;Wants a clear narrative from problem to solution;Worried about time: too many portfolios to review"
+             data-empathize-does="Scans the homepage for 10–15 seconds before diving in;Looks for 2–3 featured case studies up front;Clicks “About” to check background and personality fit;Skips projects with no context, labels, or outcomes;Takes notes on standout candidates for follow-up;Compares the portfolio against job description requirements"
+             data-empathize-feels="Overwhelmed by the volume of portfolios to review;Impressed when a portfolio tells a clear, focused story;Frustrated by slow-loading or hard-to-navigate sites;Uncertain when projects lack context or outcomes;Excited when a candidate shows initiative;Pressured to fill the role quickly and accurately"
+             data-empathize-journey-image="images/portfolio-ux-journey-map.jpg"
+             data-empathize-journey-image-label="Rachael's 7-stage walkthrough, from opening the site to deciding whether to move forward"
+
+             data-define-hook="Empathy research is only useful if it turns into a clear, testable target."
+             data-define-problem="Rachael is a time-pressured UX recruiter who reviews dozens of candidate portfolios. She needs a fast, structured way to assess a candidate's design process and relevant experience, because most portfolios are hard to scan quickly and lack the context to confidently shortlist candidates."
+             data-define-measure="I also wanted a way to actually know whether the redesign worked, not just assume it. So before sketching anything, I decided how I'd measure success: an on-site sentiment survey asking visitors whether they found what they were looking for."
+             data-define-story="As a recruiter hiring for a UX role, I want to quickly evaluate whether a candidate's portfolio demonstrates initiative and a structured design process, so that I can confidently shortlist candidates who are ready to contribute."
+
+             data-ideate-hook="With a problem defined and a way to measure success, it was time to see what already existed, then break the rules a little."
+             data-ideate-goal="My UX portfolio website will let users quickly locate and evaluate design process and relevant experience, which will affect recruiters screening candidates by reducing the time they spend searching for key information. I'll measure effectiveness through sentiment survey responses collected from website visitors."
+             data-ideate-audit="Lisa Sue Fischer|https://www.lisasuefischer.com/|Liked the simple, muted footer with socials and contact info||Penny Banks|https://www.pennybanks.com/|Liked the minimalist styling and font choice||Onyekachi|https://www.onyekachi.design/|Stood out by greeting visitors directly instead of opening on a project grid||Aga Brianna|https://agabrianna.us/|Liked the concise-but-detailed self-description||Most sites||Disliked listing every portfolio project up front: it felt overwhelming"
+             data-ideate-sketches="Sketched 8 rapid concepts in 8 minutes, exploring a sidebar table-of-contents layout, a chat-bubble “Welcome” greeting, a video-led About Me page, and a simple thumbnail grid for Work"
+             data-ideate-crazy8="images/portfolio-ux-crazy8-1.jpg|1. Sidebar contents layout||images/portfolio-ux-crazy8-2.jpg|2. “Welcome” split — TL;DR vs. Detailed||images/portfolio-ux-crazy8-3.jpg|3. Video-led About Me||images/portfolio-ux-crazy8-4.jpg|4. Nav with chat-bubble Summary panel||images/portfolio-ux-crazy8-5.jpg|5. Chat-bubble “Welcome” greeting||images/portfolio-ux-crazy8-6.jpg|6. Progress-bar onboarding flow||images/portfolio-ux-crazy8-7.jpg|7. Portfolio thumbnail grid||images/portfolio-ux-crazy8-8.jpg|8. Person at desk sketching the site"
+             data-ideate-decision="Combined the strongest pieces into one direction: a chat-style greeting on the homepage, a sidebar TL;DR for fast scanning, and a filterable thumbnail grid for Work"
+
+             data-prototype-hook="Time to turn ideas into something concrete enough to click through."
+             data-prototype-flow="Mapped the full click path: homepage → resume download, or About Me / My Work → (My Work) filter projects or open one in a pop-up window → close back to the list → reach the end of About Me, which prompts a contact form or, after deciding to move forward, a resume download"
+             data-prototype-flow-image="images/portfolio-ux-user-flow.jpg"
+             data-prototype-flow-image-label="From homepage to contact or resume download"
+             data-prototype-wireframes="5 screens: Homepage, TL;DR summary, About Me, My Work with filters, and My Work – detailed, a pop-up modal over the grid with a “next” control"
+             data-prototype-wireframes-images="images/portfolio-ux-wireframes-1.jpg|Homepage & TL;DR||images/portfolio-ux-wireframes-2.jpg|TL;DR (cont.) & About Me||images/portfolio-ux-wireframes-3.jpg|My Work & My Work — detailed"
+             data-prototype-digital="Translated the paper sketches into a clean digital wireframe, the version I actually handed to Claude: Homepage, At a Glance (renamed from TL;DR), About Me, a filterable My Work grid, and a My Work detail view, all sharing the same nav."
+
+             data-share-hook="Here's how the wireframes actually became this site, and why each change happened."
+             data-share-steps="Handed the paper wireframes to Claude Code and rebuilt the site from scratch: hero, nav, and page layout structured around the wireframes|Needed a clean foundation that actually followed the wireframes, instead of continuing to patch the ad-hoc V1||Editorial revamp: rewrote the site with real project content and a cleaner, more readable layout|The first Claude-built version still had generic placeholder content: it needed my actual case studies and a layout built for reading, not just looking||Rebrand: moved to League Spartan and a navy palette; redesigned the project detail reports; added the sticky footer and the feedback widget the goal statement called for|This is where the goal statement's promise (a way to measure success) actually got built, alongside a typeface and palette that read as more professional||Latest polish pass: replaced the nav's color-change active state with an underline tab indicator, separated the sort control's styling from the category tabs, redesigned the footer's social links, and documented this very process as a project|Small usability nits kept surfacing as I used my own site day to day. Fixing them, and writing up this case study, is the loop-closing the goal statement asked for"
+             data-share-stats="27 Commits|From the first chat-interface attempt to today's live site||Restarted Once|Scrapped the ad-hoc V1 entirely once the UX process pointed to a clearer direction||Feedback Loop Shipped|The in-site sentiment survey is the exact tool the goal statement defined as the success metric">
+          <img class="work-card-image" src="images/portfolio-ux-wireframes-1.jpg" alt="Hand-drawn paper wireframe of the homepage and TL;DR summary page">
+          <div class="work-card-info">
+            <span class="work-card-title">Portfolio Website</span>
+            <span class="work-card-date">(2026)</span>
+          </div>
+          <div class="work-card-tags">
+            <span class="work-tag">UX Research</span>
+            <span class="work-tag">Wireframing</span>
+            <span class="work-tag">Claude Code</span>
           </div>
         </div>
 
@@ -199,6 +253,21 @@
             </svg>
             Back to projects
           </button>
+        </div>
+      </div>
+
+      <div class="lightbox hidden" id="lightbox">
+        <div class="lightbox-toolbar">
+          <button class="lightbox-btn" id="lightbox-zoom-out" aria-label="Zoom out">−</button>
+          <button class="lightbox-btn" id="lightbox-zoom-in" aria-label="Zoom in">+</button>
+          <button class="lightbox-btn" id="lightbox-close" aria-label="Close">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <path d="M3 3l10 10M13 3 3 13"/>
+            </svg>
+          </button>
+        </div>
+        <div class="lightbox-stage" id="lightbox-stage">
+          <img id="lightbox-img" src="" alt="">
         </div>
       </div>
 
@@ -350,9 +419,11 @@
   // Tabs: switch category
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
+      if (tab.dataset.category === activeCategory) return;
       activeCategory = tab.dataset.category;
       tabs.forEach(t => t.classList.toggle('active', t === tab));
       applyFilters();
+      closeDetail();
     });
   });
 
@@ -425,23 +496,144 @@
     return `<div class="pd-figure"><img src="${card.dataset.extraImage}" alt="${card.dataset.extraImageLabel || ''}"><div class="pd-figure-caption">${label}</div></div>`;
   }
 
+  function pdSWEDesc(card) {
+    const mainImageAlt = card.querySelector('.work-card-image')?.alt || '';
+    const problemMedia = card.dataset.image ? pdImageFigure(card.dataset.image, mainImageAlt) : '';
+    const extraImageStep = parseInt(card.dataset.extraImageStep) || 0;
+    const extraImageHtml = pdExtraImageFigure(card);
+    const inlineStepMedia = extraImageStep ? { [extraImageStep]: extraImageHtml } : null;
+    const workMedia = pdVideoFigure(card) + (extraImageStep ? '' : extraImageHtml);
+
+    return pdDividerSection('The Problem', pdProblemBody(card.dataset.problem, card.dataset.problemSub) + problemMedia) +
+           pdDividerSection('What I Did', pdStepsBody(card.dataset.approach, inlineStepMedia) + workMedia) +
+           pdDividerSection('Result', pdStatsBody(card.dataset.impact));
+  }
+
+  // ── UX framework template: Empathize / Define / Ideate / Prototype / Share & Iterate ──
+  function pdQuadrantsBody(says, thinks, does, feels) {
+    const mk = (label, content) => `<div class="pd-quadrant"><div class="pd-quadrant-label">${label}</div><ul class="pd-quadrant-list">${
+      content.split(';').map(i => `<li>${i.trim()}</li>`).join('')
+    }</ul></div>`;
+    return `<div class="pd-quadrants">${mk('Says', says)}${mk('Thinks', thinks)}${mk('Does', does)}${mk('Feels', feels)}</div>`;
+  }
+
+  function pdQuoteBody(label, text) {
+    return `<div class="pd-quote"><div class="pd-quote-label">${label}</div><p>${text}</p></div>`;
+  }
+
+  function pdBulletsBody(content) {
+    return `<ul class="pd-bullets">${content.split(';').map(i => `<li>${i.trim()}</li>`).join('')}</ul>`;
+  }
+
+  function pdAuditBody(content) {
+    const items = content.split('||').map(i => i.split('|'));
+    return `<div class="pd-audit-list">${items.map(([site, url, note]) => {
+      const siteHtml = url ? `<a href="${url}" target="_blank" rel="noopener">${site}</a>` : site;
+      return `<div class="pd-audit-row"><span class="pd-audit-site">${siteHtml}</span><span class="pd-audit-note">${note}</span></div>`;
+    }).join('')}</div>`;
+  }
+
+  function pdSubhead(label) {
+    return `<div class="pd-subhead">${label}</div>`;
+  }
+
+  function pdReasonStepsBody(content) {
+    const items = content.split('||').map(i => i.split('|'));
+    return `<div class="pd-steps">${items.map(([action, reason], i) => {
+      const stepNum = i + 1;
+      return `<div class="pd-step"><div class="pd-step-num">${String(stepNum).padStart(2, '0')}</div><div class="pd-step-text">${action}${reason ? `<span class="pd-step-reason">Why: ${reason}</span>` : ''}</div></div>`;
+    }).join('')}</div>`;
+  }
+
+  function pdParsePairs(content) {
+    return content.split('||').map(pair => {
+      const [src, label] = pair.split('|');
+      return { src, label };
+    });
+  }
+
+  function pdImageGridBody(content, cols) {
+    const items = pdParsePairs(content);
+    return `<div class="pd-image-grid" style="--pd-grid-cols:${cols}">${items.map(({ src, label }) =>
+      `<figure class="pd-image-grid-item"><img src="${src}" alt="${label || ''}"><figcaption>${label || ''}</figcaption></figure>`
+    ).join('')}</div>`;
+  }
+
+  function pdImageRowBody(content) {
+    const items = pdParsePairs(content);
+    return `<div class="pd-image-row">${items.map(({ src, label }) =>
+      `<figure class="pd-image-row-item"><img src="${src}" alt="${label || ''}"><figcaption>${label || ''}</figcaption></figure>`
+    ).join('')}</div>`;
+  }
+
+  function pdUXDesc(card) {
+    const d = card.dataset;
+
+    const motivationBody =
+      `<p class="pd-problem-lead">${d.motivationHook}</p>` +
+      `<p class="pd-problem-sub">${d.motivationText}</p>` +
+      pdImageRowBody(d.motivationImages) +
+      `<p class="pd-problem-sub">${d.motivationRealization}</p>`;
+
+    const empathizeBody =
+      `<p class="pd-problem-lead">${d.empathizeHook}</p>` +
+      pdSubhead('Persona') +
+      `<p class="pd-problem-sub">${d.empathizePersona}</p>` +
+      pdSubhead('Empathy Map') +
+      pdQuadrantsBody(d.empathizeSays, d.empathizeThinks, d.empathizeDoes, d.empathizeFeels) +
+      pdSubhead('User Journey Map') +
+      (d.empathizeJourneyImage ? pdImageFigure(d.empathizeJourneyImage, d.empathizeJourneyImageLabel) : '');
+
+    const defineBody =
+      `<p class="pd-problem-lead">${d.defineHook}</p>` +
+      pdQuoteBody('Problem Statement', d.defineProblem) +
+      `<p class="pd-problem-sub">${d.defineMeasure}</p>` +
+      pdQuoteBody('User Story', d.defineStory);
+
+    const ideateBody =
+      `<p class="pd-problem-lead">${d.ideateHook}</p>` +
+      pdQuoteBody('Goal Statement', d.ideateGoal) +
+      pdSubhead('Competitive Audit') +
+      pdAuditBody(d.ideateAudit) +
+      `<p class="pd-problem-sub">${d.ideateSketches}</p>` +
+      pdSubhead('Crazy 8s') +
+      (d.ideateCrazy8 ? pdImageGridBody(d.ideateCrazy8, 4) : '') +
+      `<p class="pd-problem-sub">${d.ideateDecision}</p>`;
+
+    const prototypeBody =
+      `<p class="pd-problem-lead">${d.prototypeHook}</p>` +
+      pdSubhead('User Flow') +
+      `<p class="pd-problem-sub">${d.prototypeFlow}</p>` +
+      (d.prototypeFlowImage ? pdImageFigure(d.prototypeFlowImage, d.prototypeFlowImageLabel) : '') +
+      pdSubhead('Paper Wireframes') +
+      `<p class="pd-problem-sub">${d.prototypeWireframes}</p>` +
+      (d.prototypeWireframesImages ? pdImageRowBody(d.prototypeWireframesImages) : '') +
+      pdSubhead('Digital Wireframe') +
+      `<p class="pd-problem-sub">${d.prototypeDigital}</p>` +
+      (d.prototypeDigitalImage ? pdImageFigure(d.prototypeDigitalImage, d.prototypeDigitalImageLabel) : '');
+
+    const shareBody =
+      `<p class="pd-problem-lead">${d.shareHook}</p>` +
+      pdReasonStepsBody(d.shareSteps) +
+      pdStatsBody(d.shareStats);
+
+    return pdDividerSection('Motivation', motivationBody) +
+           pdDividerSection('Empathize', empathizeBody) +
+           pdDividerSection('Define', defineBody) +
+           pdDividerSection('Ideate', ideateBody) +
+           pdDividerSection('Prototype', prototypeBody) +
+           pdDividerSection('Share & Iterate', shareBody);
+  }
+
   cards.forEach(card => {
     card.querySelector('.work-card-image').addEventListener('click', () => {
       pdTitle.textContent   = card.dataset.title;
       pdContext.textContent = card.dataset.context;
       pdTags.innerHTML      = card.querySelector('.work-card-tags').innerHTML;
 
-      const mainImageAlt = card.querySelector('.work-card-image')?.alt || '';
-      const problemMedia = card.dataset.image ? pdImageFigure(card.dataset.image, mainImageAlt) : '';
-      const extraImageStep = parseInt(card.dataset.extraImageStep) || 0;
-      const extraImageHtml = pdExtraImageFigure(card);
-      const inlineStepMedia = extraImageStep ? { [extraImageStep]: extraImageHtml } : null;
-      const workMedia = pdVideoFigure(card) + (extraImageStep ? '' : extraImageHtml);
-
-      pdDesc.innerHTML =
-        pdDividerSection('The Problem', pdProblemBody(card.dataset.problem, card.dataset.problemSub) + problemMedia) +
-        pdDividerSection('What I Did', pdStepsBody(card.dataset.approach, inlineStepMedia) + workMedia) +
-        pdDividerSection('Result', pdStatsBody(card.dataset.impact));
+      pdDesc.innerHTML = (card.dataset.category === 'ux' && card.dataset.empathizeSays)
+        ? pdUXDesc(card)
+        : pdSWEDesc(card);
 
       pdDesc.querySelectorAll('video').forEach(v => {
         v.playbackRate = 2;
@@ -464,10 +656,54 @@
     detail.classList.add('hidden');
     grid.classList.remove('hidden');
     pdDesc.querySelectorAll('video').forEach(v => v.pause());
+    closeLightbox();
   }
 
   document.getElementById('pd-close').addEventListener('click', closeDetail);
   document.getElementById('pd-back').addEventListener('click', closeDetail);
+
+  // Lightbox: zoomable image popup for any image inside the project detail
+  const lightbox      = document.getElementById('lightbox');
+  const lightboxImg   = document.getElementById('lightbox-img');
+  const lightboxStage = document.getElementById('lightbox-stage');
+  let lightboxZoom = 1;
+
+  function setLightboxZoom(zoom) {
+    lightboxZoom = Math.min(3, Math.max(1, zoom));
+    lightboxImg.style.transform = `scale(${lightboxZoom})`;
+    lightboxImg.classList.toggle('zoomed', lightboxZoom > 1);
+  }
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    setLightboxZoom(1);
+    lightbox.classList.remove('hidden');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('hidden');
+    lightboxImg.src = '';
+  }
+
+  pdDesc.addEventListener('click', e => {
+    const img = e.target.closest('img');
+    if (img) openLightbox(img.src, img.alt);
+  });
+
+  lightboxImg.addEventListener('click', () => setLightboxZoom(lightboxZoom > 1 ? 1 : 2));
+  document.getElementById('lightbox-zoom-in').addEventListener('click', () => setLightboxZoom(lightboxZoom + 0.5));
+  document.getElementById('lightbox-zoom-out').addEventListener('click', () => setLightboxZoom(lightboxZoom - 0.5));
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+
+  // Click outside the image/toolbar (on the dark overlay or scroll stage) closes it
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox || e.target === lightboxStage) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
+  });
 </script>
 <button class="scroll-hint hidden" id="scroll-hint" aria-label="Scroll down">
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
