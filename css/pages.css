@@ -886,23 +886,23 @@ body { overflow-y: auto; }
   align-items: center;
   gap: 6px;
   background: transparent;
-  border: 1.5px solid var(--border);
-  border-radius: 16px;
-  padding: 7px 16px;
+  border: none;
+  border-radius: 0;
+  padding: 7px 2px;
   font-family: 'League Spartan', sans-serif;
   font-weight: 600;
   font-size: 0.85rem;
-  color: var(--text);
+  color: var(--muted);
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.15s;
+  transition: color 0.15s;
 }
 
-.filter-sort-btn:hover,
+.filter-sort-btn:hover {
+  color: var(--text);
+}
+
 .filter-sort-btn.active {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--chip-bg);
-  transform: translateY(-2px);
+  color: var(--text);
 }
 
 .filter-meta {
@@ -915,13 +915,6 @@ body { overflow-y: auto; }
   color: var(--text);
 }
 
-
-/* ── Active nav link ─────────────────────────────────────────── */
-.nav-img-link.active {
-  opacity: 1;
-  color: var(--heart-color);
-  font-weight: 800;
-}
 
 /* ── At a Glance page layout ────────────────────────────────── */
 .glance-layout {
