@@ -188,25 +188,24 @@
              data-empathize-journey-image="images/portfolio-ux-journey-map.jpg"
              data-empathize-journey-image-label="Rachael's 7-stage walkthrough, from opening the site to deciding whether to move forward"
 
-             data-define-hook="Empathy research is only useful if it turns into a clear, testable target."
              data-define-problem="Rachael is a time-pressured UX recruiter who reviews dozens of candidate portfolios. She needs a fast, structured way to assess a candidate's design process and relevant experience, because most portfolios are hard to scan quickly and lack the context to confidently shortlist candidates."
              data-define-measure="I also wanted a way to actually know whether the redesign worked, not just assume it. So before sketching anything, I decided how I'd measure success: an on-site sentiment survey asking visitors whether they found what they were looking for."
              data-define-story="As a recruiter hiring for a UX role, I want to quickly evaluate whether a candidate's portfolio demonstrates initiative and a structured design process, so that I can confidently shortlist candidates who are ready to contribute."
 
              data-ideate-hook="With a problem defined and a way to measure success, it was time to see what already existed, then break the rules a little."
              data-ideate-goal="My UX portfolio website will let users quickly locate and evaluate design process and relevant experience, which will affect recruiters screening candidates by reducing the time they spend searching for key information. I'll measure effectiveness through sentiment survey responses collected from website visitors."
-             data-ideate-audit="Lisa Sue Fischer|https://www.lisasuefischer.com/|Liked the simple, muted footer with socials and contact info||Penny Banks|https://www.pennybanks.com/|Liked the minimalist styling and font choice||Onyekachi|https://www.onyekachi.design/|Stood out by greeting visitors directly instead of opening on a project grid||Aga Brianna|https://agabrianna.us/|Liked the concise-but-detailed self-description||Most sites||Disliked listing every portfolio project up front: it felt overwhelming"
+             data-ideate-audit="Lisa Fischer|Liked the simple, muted footer with socials and contact info|https://www.lisasuefischer.com/||Penny Banks|Liked the minimalist styling and font choice|https://www.pennybanks.com/||Onyekachi Nwabueze|Stood out by greeting visitors directly instead of opening on a project grid|https://www.onyekachi.design/||Gabi Dumaguin|Liked the concise-but-detailed self-description|https://gabrianna.us/||Most sites|Disliked listing every portfolio project up front: it felt overwhelming"
              data-ideate-sketches="Sketched 8 rapid concepts in 8 minutes, exploring a sidebar table-of-contents layout, a chat-bubble “Welcome” greeting, a video-led About Me page, and a simple thumbnail grid for Work"
              data-ideate-crazy8="images/portfolio-ux-crazy8-1.jpg|1. Sidebar contents layout||images/portfolio-ux-crazy8-2.jpg|2. “Welcome” split — TL;DR vs. Detailed||images/portfolio-ux-crazy8-3.jpg|3. Video-led About Me||images/portfolio-ux-crazy8-4.jpg|4. Nav with chat-bubble Summary panel||images/portfolio-ux-crazy8-5.jpg|5. Chat-bubble “Welcome” greeting||images/portfolio-ux-crazy8-6.jpg|6. Progress-bar onboarding flow||images/portfolio-ux-crazy8-7.jpg|7. Portfolio thumbnail grid||images/portfolio-ux-crazy8-8.jpg|8. Person at desk sketching the site"
              data-ideate-decision="Combined the strongest pieces into one direction: a chat-style greeting on the homepage, a sidebar TL;DR for fast scanning, and a filterable thumbnail grid for Work"
 
-             data-prototype-hook="Time to turn ideas into something concrete enough to click through."
              data-prototype-flow="Mapped the full click path: homepage → resume download, or About Me / My Work → (My Work) filter projects or open one in a pop-up window → close back to the list → reach the end of About Me, which prompts a contact form or, after deciding to move forward, a resume download"
              data-prototype-flow-image="images/portfolio-ux-user-flow.jpg"
              data-prototype-flow-image-label="From homepage to contact or resume download"
              data-prototype-wireframes="5 screens: Homepage, TL;DR summary, About Me, My Work with filters, and My Work – detailed, a pop-up modal over the grid with a “next” control"
              data-prototype-wireframes-images="images/portfolio-ux-wireframes-1.jpg|Homepage & TL;DR||images/portfolio-ux-wireframes-2.jpg|TL;DR (cont.) & About Me||images/portfolio-ux-wireframes-3.jpg|My Work & My Work — detailed"
              data-prototype-digital="Translated the paper sketches into a clean digital wireframe, the version I actually handed to Claude: Homepage, At a Glance (renamed from TL;DR), About Me, a filterable My Work grid, and a My Work detail view, all sharing the same nav."
+             data-prototype-digital-images="images/portfolio-ux-digital-wireframe-1.jpg|Homepage||images/portfolio-ux-digital-wireframe-2.jpg|At a Glance||images/portfolio-ux-digital-wireframe-3.jpg|My Work||images/portfolio-ux-digital-wireframe-4.jpg|About Me||images/portfolio-ux-digital-wireframe-5.jpg|My Work, filtered grid||images/portfolio-ux-digital-wireframe-6.jpg|Project detail view"
 
              data-share-hook="Here's how the wireframes actually became this site, and why each change happened."
              data-share-steps="Handed the paper wireframes to Claude Code and rebuilt the site from scratch: hero, nav, and page layout structured around the wireframes|Needed a clean foundation that actually followed the wireframes, instead of continuing to patch the ad-hoc V1||Editorial revamp: rewrote the site with real project content and a cleaner, more readable layout|The first Claude-built version still had generic placeholder content: it needed my actual case studies and a layout built for reading, not just looking||Rebrand: moved to League Spartan and a navy palette; redesigned the project detail reports; added the sticky footer and the feedback widget the goal statement called for|This is where the goal statement's promise (a way to measure success) actually got built, alongside a typeface and palette that read as more professional||Latest polish pass: replaced the nav's color-change active state with an underline tab indicator, separated the sort control's styling from the category tabs, redesigned the footer's social links, and documented this very process as a project|Small usability nits kept surfacing as I used my own site day to day. Fixing them, and writing up this case study, is the loop-closing the goal statement asked for"
@@ -276,12 +275,16 @@
 </main>
 
 <!-- Feedback bubble -->
-<button class="feedback-toggle hidden" id="feedback-toggle" aria-label="Leave feedback">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M22 2L11 13"/>
-    <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
-  </svg>
-</button>
+<div class="feedback-toggle-wrap">
+  <button class="feedback-toggle hidden" id="feedback-toggle" aria-label="Leave feedback">
+    <img class="feedback-icon" src="images/feedback-icon.png" alt="">
+  </button>
+  <button class="feedback-dismiss" id="feedback-dismiss" aria-label="Hide feedback button">
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <path d="M1 1l8 8M9 1l-8 8"/>
+    </svg>
+  </button>
+</div>
 
 <div class="feedback-card hidden" id="feedback-card">
   <button class="feedback-close" id="feedback-close" aria-label="Minimize">
@@ -448,7 +451,7 @@
   const pdRepo    = document.getElementById('pd-repo');
 
   function pdDividerSection(label, body) {
-    return `<div class="pd-section"><div class="pd-divider"><span>${label}</span></div>${body}</div>`;
+    return `<div class="pd-section"><div class="pd-divider"><span>${label}</span></div><div class="pd-section-body">${body}</div></div>`;
   }
 
   function pdProblemBody(lead, sub) {
@@ -471,9 +474,10 @@
     ).join('')}</div>`;
   }
 
-  function pdImageFigure(src, alt) {
+  function pdImageFigure(src, alt, extraClass) {
     const label = alt || 'Screenshot';
-    return `<div class="pd-figure"><img src="${src}" alt="${alt || ''}"><div class="pd-figure-caption">${label}</div></div>`;
+    const cls = extraClass ? `pd-figure ${extraClass}` : 'pd-figure';
+    return `<div class="${cls}"><img src="${src}" alt="${alt || ''}"><div class="pd-figure-caption">${label}</div></div>`;
   }
 
   function pdVideoFigure(card) {
@@ -527,7 +531,7 @@
 
   function pdAuditBody(content) {
     const items = content.split('||').map(i => i.split('|'));
-    return `<div class="pd-audit-list">${items.map(([site, url, note]) => {
+    return `<div class="pd-audit-list">${items.map(([site, note, url]) => {
       const siteHtml = url ? `<a href="${url}" target="_blank" rel="noopener">${site}</a>` : site;
       return `<div class="pd-audit-row"><span class="pd-audit-site">${siteHtml}</span><span class="pd-audit-note">${note}</span></div>`;
     }).join('')}</div>`;
@@ -570,13 +574,13 @@
     const d = card.dataset;
 
     const motivationBody =
-      `<p class="pd-problem-lead">${d.motivationHook}</p>` +
+      `<p class="pd-problem-sub">${d.motivationHook}</p>` +
       `<p class="pd-problem-sub">${d.motivationText}</p>` +
       pdImageRowBody(d.motivationImages) +
       `<p class="pd-problem-sub">${d.motivationRealization}</p>`;
 
     const empathizeBody =
-      `<p class="pd-problem-lead">${d.empathizeHook}</p>` +
+      `<p class="pd-problem-sub">${d.empathizeHook}</p>` +
       pdSubhead('Persona') +
       `<p class="pd-problem-sub">${d.empathizePersona}</p>` +
       pdSubhead('Empathy Map') +
@@ -585,13 +589,12 @@
       (d.empathizeJourneyImage ? pdImageFigure(d.empathizeJourneyImage, d.empathizeJourneyImageLabel) : '');
 
     const defineBody =
-      `<p class="pd-problem-lead">${d.defineHook}</p>` +
       pdQuoteBody('Problem Statement', d.defineProblem) +
       `<p class="pd-problem-sub">${d.defineMeasure}</p>` +
       pdQuoteBody('User Story', d.defineStory);
 
     const ideateBody =
-      `<p class="pd-problem-lead">${d.ideateHook}</p>` +
+      `<p class="pd-problem-sub">${d.ideateHook}</p>` +
       pdQuoteBody('Goal Statement', d.ideateGoal) +
       pdSubhead('Competitive Audit') +
       pdAuditBody(d.ideateAudit) +
@@ -601,19 +604,18 @@
       `<p class="pd-problem-sub">${d.ideateDecision}</p>`;
 
     const prototypeBody =
-      `<p class="pd-problem-lead">${d.prototypeHook}</p>` +
       pdSubhead('User Flow') +
       `<p class="pd-problem-sub">${d.prototypeFlow}</p>` +
-      (d.prototypeFlowImage ? pdImageFigure(d.prototypeFlowImage, d.prototypeFlowImageLabel) : '') +
+      (d.prototypeFlowImage ? pdImageFigure(d.prototypeFlowImage, d.prototypeFlowImageLabel, 'pd-figure-small') : '') +
       pdSubhead('Paper Wireframes') +
       `<p class="pd-problem-sub">${d.prototypeWireframes}</p>` +
       (d.prototypeWireframesImages ? pdImageRowBody(d.prototypeWireframesImages) : '') +
       pdSubhead('Digital Wireframe') +
       `<p class="pd-problem-sub">${d.prototypeDigital}</p>` +
-      (d.prototypeDigitalImage ? pdImageFigure(d.prototypeDigitalImage, d.prototypeDigitalImageLabel) : '');
+      (d.prototypeDigitalImages ? pdImageGridBody(d.prototypeDigitalImages, 3) : '');
 
     const shareBody =
-      `<p class="pd-problem-lead">${d.shareHook}</p>` +
+      `<p class="pd-problem-sub">${d.shareHook}</p>` +
       pdReasonStepsBody(d.shareSteps) +
       pdStatsBody(d.shareStats);
 
@@ -670,8 +672,12 @@
 
   function setLightboxZoom(zoom) {
     lightboxZoom = Math.min(3, Math.max(1, zoom));
-    lightboxImg.style.transform = `scale(${lightboxZoom})`;
+    lightboxImg.style.width = lightboxZoom > 1 ? `${lightboxZoom * 90}vw` : '';
     lightboxImg.classList.toggle('zoomed', lightboxZoom > 1);
+    requestAnimationFrame(() => {
+      lightboxStage.scrollLeft = (lightboxStage.scrollWidth - lightboxStage.clientWidth) / 2;
+      lightboxStage.scrollTop = (lightboxStage.scrollHeight - lightboxStage.clientHeight) / 2;
+    });
   }
 
   function openLightbox(src, alt) {
@@ -691,7 +697,36 @@
     if (img) openLightbox(img.src, img.alt);
   });
 
-  lightboxImg.addEventListener('click', () => setLightboxZoom(lightboxZoom > 1 ? 1 : 2));
+  // Drag to pan when zoomed in
+  let isPanning = false, panMoved = false, panStartX, panStartY, scrollStartX, scrollStartY;
+
+  lightboxImg.addEventListener('mousedown', e => {
+    if (lightboxZoom <= 1) return;
+    isPanning = true;
+    panMoved = false;
+    panStartX = e.clientX;
+    panStartY = e.clientY;
+    scrollStartX = lightboxStage.scrollLeft;
+    scrollStartY = lightboxStage.scrollTop;
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (!isPanning) return;
+    const dx = e.clientX - panStartX;
+    const dy = e.clientY - panStartY;
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) panMoved = true;
+    lightboxStage.scrollLeft = scrollStartX - dx;
+    lightboxStage.scrollTop = scrollStartY - dy;
+  });
+
+  window.addEventListener('mouseup', () => { isPanning = false; });
+
+  lightboxImg.addEventListener('click', () => {
+    if (panMoved) return;
+    setLightboxZoom(lightboxZoom > 1 ? 1 : 2);
+  });
+
   document.getElementById('lightbox-zoom-in').addEventListener('click', () => setLightboxZoom(lightboxZoom + 0.5));
   document.getElementById('lightbox-zoom-out').addEventListener('click', () => setLightboxZoom(lightboxZoom - 0.5));
   document.getElementById('lightbox-close').addEventListener('click', closeLightbox);

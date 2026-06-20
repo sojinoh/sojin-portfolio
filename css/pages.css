@@ -737,7 +737,7 @@ body { overflow-y: auto; }
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin: 2.6rem 0 1.4rem;
+  margin: 3.6rem 0 1.6rem;
 }
 
 .pd-section:first-child .pd-divider { margin-top: 0.6rem; }
@@ -758,7 +758,13 @@ body { overflow-y: auto; }
   background: var(--border);
 }
 
-.pd-section { margin-bottom: 0.4rem; }
+.pd-section { margin-bottom: 0.8rem; }
+
+.pd-section-body { padding-left: 1.4rem; }
+
+@media (max-width: 700px) {
+  .pd-section-body { padding-left: 0.8rem; }
+}
 
 /* ── Problem: lead statement + supporting line ──────────────── */
 .pd-problem-lead {
@@ -778,13 +784,21 @@ body { overflow-y: auto; }
 
 /* ── Inline figures (image / video) within the flow ─────────── */
 .pd-figure { margin: 1.6rem auto; max-width: 82%; }
+.pd-figure-small { max-width: 64%; }
 .pd-figure img, .pd-figure video {
   width: 100%;
   border-radius: 10px;
   display: block;
   background: var(--sky);
 }
-.pd-figure img { cursor: zoom-in; }
+.pd-figure img {
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pd-figure img:hover {
+  transform: scale(1.015);
+  box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
+}
 .pd-figure-caption {
   font-size: 0.78rem;
   letter-spacing: 0.04em;
@@ -840,7 +854,7 @@ body { overflow-y: auto; }
 }
 
 /* ── Result: by-the-numbers strip ────────────────────────────── */
-.pd-stats { display: flex; flex-wrap: wrap; }
+.pd-stats { display: flex; flex-wrap: wrap; margin-top: 1.6rem; }
 
 .pd-stat {
   flex: 1;
@@ -1087,6 +1101,11 @@ body { overflow-y: auto; }
   display: block;
   background: var(--sky);
   cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pd-image-grid-item img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
 }
 
 .pd-image-grid-item figcaption {
@@ -1115,6 +1134,11 @@ body { overflow-y: auto; }
   display: block;
   background: var(--sky);
   cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pd-image-row-item img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
 }
 
 .pd-image-row-item figcaption {
@@ -1335,21 +1359,26 @@ body { overflow-y: auto; }
   max-width: 90vw;
   max-height: 90vh;
   overflow: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .lightbox-stage img {
+  display: block;
+  margin: 0 auto;
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 8px;
-  transition: transform 0.2s ease;
-  transform-origin: center center;
+  transition: width 0.2s ease;
   cursor: zoom-in;
+  user-select: none;
 }
 
-.lightbox-stage img.zoomed { cursor: zoom-out; }
+.lightbox-stage img.zoomed {
+  max-width: none;
+  max-height: none;
+  cursor: grab;
+}
+
+.lightbox-stage img.zoomed:active { cursor: grabbing; }
 
 .lightbox-toolbar {
   position: fixed;

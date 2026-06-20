@@ -179,12 +179,16 @@
 </main>
 
 <!-- Feedback bubble -->
-<button class="feedback-toggle hidden" id="feedback-toggle" aria-label="Leave feedback">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M22 2L11 13"/>
-    <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
-  </svg>
-</button>
+<div class="feedback-toggle-wrap">
+  <button class="feedback-toggle hidden" id="feedback-toggle" aria-label="Leave feedback">
+    <img class="feedback-icon" src="images/feedback-icon.png" alt="">
+  </button>
+  <button class="feedback-dismiss" id="feedback-dismiss" aria-label="Hide feedback button">
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <path d="M1 1l8 8M9 1l-8 8"/>
+    </svg>
+  </button>
+</div>
 
 <div class="feedback-card hidden" id="feedback-card">
   <button class="feedback-close" id="feedback-close" aria-label="Minimize">
