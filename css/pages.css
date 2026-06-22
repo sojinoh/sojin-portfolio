@@ -1582,6 +1582,39 @@ h2.timeline-title {
   opacity: 1;
 }
 
+.glance-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 4px;
+  background: var(--text);
+  font-family: 'League Spartan', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--heart-color);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.glance-resume-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--heart-color);
+}
+
+.glance-resume-btn:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0 var(--heart-color);
+}
+
 .glance-toc-mobile { display: none; }
 
 .glance-main { flex: 1; min-width: 0; }
