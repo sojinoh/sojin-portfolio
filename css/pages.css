@@ -83,36 +83,30 @@ body { overflow-y: auto; }
   justify-content: center;
   gap: 5px;
   padding: 8px 8px;
-  border: 1.5px solid color-mix(in srgb, var(--heart-color) 45%, transparent);
-  border-radius: 16px;
-  background: color-mix(in srgb, var(--heart-color) 14%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  border: none;
+  border-radius: 4px;
+  background: var(--text);
   font-family: 'League Spartan', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--heart-color);
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 4px 10px rgba(26, 34, 51, 0.12);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s, border-color 0.15s;
+  box-shadow: 3px 3px 0 var(--heart-color);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .intro-cta-btn:hover {
-  transform: translateY(-2px);
-  background: color-mix(in srgb, var(--heart-color) 24%, transparent);
-  border-color: color-mix(in srgb, var(--heart-color) 60%, transparent);
-  box-shadow: 0 6px 14px rgba(26, 34, 51, 0.16);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--heart-color);
 }
 
 .intro-cta-btn:active, .intro-cta-btn.copied {
-  background: color-mix(in srgb, var(--heart-color) 32%, transparent);
-  border-color: color-mix(in srgb, var(--heart-color) 70%, transparent);
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(26, 34, 51, 0.1);
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0 var(--heart-color);
 }
 
 .intro-text-group {
@@ -146,26 +140,15 @@ body { overflow-y: auto; }
   margin: 0 0 1.3rem;
 }
 
-.timeline-title {
+h2.timeline-title {
   font-family: 'League Spartan', sans-serif;
   font-weight: 700;
   font-size: 1.9rem;
   color: var(--text);
   text-align: center;
-  margin: 2.6rem 0 0;
-  padding-bottom: 1.3rem;
+  margin: 4.5rem 0 0;
+  padding-bottom: 0.5rem;
   border-bottom: none;
-  position: relative;
-}
-
-.timeline-title::after {
-  content: '♥';
-  position: absolute;
-  bottom: -0.1rem;
-  left: 50%;
-  font-size: 0.85rem;
-  color: var(--heart-color);
-  transform: translateX(-50%);
 }
 
 /* ── Life stepper (sticky stage indicator) ───────────────────── */
@@ -173,13 +156,58 @@ body { overflow-y: auto; }
   position: sticky;
   top: 0;
   z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding: 0.9rem 0;
-  margin: 1.8rem 0 2.8rem;
+  margin: 0.3rem 0 2.8rem;
+}
+
+.life-stepper-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 22px;
+}
+
+.life-stepper-heart {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--heart-color);
+  transform: translate(-50%, calc(-100% - 8px));
+  transition: left 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--heart-color) 55%, transparent));
+  pointer-events: none;
+  z-index: 6;
+  animation: life-stepper-heart-bob 1.6s ease-in-out infinite;
+}
+
+.life-stepper-heart.is-arriving {
+  animation: life-stepper-heart-bob 1.6s ease-in-out infinite, life-stepper-heart-arrive 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes life-stepper-heart-bob {
+  0%, 100% { transform: translate(-50%, calc(-100% - 8px)); }
+  50% { transform: translate(-50%, calc(-100% - 3px)); }
+}
+
+@keyframes life-stepper-heart-arrive {
+  0% { transform: translate(-50%, calc(-100% - 8px)) scale(0.6); }
+  60% { transform: translate(-50%, calc(-100% - 8px)) scale(1.25); }
+  100% { transform: translate(-50%, calc(-100% - 8px)) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .life-stepper-heart {
+    transition: none;
+    animation: none;
+  }
+  .life-stepper-heart.is-arriving {
+    animation: none;
+  }
 }
 
 .life-stepper-step {
@@ -206,19 +234,12 @@ body { overflow-y: auto; }
 }
 
 .life-stepper-num {
-  width: 26px;
-  height: 26px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: 1.5px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'League Spartan', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--muted);
   flex-shrink: 0;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .life-stepper-text {
@@ -246,17 +267,19 @@ body { overflow-y: auto; }
   transition: color 0.2s;
 }
 
-.life-stepper-step.active .life-stepper-num { background: var(--accent); border-color: var(--accent); color: #fff; }
+.life-stepper-step.active .life-stepper-num { background: var(--accent); border-color: var(--accent); }
 .life-stepper-step.active .life-stepper-label { color: var(--accent); font-weight: 700; }
 .life-stepper-step.active .life-stepper-year { color: var(--accent); }
 
 @media (max-width: 700px) {
   .life-stepper {
+    margin: 1.2rem -1.5rem 2.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+  .life-stepper-track {
     justify-content: flex-start;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    margin: 1.2rem -1.5rem 2.2rem;
-    padding: 0.8rem 1.5rem;
   }
   .life-stepper-step:not(:last-child) { margin-right: 22px; }
   .life-stepper-step:not(:last-child)::after { width: 14px; }
@@ -616,13 +639,55 @@ body { overflow-y: auto; }
 .timeline-v {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.timeline-v-progress {
+  position: absolute;
+  left: calc(3.1rem + 6px);
+  top: 4px;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(to bottom, transparent, var(--heart-color));
+  box-shadow: 0 0 10px 2px color-mix(in srgb, var(--heart-color) 30%, transparent);
+  z-index: 1;
+  pointer-events: none;
+  animation: timeline-ambient-glow 3.5s ease-in-out infinite;
+}
+
+@keyframes timeline-ambient-glow {
+  0%, 100% { box-shadow: 0 0 10px 2px color-mix(in srgb, var(--heart-color) 25%, transparent); }
+  50% { box-shadow: 0 0 18px 3px color-mix(in srgb, var(--heart-color) 45%, transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-v-progress { animation: none; }
 }
 
 .timeline-v-stop {
   display: flex;
   gap: 1.4rem;
-  cursor: pointer;
 }
+
+.timeline-v-track {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.timeline-v-year {
+  width: 2.5rem;
+  flex-shrink: 0;
+  text-align: right;
+  margin-top: 2px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+.timeline-v-stop.active .timeline-v-year { color: var(--heart-color); }
 
 .timeline-v-rail {
   display: flex;
@@ -651,14 +716,10 @@ body { overflow-y: auto; }
   margin-top: 4px;
 }
 
-.timeline-v-stop:not(.active):hover .timeline-v-node {
-  border-color: var(--accent);
-  transform: scale(1.15);
-}
-
 .timeline-v-stop.active .timeline-v-node {
-  background: var(--text);
-  border-color: var(--text);
+  background: var(--heart-color);
+  border-color: var(--heart-color);
+  box-shadow: 0 0 6px 1px color-mix(in srgb, var(--heart-color) 55%, transparent);
   transform: scale(1.2);
 }
 
@@ -677,14 +738,14 @@ body { overflow-y: auto; }
   letter-spacing: 0.06em;
 }
 
-.timeline-title {
+.timeline-v-title {
   font-size: 1.1rem;
   line-height: 1.4;
   margin-bottom: 0.3rem;
   transition: color 0.3s ease;
 }
 
-.timeline-v-stop.active .timeline-title { color: var(--accent); }
+.timeline-v-stop.active .timeline-v-title { color: var(--heart-color); }
 
 .timeline-sub {
   font-size: 0.92rem;
@@ -700,8 +761,35 @@ body { overflow-y: auto; }
   color: var(--text);
   opacity: 0.75;
   line-height: 1.6;
-  max-width: 480px;
+  max-width: none;
   margin-top: 0.5rem;
+}
+
+.timeline-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: none;
+  margin: 0.5rem 0 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.timeline-detail-list li {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 0.98rem;
+  color: var(--text);
+  opacity: 0.75;
+  line-height: 1.5;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.timeline-detail-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
 }
 
 .work-card.hidden { display: none; }
@@ -1402,6 +1490,9 @@ body { overflow-y: auto; }
   flex-shrink: 0;
   position: sticky;
   top: 2rem;
+  background: var(--card-elevated);
+  border-radius: 18px;
+  padding: 1.3rem;
 }
 
 .glance-profile {
@@ -1409,10 +1500,9 @@ body { overflow-y: auto; }
   flex-direction: column;
   align-items: center;
   text-align: left;
-  padding: 1.8rem 1.6rem;
-  margin-bottom: 1.8rem;
-  background: var(--chip-bg);
-  border-radius: 16px;
+  padding: 0 0 1.2rem 0;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .glance-profile-photo {
@@ -1471,24 +1561,28 @@ body { overflow-y: auto; }
 .glance-toc {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 0.45rem;
 }
 
 .glance-toc-link {
   font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.65;
   text-decoration: none;
-  padding-left: 0.9rem;
-  border-left: 2px solid var(--border);
-  transition: color 0.2s, border-color 0.2s;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  transition: opacity 0.2s, background 0.2s, color 0.2s;
 }
 
 .glance-toc-link.active {
-  color: var(--accent);
-  border-left-color: var(--accent);
+  background: var(--bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: var(--heart-color);
+  opacity: 1;
 }
+
+.glance-toc-mobile { display: none; }
 
 .glance-main { flex: 1; min-width: 0; }
 
@@ -1514,6 +1608,81 @@ body { overflow-y: auto; }
   display: block;
 }
 
+.glance-cheatsheet {
+  padding: 1.2rem 1.6rem;
+  margin-bottom: 2.4rem;
+  background: var(--chip-bg);
+  border: 1.5px dashed var(--border);
+  border-radius: 14px;
+}
+
+.glance-cheatsheet-label {
+  display: block;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.glance-cheatsheet-text {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+}
+
+.work-card-placeholder-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1.5px dashed var(--border);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.3s ease;
+}
+
+.work-card-placeholder-box:hover {
+  border-color: var(--accent);
+  transform: scale(1.03);
+}
+
+.work-card-placeholder-mark {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  color: var(--muted);
+}
+
+.glance-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0 0 1.2rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.glance-facts li {
+  padding-left: 1.3rem;
+  position: relative;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.glance-facts li::before {
+  content: '♥';
+  position: absolute;
+  left: 0;
+  top: 0.05em;
+  font-size: 0.8em;
+  color: var(--heart-color);
+}
+
 @media (max-width: 700px) {
   .page-main { padding: 2rem 1.5rem 6rem; }
   .side-by-side { grid-template-columns: 1fr; }
@@ -1530,9 +1699,20 @@ body { overflow-y: auto; }
 
   .glance-layout { flex-direction: column; gap: 1.5rem; }
   .glance-sidebar { width: 100%; position: static; }
-  .glance-toc { flex-direction: row; gap: 1.2rem; overflow-x: auto; }
-  .glance-toc-link { border-left: none; border-bottom: 2px solid var(--border); padding-left: 0; padding-bottom: 0.3rem; white-space: nowrap; }
-  .glance-toc-link.active { border-left-color: transparent; border-bottom-color: var(--accent); }
+  .glance-sidebar .glance-toc { display: none; }
+  .glance-profile { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .glance-toc { flex-direction: row; gap: 0.5rem; overflow-x: auto; }
+  .glance-toc-link { white-space: nowrap; }
+  .glance-toc-mobile {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 0;
+    margin-bottom: 1.4rem;
+  }
 
   .skill-tag { font-size: 0.85rem; padding: 5px 14px; }
 

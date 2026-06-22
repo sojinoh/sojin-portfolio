@@ -35,7 +35,7 @@ document.addEventListener('mousemove', e => {
 document.addEventListener('mouseleave', () => updateCursorPos(-200, -200));
 
 // ── Hover / click states ─────────────────────────────────────
-const HOVER_SELECTORS = 'a, button, [role="button"], .choice-chip, .nav-links span, .sdot, .cta, .work-card-image, .timeline-v-stop';
+const HOVER_SELECTORS = 'a, button, [role="button"], .choice-chip, .nav-links span, .sdot, .cta, .work-card-image';
 
 document.addEventListener('mouseover', e => {
   if (e.target.closest(HOVER_SELECTORS)) {
