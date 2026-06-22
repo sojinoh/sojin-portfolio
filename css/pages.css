@@ -40,13 +40,101 @@ body { overflow-y: auto; }
   margin-bottom: 2rem;
 }
 
+/* ── About page: centered, wider content column ─────────────── */
+.about-content {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
 /* ── Intro ───────────────────────────────────────────────────── */
+.intro-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0.5rem 0 3rem;
+  padding: 1.6rem 2rem;
+  background: color-mix(in srgb, var(--heart-color) 12%, var(--bg));
+  border-radius: 14px;
+}
+
+.intro-photo-col {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.intro-photo {
+  width: 220px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.intro-cta-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.intro-cta-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 8px;
+  border: 1.5px solid color-mix(in srgb, var(--heart-color) 45%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--heart-color) 14%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-family: 'League Spartan', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--heart-color);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(26, 34, 51, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s, border-color 0.15s;
+}
+
+.intro-cta-btn:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--heart-color) 24%, transparent);
+  border-color: color-mix(in srgb, var(--heart-color) 60%, transparent);
+  box-shadow: 0 6px 14px rgba(26, 34, 51, 0.16);
+}
+
+.intro-cta-btn:active, .intro-cta-btn.copied {
+  background: color-mix(in srgb, var(--heart-color) 32%, transparent);
+  border-color: color-mix(in srgb, var(--heart-color) 70%, transparent);
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(26, 34, 51, 0.1);
+}
+
+.intro-text-group {
+  flex: 1;
+}
+
 .intro-text {
-  font-size: 1.35rem;
-  line-height: 1.7;
+  font-size: 1.08rem;
+  line-height: 1.8;
   color: var(--text);
   max-width: none;
-  margin: 0.5rem 0 1.8rem;
+  margin: 0;
+}
+
+.intro-text + .intro-text {
+  margin-top: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .intro-row { flex-direction: column; padding: 1.4rem; }
+  .intro-photo-col { flex: none; width: 100%; max-width: 280px; }
+  .intro-photo { width: 100%; }
 }
 
 .story-text {
@@ -54,96 +142,210 @@ body { overflow-y: auto; }
   line-height: 1.8;
   color: var(--text);
   opacity: 0.88;
-  max-width: 640px;
+  max-width: none;
   margin: 0 0 1.3rem;
 }
 
-/* ── Magazine-style story chapters ──────────────────────────── */
-.story-chapters {
+.timeline-title {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: var(--text);
+  text-align: center;
+  margin: 2.6rem 0 0;
+  padding-bottom: 1.3rem;
+  border-bottom: none;
+  position: relative;
+}
+
+.timeline-title::after {
+  content: '♥';
+  position: absolute;
+  bottom: -0.1rem;
+  left: 50%;
+  font-size: 0.85rem;
+  color: var(--heart-color);
+  transform: translateX(-50%);
+}
+
+/* ── Life stepper (sticky stage indicator) ───────────────────── */
+.life-stepper {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 0;
+  margin: 1.8rem 0 2.8rem;
+}
+
+.life-stepper-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  position: relative;
+}
+
+.life-stepper-step:not(:last-child) {
+  margin-right: 40px;
+}
+
+.life-stepper-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  width: 30px;
+  height: 1.5px;
+  background: var(--border);
+  transform: translateY(-50%);
+}
+
+.life-stepper-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.life-stepper-text {
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
-  margin: 2.2rem 0 2.5rem;
+  line-height: 1.2;
 }
 
-.story-chapter {
-  display: flex;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.story-chapter:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.story-chapter-media {
-  flex: 0 0 36%;
-  aspect-ratio: 4 / 3;
-  border-radius: 12px;
-  position: relative;
-  display: block;
-  width: 36%;
-  object-fit: cover;
-}
-
-.story-chapter-media--contain {
-  object-fit: contain;
-  background-color: var(--sky);
-  border: 1px solid var(--border);
-  padding: 0.6rem;
-}
-
-.story-chapter-media::after {
-  content: attr(data-caption);
-  position: absolute;
-  bottom: 0.6rem;
-  left: 0.8rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.life-stepper-label {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--muted);
-  background: var(--bg);
-  padding: 2px 8px;
-  border-radius: 4px;
+  white-space: nowrap;
+  transition: color 0.2s;
 }
 
-.story-chapter-text {
-  flex: 1;
-  min-width: 0;
+.life-stepper-year {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--muted);
+  opacity: 0.7;
+  white-space: nowrap;
+  transition: color 0.2s;
 }
 
-.story-chapter-text .story-text {
-  max-width: none;
+.life-stepper-step.active .life-stepper-num { background: var(--accent); border-color: var(--accent); color: #fff; }
+.life-stepper-step.active .life-stepper-label { color: var(--accent); font-weight: 700; }
+.life-stepper-step.active .life-stepper-year { color: var(--accent); }
+
+@media (max-width: 700px) {
+  .life-stepper {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.2rem -1.5rem 2.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+  .life-stepper-step:not(:last-child) { margin-right: 22px; }
+  .life-stepper-step:not(:last-child)::after { width: 14px; }
+  .life-stepper-label { font-size: 0.78rem; }
+}
+
+/* ── Life stages (narrative sections) ────────────────────────── */
+.life-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 3.4rem;
+  margin: 0 0 2.5rem;
+}
+
+.life-stage-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.7rem 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.life-stage-label {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+.life-stage-meta {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.life-stage-image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  background: var(--sky);
+  object-fit: cover;
+  margin: 1.2rem auto 1.4rem;
+}
+
+.life-stage-image--contain {
+  max-width: 320px;
+  object-fit: contain;
+}
+
+.life-stage-image-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.2rem 0 1.4rem;
+}
+
+.life-stage-image-row .life-stage-image {
+  max-width: 340px;
   margin: 0;
 }
 
-.story-chapter-label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  margin-bottom: 0.7rem;
+.life-stage-image-row--spread {
+  justify-content: space-between;
+  align-items: center;
 }
 
-.story-pull-quote {
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 600;
-  font-size: 1.4rem;
-  line-height: 1.45;
-  color: var(--accent);
-  border-left: 3px solid var(--accent);
-  padding-left: 1rem;
-  margin: 0 0 0.9rem;
+.life-stage-image-row--spread .life-stage-image {
+  width: auto;
+  height: 230px;
+  max-width: 100%;
+}
+
+.life-stage-figure {
+  margin: 0 0 1rem;
+}
+
+.life-stage-figure figcaption {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 @media (max-width: 700px) {
-  .story-chapter,
-  .story-chapter:nth-child(even) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.2rem;
-  }
-  .story-chapter-media { flex: none; aspect-ratio: 16 / 10; }
+  .life-stage-image-row { flex-direction: column; align-items: center; }
+  .life-stage-image-row .life-stage-image { max-width: 420px; }
 }
 
 /* ── Resume button ───────────────────────────────────────────── */
@@ -785,6 +987,7 @@ body { overflow-y: auto; }
 /* ── Inline figures (image / video) within the flow ─────────── */
 .pd-figure { margin: 1.6rem auto; max-width: 82%; }
 .pd-figure-small { max-width: 64%; }
+.pd-figure-video { max-width: 32%; }
 .pd-figure img, .pd-figure video {
   width: 100%;
   border-radius: 10px;
@@ -1317,7 +1520,6 @@ body { overflow-y: auto; }
   .work-grid { grid-template-columns: 1fr; }
 
   .page-section h2 { font-size: 1.8rem; }
-  .intro-text { font-size: 1.15rem; }
 
   .stats-row { gap: 0.7rem; }
   .stat { min-width: 0; padding: 1rem; }

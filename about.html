@@ -48,57 +48,126 @@
 <main class="page-main">
 
   <section class="page-section">
-    <p class="intro-text sr">I didn't set out to study human behavior. I set out to build things. Somewhere between a cafeteria menu website I made in high school and a home-screen redesign I helped ship at Amazon, I started noticing the same question over and over — who is this actually for?</p>
-
-    <div class="story-chapters">
-
-      <div class="story-chapter sr">
-        <img class="story-chapter-media story-chapter-media--contain" src="images/glp-menu-screenshot.png" alt="Today's Lunch Menu website, showing the week's cafeteria menu as photos">
-        <div class="story-chapter-text">
-          <div class="story-chapter-label">01 — Bugil High School, Korea</div>
-          <p class="story-text">In my senior year of high school, I noticed the English-speaking teachers at my school packing lunch every day — they couldn't read the Korean cafeteria menu. I taught myself just enough code and the Google Image API to build a site that matched each Korean menu item to a photo of it. My psychology teacher told me she checked it every morning. That was the first time I understood: access to information is a quiet form of agency.</p>
+   <div class="about-content">
+    <div class="intro-row sr">
+      <div class="intro-photo-col">
+        <img class="intro-photo" src="images/about-me.jpg" alt="Sojin Oh smiling outdoors, holding her dog">
+        <div class="intro-cta-row">
+          <a class="intro-cta-btn" href="Sojin_Oh_Resume.pdf" download aria-label="Download Resume">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 2v8M5 7l3 3 3-3"/>
+              <path d="M3 13h10"/>
+            </svg>
+            Resume
+          </a>
+          <button class="intro-cta-btn copy-email-btn" data-email="sojinohh@gmail.com" aria-label="Copy email address">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="5" width="19" height="14" rx="2.5"/>
+              <path d="M3.5 6.5 12 13l8.5-6.5"/>
+            </svg>
+            <span class="copy-email-label">Copy Email</span>
+          </button>
         </div>
       </div>
+      <div class="intro-text-group">
+        <p class="intro-text">Hi, I'm Sojin! 👋 I grew up in South Korea, moved to the U.S. for college, and ended up staying for the opportunities that came after graduation. These days I'm based in Seattle 🌧️.</p>
+        <p class="intro-text">I've always thought I'd be a software engineer for life, but somewhere along the way I started caring more about who the software was actually for than the code itself.</p>
+        <p class="intro-text">If you want the long version, here's how I got from a cafeteria menu website in high school to a Master's in Human-Centered Design &amp; Engineering. If you'd rather have the short version, check out <a href="glance.html">At a Glance</a> ✨.</p>
+      </div>
+    </div>
 
-      <div class="story-chapter sr">
-        <img class="story-chapter-media" src="images/beacon-screenshot.png" alt="Beacon app running on a phone, showing a one-tap location-sharing screen">
-        <div class="story-chapter-text">
-          <div class="story-chapter-label">02 — Macalester College</div>
-          <p class="story-text">Every spring, Macalester hosts a 24-hour hackathon called Macathon. My team built Beacon — an app that quietly detects when you dial 911 and sends your location to the call center, since old landline-era infrastructure often can't locate cell calls. We could've built something flashier, but in an emergency, the only thing that matters is one tap. We stripped it down to a single button. It won first place, and taught me that the best solution is often the simplest one a person can actually use under pressure.</p>
+    <h2 class="timeline-title">My Journey So Far</h2>
+
+    <nav class="life-stepper" id="life-stepper" aria-label="Life stages">
+      <a href="#stage-highschool" class="life-stepper-step active"><span class="life-stepper-num">1</span><span class="life-stepper-text"><span class="life-stepper-label">High School</span><span class="life-stepper-year">2015</span></span></a>
+      <a href="#stage-college" class="life-stepper-step"><span class="life-stepper-num">2</span><span class="life-stepper-text"><span class="life-stepper-label">College</span><span class="life-stepper-year">2015–2019</span></span></a>
+      <a href="#stage-consulting" class="life-stepper-step"><span class="life-stepper-num">3</span><span class="life-stepper-text"><span class="life-stepper-label">First Job</span><span class="life-stepper-year">2019–2020</span></span></a>
+      <a href="#stage-amazon" class="life-stepper-step"><span class="life-stepper-num">4</span><span class="life-stepper-text"><span class="life-stepper-label">Amazon</span><span class="life-stepper-year">2020–2026</span></span></a>
+      <a href="#stage-whatsnext" class="life-stepper-step"><span class="life-stepper-num">5</span><span class="life-stepper-text"><span class="life-stepper-label">What's Next</span><span class="life-stepper-year">2026</span></span></a>
+    </nav>
+
+    <div class="life-stages">
+
+      <div class="life-stage sr" id="stage-highschool">
+        <div class="life-stage-header">
+          <span class="life-stage-label">01 · High School</span>
+          <span class="life-stage-meta">Bugil High School, Korea</span>
         </div>
+        <p class="story-text">In my senior year of high school, I noticed the English-speaking teachers at my school packing lunch from home every day, because the cafeteria menu was posted only in Korean and they had no way to know what was being served. I taught myself just enough HTML, JavaScript, and Google's Image Search API over two weeks to build a small site that matched a photo to each day's menu item instead of trying to translate the text (direct translation was hopeless; one dish translated literally to "six times"). One of my teachers told me she checked the site every morning before deciding whether to pack lunch.</p>
+        <figure class="life-stage-figure">
+          <img class="life-stage-image life-stage-image--contain" src="images/glp-menu-screenshot.png" alt="Today's Lunch Menu website, showing the week's cafeteria menu as photos" style="aspect-ratio: 2263 / 1238; max-width: 420px;">
+          <figcaption>Today's Lunch Menu Website</figcaption>
+        </figure>
+        <p class="story-text">It was such a small fix to such a small problem, but it was the first time I understood that access to information (even something as ordinary as a cafeteria menu) directly shapes whether someone has a real choice at all. That idea is what pointed me toward computer science in the first place: not the code itself, but what the code could clear out of someone's way.</p>
       </div>
 
-      <div class="story-chapter sr">
-        <div class="img-placeholder story-chapter-media" data-caption="Concord USA"></div>
-        <div class="story-chapter-text">
-          <div class="story-chapter-label">03 — Concord USA</div>
-          <p class="story-text">My first job out of college: building REST APIs and data integration pipelines between systems like SAP and Salesforce as a MuleSoft developer. When I noticed different client projects solving the same integration pattern from scratch, I built a reusable template so new developers could ramp up in days instead of weeks — my first lesson in fixing the root cause instead of patching around it.</p>
+      <div class="life-stage sr" id="stage-college">
+        <div class="life-stage-header">
+          <span class="life-stage-label">02 · College</span>
+          <span class="life-stage-meta">Macalester College · B.A. Computer Science &amp; Statistics, 2015–2019</span>
         </div>
+        <p class="story-text">In college, that same instinct (just go build the thing) turned into two summers' worth of internships. The first was at a small company building a website for the <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noopener">USDA</a> that helps people look up nutrition facts about food, the kind of site dietitians and researchers actually use. I was the most junior person on the team, and I still remember how nervous I was the first time I had to show off something I'd built on a call with the actual client. That same year, a teammate and I also won first place at Macalester's 24-hour hackathon, Macathon, with an app called Beacon that could send your location to 911 in an emergency.</p>
+        <div class="life-stage-image-row life-stage-image-row--spread">
+          <figure class="life-stage-figure">
+            <img class="life-stage-image" src="images/college-mcwest.jpg" alt="Sojin at her desk during her internship at McWest Corporation">
+            <figcaption>McWest Corporation Internship</figcaption>
+          </figure>
+          <figure class="life-stage-figure">
+            <img class="life-stage-image life-stage-image--contain" src="images/college-macathon.png" alt="Macalester College news article about Sojin's team winning first place at Macathon" style="aspect-ratio: 1279 / 598;">
+            <figcaption>Macathon 2017, 1st Place</figcaption>
+          </figure>
+        </div>
+        <p class="story-text">The next summer, I worked at a financial firm, pulling public company filings into a big internal database and building a small tool so the company could manage employee accounts more easily. I liked that job fine, but looking back, I noticed something: I lit up a lot more on the days I got to build a tool someone would actually use, and a lot less on the days I was just moving and cleaning up data behind the scenes. I didn't think much of it at the time, but it turned out to be the first thread of something I'd spend years pulling on.</p>
+        <figure class="life-stage-figure">
+          <img class="life-stage-image life-stage-image--contain" src="images/college-piper-jaffray.jpg" alt="Sojin during her internship summer at Piper Jaffray" style="aspect-ratio: 960 / 560; max-width: 420px;">
+          <figcaption>Piper Jaffray Internship</figcaption>
+        </figure>
       </div>
 
-      <div class="story-chapter sr">
-        <div class="img-placeholder story-chapter-media" data-caption="Amazon · Silk Browser"></div>
-        <div class="story-chapter-text">
-          <div class="story-chapter-label">04 — Amazon · Silk Browser</div>
-          <p class="story-text">Six years on Amazon's Silk browser team. I shipped browsing history and autocomplete to millions of users, ran Silk's first Weblab-powered A/B experiment, delivered Safe Browsing on a brand-new OS, and led an infrastructure migration to AWS. I got promoted. I mentored newer engineers. By most measures, it was going well.</p>
+      <div class="life-stage sr" id="stage-consulting">
+        <div class="life-stage-header">
+          <span class="life-stage-label">03 · First Job</span>
+          <span class="life-stage-meta">Concord USA · Data Integration Consultant, 2019–2020 · Hopkins, MN</span>
         </div>
+        <p class="story-text">My first job out of college put me on a small consulting team that connected different companies' computer systems so they could share information automatically, instead of someone copying numbers from one screen to another by hand. The most memorable part was a trip to Canada for one client, where I sat in on real business meetings and translated what a company actually needed into something our software could be built to do.</p>
+        <div class="life-stage-image-row">
+          <figure class="life-stage-figure">
+            <img class="life-stage-image" src="images/job-concord.jpg" alt="Sojin presenting at a meeting during her time at Concord USA">
+            <figcaption>Concord USA</figcaption>
+          </figure>
+          <figure class="life-stage-figure">
+            <img class="life-stage-image" src="images/job-concord-2.jpg" alt="Sojin's employee badge from Concord USA">
+            <figcaption>First Client Project</figcaption>
+          </figure>
+        </div>
+        <p class="story-text">The longer I did that work, the clearer it became what I actually loved about it, and what I didn't. I loved writing the code and solving the problem right in front of me. I liked the data-wrangling side of the job a lot less. I wanted to be closer to building the software itself, not just connecting other people's software together, and that's what sent me looking for a job that was purely software engineering.</p>
       </div>
 
-      <div class="story-chapter sr">
-        <div class="img-placeholder story-chapter-media" data-caption="The turning point"></div>
-        <div class="story-chapter-text">
-          <div class="story-chapter-label">05 — The Turning Point</div>
-          <p class="story-pull-quote">"We were optimizing for a proxy of value instead of the value itself."</p>
-          <p class="story-text">We redesigned Silk's home screen, justified by one number: search volume. Meanwhile, the friction people actually complained about — clumsy cursor behavior, limited text editing — sat untouched. I understood the business case. I just couldn't unsee the gap.</p>
+      <div class="life-stage sr" id="stage-amazon">
+        <div class="life-stage-header">
+          <span class="life-stage-label">04 · Amazon</span>
+          <span class="life-stage-meta">Silk Browser, Fire TV · SDE I → II, 2020–2026 · Seattle, WA</span>
         </div>
+        <p class="story-text">I spent six years at Amazon working on Silk, the web browser built into Fire TV. I shipped things that ended up in front of way more people than I could really picture: a way to revisit pages you'd visited before, smarter suggestions while you typed, a safer browsing experience on a brand-new operating system. For a long time, that felt like enough. Then we redesigned the home screen, and the only thing anyone seemed to care about afterward was whether it got people to search the web more. Meanwhile, I was using the browser on my own TV at home, running into the same small annoyances every day (a clunky cursor, no good way to edit text) that nobody was fixing, because fixing them wouldn't move that one number.</p>
+        <figure class="life-stage-figure">
+          <img class="life-stage-image" src="images/amazon.jpg" alt="The Amazon Spheres in Seattle">
+          <figcaption>Amazon's Day 1 Office, Seattle</figcaption>
+        </figure>
+        <p class="story-text">I understood the business reasons behind that. I just couldn't shake how far that one number was from what was actually frustrating about using the browser. As an engineer, I could build almost anything I was asked to build, but I had very little say in deciding what was actually worth building in the first place. That's the part I realized I wanted: not a different feature to work on, but an actual seat at the table when someone decides why a feature should exist at all. That realization is what eventually got me looking at graduate programs in human-centered design, somewhere I could actually study the "why" instead of just executing the "how."</p>
       </div>
 
-      <div class="story-chapter sr">
-        <div class="img-placeholder story-chapter-media" data-caption="What's next"></div>
-        <div class="story-chapter-text">
-          <div class="story-chapter-label">06 — What's Next</div>
-          <p class="story-text">I spent a stretch testing whether this pull toward human-centered design was real — finishing a Google UX Design Certificate on the side. It was, more than I expected. This September, I'm starting a Master's in Human-Centered Design & Engineering at the University of Washington, to make that question — who is this actually for — my actual job.</p>
+      <div class="life-stage sr" id="stage-whatsnext">
+        <div class="life-stage-header">
+          <span class="life-stage-label">05 · What's Next</span>
+          <span class="life-stage-meta">M.S. Human-Centered Design &amp; Engineering, University of Washington · Starting Sep 2026</span>
         </div>
+        <p class="story-text">That feeling is what I carried into my application to a Master's program in Human-Centered Design and Engineering at the University of Washington. Getting in felt less like a sudden pivot and more like the next obvious step, so I gave my notice at Amazon not long after: six years in, with nothing certain waiting on the other side, but easily one of the proudest decisions I've made.</p>
+        <figure class="life-stage-figure">
+          <img class="life-stage-image life-stage-image--contain" src="images/uw-admission.png" alt="Sojin's admission letter to the University of Washington's Human Centered Design and Engineering program" style="aspect-ratio: 784 / 258; max-width: 620px;">
+          <figcaption>My Acceptance Letter</figcaption>
+        </figure>
+        <p class="story-text">Since then, I've finished a certificate program in UX design to get some real grounding before school starts, and I've spent the months since building my own design portfolio, including this very site, as a way to actually practice the process instead of just reading about it.</p>
+        <p class="story-text">Where I want to take all of this is AI: designing tools that help people get to and understand information regardless of their technical background, and that are upfront about how they came up with an answer instead of just handing one over with no way to question it. It's a much bigger version of the exact same problem I ran into in high school, just at a much larger scale, and this site (including the redesign of this very page) has already been part of practicing that. If you want the short version, my resume is below; the projects mentioned here are under <a href="work.html">Projects</a>.</p>
       </div>
 
     </div>
@@ -110,90 +179,7 @@
       </svg>
       Download Resume
     </a>
-  </section>
-
-  <section class="page-section section-timeline">
-    <h2 class="sr">Journey</h2>
-    <div class="timeline-v">
-
-      <div class="timeline-v-stop">
-        <div class="timeline-v-rail">
-          <div class="timeline-v-node"></div>
-          <div class="timeline-v-line"></div>
-        </div>
-        <div class="timeline-v-content">
-          <div class="timeline-date">Sep 2015 – May 2019</div>
-          <div class="timeline-title">B.A. Computer Science & Statistics</div>
-          <div class="timeline-sub">Macalester College · Saint Paul, MN</div>
-          <div class="timeline-detail">I learned to code formally here, but what stuck with me most was watching an AI I'd trained stumble through Super Mario Bros. — and wondering how far AI still was from understanding anything that mattered to a real person.</div>
-        </div>
-      </div>
-
-      <div class="timeline-v-stop">
-        <div class="timeline-v-rail">
-          <div class="timeline-v-node"></div>
-          <div class="timeline-v-line"></div>
-        </div>
-        <div class="timeline-v-content">
-          <div class="timeline-date">Jul 2019 – Jun 2020</div>
-          <div class="timeline-title">Data Integration Consultant</div>
-          <div class="timeline-sub">Concord USA · Hopkins, MN</div>
-          <div class="timeline-detail">My first job out of college. I noticed the same SAP-to-Salesforce integration pattern showing up across different client projects, so I built a reusable template for it — small fix, but it taught me to look for root causes instead of one-off patches.</div>
-        </div>
-      </div>
-
-      <div class="timeline-v-stop">
-        <div class="timeline-v-rail">
-          <div class="timeline-v-node"></div>
-          <div class="timeline-v-line"></div>
-        </div>
-        <div class="timeline-v-content">
-          <div class="timeline-date">Jul 2020 – Jun 2023</div>
-          <div class="timeline-title">Software Development Engineer I</div>
-          <div class="timeline-sub">Amazon · Silk Browser, Fire TV</div>
-          <div class="timeline-detail">I shipped features used by millions — browsing history, autocomplete, a safe browsing experience on a brand-new OS. It felt great watching things I built go live. I also started reading user feedback obsessively, and noticing the gaps between what we shipped and what people actually needed.</div>
-        </div>
-      </div>
-
-      <div class="timeline-v-stop">
-        <div class="timeline-v-rail">
-          <div class="timeline-v-node"></div>
-          <div class="timeline-v-line"></div>
-        </div>
-        <div class="timeline-v-content">
-          <div class="timeline-date">Jul 2023 – May 2026</div>
-          <div class="timeline-title">Software Development Engineer II</div>
-          <div class="timeline-sub">Amazon · Silk Browser, Fire TV</div>
-          <div class="timeline-detail">I kept growing technically — leading an infrastructure migration, mentoring newer engineers — but one project changed how I saw my work. We redesigned our home screen to boost a single metric while real usability complaints sat untouched. That gap stuck with me.</div>
-        </div>
-      </div>
-
-      <div class="timeline-v-stop">
-        <div class="timeline-v-rail">
-          <div class="timeline-v-node"></div>
-          <div class="timeline-v-line"></div>
-        </div>
-        <div class="timeline-v-content">
-          <div class="timeline-date">2025</div>
-          <div class="timeline-title">Google UX Design Professional Certificate</div>
-          <div class="timeline-sub">Self-paced, alongside full-time work</div>
-          <div class="timeline-detail">I wanted to test whether this pull toward human-centered design was real before committing a year of my life and savings to a master's program. It was — more than I expected.</div>
-        </div>
-      </div>
-
-      <div class="timeline-v-stop">
-        <div class="timeline-v-rail">
-          <div class="timeline-v-node"></div>
-        </div>
-        <div class="timeline-v-content">
-          <div class="timeline-date">Sep 2026 →</div>
-          <div class="timeline-title">M.S. Human Centered Design & Engineering</div>
-          <div class="timeline-sub">University of Washington · Seattle, WA</div>
-          <div class="timeline-detail">Going back to school for formal training in the research methods I'd only ever done informally — so next time, I can be the one in the room asking "is this actually better for the person using it," not just "did the number go up."</div>
-        </div>
-      </div>
-
-    </div>
+   </div>
   </section>
 
 </main>
@@ -318,17 +304,20 @@
 <script src="js/cursor.js"></script>
 <script src="js/scroll-reveal.js"></script>
 <script>
-  const timeline = document.querySelector('.timeline-v');
-  const stops = document.querySelectorAll('.timeline-v-stop');
-  if (stops.length && timeline) {
-    function activate(stop, scroll = true) {
-      stops.forEach(s => s.classList.remove('active'));
-      stop.classList.add('active');
-      if (scroll) stop.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-    activate(stops[0], false);
-    stops.forEach(stop => stop.addEventListener('click', () => activate(stop)));
-  }
+  const lifeStages = [...document.querySelectorAll('.life-stage')];
+  const stepperLinks = [...document.querySelectorAll('.life-stepper-step')];
+
+  const stageObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        stepperLinks.forEach(l => l.classList.remove('active'));
+        const link = stepperLinks.find(l => l.getAttribute('href') === `#${entry.target.id}`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  lifeStages.forEach(stage => stageObserver.observe(stage));
 </script>
 <button class="scroll-hint hidden" id="scroll-hint" aria-label="Scroll down">
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

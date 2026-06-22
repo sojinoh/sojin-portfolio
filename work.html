@@ -111,7 +111,7 @@
 
         <div class="work-card" data-category="swe" data-year="2018"
              data-title="AI Agent — Super Mario Bros" data-context="COMP 380 Capstone · Macalester College"
-             data-image="images/mario-screenshot.gif"
+             data-image="videos/ai_agent_mario.mp4"
              data-repo="https://github.com/lionely/MARlQ"
              data-problem="Train an agent to clear World 1-1 of the original Super Mario Bros using reinforcement learning."
              data-problem-sub="With two classmates, no game rules given: just trial, error, and a reward signal."
@@ -171,7 +171,7 @@
 
         <div class="work-card" data-category="ux" data-year="2026"
              data-title="Portfolio Website" data-context="Personal · A UX Case Study"
-             data-image="images/portfolio-ux-wireframes-1.jpg"
+             data-image="images/portfolio-ux-digital-wireframe-collage.jpg"
              data-repo="https://github.com/sojinoh/sojin-portfolio"
 
              data-motivation-hook="Maybe you assume a site like this is just AI magic. It's not: there's real thought behind it."
@@ -210,7 +210,7 @@
              data-share-hook="Here's how the wireframes actually became this site, and why each change happened."
              data-share-steps="Handed the paper wireframes to Claude Code and rebuilt the site from scratch: hero, nav, and page layout structured around the wireframes|Needed a clean foundation that actually followed the wireframes, instead of continuing to patch the ad-hoc V1||Editorial revamp: rewrote the site with real project content and a cleaner, more readable layout|The first Claude-built version still had generic placeholder content: it needed my actual case studies and a layout built for reading, not just looking||Rebrand: moved to League Spartan and a navy palette; redesigned the project detail reports; added the sticky footer and the feedback widget the goal statement called for|This is where the goal statement's promise (a way to measure success) actually got built, alongside a typeface and palette that read as more professional||Latest polish pass: replaced the nav's color-change active state with an underline tab indicator, separated the sort control's styling from the category tabs, redesigned the footer's social links, and documented this very process as a project|Small usability nits kept surfacing as I used my own site day to day. Fixing them, and writing up this case study, is the loop-closing the goal statement asked for"
              data-share-stats="27 Commits|From the first chat-interface attempt to today's live site||Restarted Once|Scrapped the ad-hoc V1 entirely once the UX process pointed to a clearer direction||Feedback Loop Shipped|The in-site sentiment survey is the exact tool the goal statement defined as the success metric">
-          <img class="work-card-image" src="images/portfolio-ux-wireframes-1.jpg" alt="Hand-drawn paper wireframe of the homepage and TL;DR summary page">
+          <img class="work-card-image" src="images/portfolio-ux-digital-wireframe-collage.jpg" alt="Grid of the 6 digital wireframe screens: homepage, at a glance, my work, about me, filtered work grid, and project detail view">
           <div class="work-card-info">
             <span class="work-card-title">Portfolio Website</span>
             <span class="work-card-date">(2026)</span>
@@ -477,7 +477,12 @@
   function pdImageFigure(src, alt, extraClass) {
     const label = alt || 'Screenshot';
     const cls = extraClass ? `pd-figure ${extraClass}` : 'pd-figure';
-    return `<div class="${cls}"><img src="${src}" alt="${alt || ''}"><div class="pd-figure-caption">${label}</div></div>`;
+    const isVideo = /\.(mp4|webm|mov)$/i.test(src);
+    const media = isVideo
+      ? `<video controls playsinline src="${src}"></video>`
+      : `<img src="${src}" alt="${alt || ''}">`;
+    const videoCls = isVideo ? `${cls} pd-figure-video` : cls;
+    return `<div class="${videoCls}">${media}<div class="pd-figure-caption">${label}</div></div>`;
   }
 
   function pdVideoFigure(card) {
