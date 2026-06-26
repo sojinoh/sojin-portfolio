@@ -648,7 +648,7 @@ h2.timeline-title {
   top: 4px;
   width: 2px;
   height: 0;
-  background: linear-gradient(to bottom, transparent, var(--heart-color));
+  background: var(--heart-color);
   box-shadow: 0 0 10px 2px color-mix(in srgb, var(--heart-color) 30%, transparent);
   z-index: 1;
   pointer-events: none;
@@ -834,7 +834,7 @@ h2.timeline-title {
   transition: transform 0.3s ease;
 }
 
-.work-card-image:hover { transform: scale(1.03); }
+.work-card-image:hover { transform: scale(1.015); }
 
 .work-card-repo {
   display: inline-flex;
@@ -1058,11 +1058,14 @@ h2.timeline-title {
 
 /* ── Problem: lead statement + supporting line ──────────────── */
 .pd-problem-lead {
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 600;
-  font-size: 1.4rem;
-  line-height: 1.42;
+  border-left: 3px solid var(--text);
+  padding: 0.15rem 0 0.15rem 1rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--text);
+  margin: 0;
 }
 
 .pd-problem-sub {
@@ -1087,7 +1090,7 @@ h2.timeline-title {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .pd-figure img:hover {
-  transform: scale(1.015);
+  transform: scale(1.008);
   box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
 }
 .pd-figure-caption {
@@ -1142,6 +1145,26 @@ h2.timeline-title {
   font-size: 1.02rem;
   line-height: 1.6;
   padding-top: 0.1rem;
+}
+
+.pd-step-text ul {
+  margin: 0.6rem 0 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.pd-step-text li {
+  line-height: 1.55;
+}
+
+.pd-step-text li img {
+  display: block;
+  margin-top: 0.55rem;
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--color-border, #e5e5e5);
 }
 
 /* ── Result: by-the-numbers strip ────────────────────────────── */
@@ -1199,7 +1222,7 @@ h2.timeline-title {
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
-  margin: 1.4rem 0;
+  margin: 2rem 0;
 }
 
 .pd-quadrant {
@@ -1247,7 +1270,7 @@ h2.timeline-title {
 /* ── UX framework: Define quote blocks ───────────────────────── */
 .pd-quote {
   padding: 1rem 1.2rem;
-  margin: 0 0 1.2rem;
+  margin: 2rem 0;
   background: var(--chip-bg);
   border-left: 3px solid var(--accent);
   border-radius: 0 8px 8px 0;
@@ -1395,7 +1418,7 @@ h2.timeline-title {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .pd-image-grid-item img:hover {
-  transform: scale(1.03);
+  transform: scale(1.015);
   box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
 }
 
@@ -1428,7 +1451,7 @@ h2.timeline-title {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .pd-image-row-item img:hover {
-  transform: scale(1.03);
+  transform: scale(1.015);
   box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
 }
 
@@ -1809,7 +1832,7 @@ h2.timeline-title {
   height: 38px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(20, 20, 20, 0.6);
   color: #fff;
   font-size: 1.2rem;
   line-height: 1;
@@ -1818,6 +1841,7 @@ h2.timeline-title {
   justify-content: center;
   cursor: pointer;
   transition: background 0.15s;
+  backdrop-filter: blur(4px);
 }
 
-.lightbox-btn:hover { background: rgba(255, 255, 255, 0.25); }
+.lightbox-btn:hover { background: rgba(20, 20, 20, 0.8); }

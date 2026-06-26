@@ -162,7 +162,7 @@ function pdUXDesc(card) {
 
   const prototypeBody =
     pdSubhead('User Flow') +
-    `<p class="pd-problem-sub">${d.prototypeFlow}</p>` +
+    (d.prototypeFlow ? `<p class="pd-problem-sub">${d.prototypeFlow}</p>` : '') +
     (d.prototypeFlowImage ? pdImageFigure(d.prototypeFlowImage, d.prototypeFlowImageLabel, 'pd-figure-small') : '') +
     pdSubhead('Paper Wireframes') +
     `<p class="pd-problem-sub">${d.prototypeWireframes}</p>` +

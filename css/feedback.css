@@ -9,16 +9,16 @@
 .feedback-toggle-wrap.hidden { display: none; }
 
 .feedback-icon {
-  width: 23px;
-  height: 23px;
+  width: 19px;
+  height: 19px;
   filter: brightness(0) invert(1);
-  transform: translate(1.5px, 1.5px);
+  transform: translate(1px, 1px);
 }
 
 .feedback-toggle {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: var(--heart-color);
   color: #fff;
@@ -38,8 +38,8 @@
   position: absolute;
   top: -4px;
   right: -4px;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: var(--bg);
   border: none;
