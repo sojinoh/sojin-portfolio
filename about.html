@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/base.css?v=1781768619">
   <link rel="stylesheet" href="css/nav.css?v=1781768619">
   <link rel="stylesheet" href="css/cursor.css?v=1781768619">
-  <link rel="stylesheet" href="css/pages.css?v=1781768619">
+  <link rel="stylesheet" href="css/pages.css?v=1781768700">
   <link rel="stylesheet" href="css/feedback.css?v=1781768619">
 </head>
 <body>
@@ -166,21 +166,21 @@
           <img class="life-stage-image" src="images/amazon.jpg" alt="The Amazon Spheres in Seattle">
           <figcaption>Amazon's Day 1 Office, Seattle</figcaption>
         </figure>
-        <p class="story-text">Then came a home screen refresh, a new layout with rotating background images that triggered a web search when you clicked one, built to drive up search volume inside the app. I understood the business case, but it didn't match how people actually used the browser, and the inconsistent cursor behavior and limited text editing customers complained about every day stayed untouched, because fixing them wouldn't move that one number. As an engineer, I could build almost anything I was asked to build, but I had very little say in deciding what was worth building in the first place. That gap between the work and the why behind it is what sent me looking at graduate programs in human-centered design, somewhere I could actually study the "why" instead of just executing the "how."</p>
+        <p class="story-text">Then came a home screen refresh, a new layout with rotating background images that triggered a web search when you clicked one, built to drive up search volume inside the app. I understood the business case, but it didn't match how people actually used the browser, and the inconsistent cursor behavior and limited text editing customers complained about every day stayed untouched, because fixing them wouldn't move that one number. As an engineer, I could build almost anything I was asked to build, but I had very little say in deciding what was worth building in the first place. That gap between the work and the why behind it is what sent me looking at graduate programs in human-centered design, where I could learn how to actually research the why, not just execute the how.</p>
       </div>
 
       <div class="life-stage sr" id="stage-whatsnext">
         <div class="life-stage-header">
           <span class="life-stage-label">05 · What's Next</span>
-          <span class="life-stage-meta">M.S. Human-Centered Design &amp; Engineering, University of Washington · Starting Sep 2026</span>
+          <span class="life-stage-meta">M.S. Human-Centered Design &amp; Engineering, University of Washington · Sep 2026 to Present</span>
         </div>
         <p class="story-text">That feeling is what I carried into my application to a Master's program in Human-Centered Design and Engineering at the University of Washington. Getting in felt less like a sudden pivot and more like the next obvious step, so I gave my notice at Amazon not long after. Six years in, with nothing certain waiting on the other side, but easily one of the proudest decisions I've made.</p>
         <figure class="life-stage-figure">
           <img class="life-stage-image life-stage-image--contain" src="images/uw-admission.png" alt="Sojin's admission letter to the University of Washington's Human Centered Design and Engineering program" style="aspect-ratio: 784 / 258; max-width: 620px;">
           <figcaption>My Acceptance Letter</figcaption>
         </figure>
-        <p class="story-text">Since then, I've finished a <a href="https://www.coursera.org/account/accomplishments/specialization/4PCELWTQYY0I" target="_blank" rel="noopener">certificate program in UX design</a> to get some real grounding before school starts, and I've spent the months since building my own design portfolio, including this very site.</p>
-        <p class="story-text">I'm excited to start the program and actually be in the design space, learning the things I only got to brush up against on the side until now.</p>
+        <p class="story-text">In the months before the program started, I finished a <a href="https://www.coursera.org/account/accomplishments/specialization/4PCELWTQYY0I" target="_blank" rel="noopener">certificate program in UX design</a> to get some real grounding, and built this portfolio, including this very site, as hands-on practice.</p>
+        <p class="story-text">I'm in the program now, and it's exactly what I hoped for. Finally studying the things I could only brush up against on the side until now.</p>
         <p class="story-text">Anyway, feel free to look through some of the projects mentioned along the way under <a href="work.html">Projects</a>.</p>
       </div>
 
@@ -342,6 +342,18 @@
   }, { rootMargin: '-20% 0px -70% 0px' });
 
   lifeStages.forEach(stage => stageObserver.observe(stage));
+
+  const lifeStepper = document.getElementById('life-stepper');
+  stepperLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target || !lifeStepper) return;
+      const offset = lifeStepper.getBoundingClientRect().bottom;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset - 40;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
 
   const initialActiveLink = stepperLinks.find(l => l.classList.contains('active'));
   moveStepperHeart(initialActiveLink);

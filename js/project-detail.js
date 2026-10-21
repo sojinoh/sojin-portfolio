@@ -120,9 +120,10 @@ function pdImageGridBody(content, cols) {
   ).join('')}</div>`;
 }
 
-function pdImageRowBody(content) {
+function pdImageRowBody(content, extraClass) {
   const items = pdParsePairs(content);
-  return `<div class="pd-image-row">${items.map(({ src, label }) =>
+  const cls = extraClass ? `pd-image-row ${extraClass}` : 'pd-image-row';
+  return `<div class="${cls}">${items.map(({ src, label }) =>
     `<figure class="pd-image-row-item"><img src="${src}" alt="${label || ''}"><figcaption>${label || ''}</figcaption></figure>`
   ).join('')}</div>`;
 }
@@ -184,11 +185,53 @@ function pdUXDesc(card) {
          pdDividerSection('Share & Iterate', shareBody);
 }
 
+function pdNeed(label) {
+  return `<span class="pd-need">[NEED: ${label}]</span>`;
+}
+
+function pdResearchArgs(d, cardClass) {
+  return ['arg1', 'arg2', 'arg3']
+    .filter(k => d[k + 'Title'])
+    .map((k, i) => {
+      const bullets = (d[k + 'Body'] || '').split('||').filter(Boolean)
+        .map(b => `<li>${b.trim()}</li>`).join('');
+      const imagesHtml = d[k + 'Images'] ? pdImageRowBody(d[k + 'Images'], d[k + 'ImagesRow'] === 'true' ? 'pd-image-row--tiles' : '') : '';
+      return `<div class="pd-argument ${cardClass || ''}">
+        <div class="pd-argument-num">${String(i + 1).padStart(2, '0')}</div>
+        <div class="pd-argument-inner">
+          <div class="pd-argument-title">${d[k + 'Title']}</div>
+          <ul class="pd-argument-evidence">${bullets || pdNeed('evidence for this argument')}</ul>
+          ${imagesHtml}
+        </div>
+      </div>`;
+    }).join('');
+}
+
+function pdResearchDesc(card) {
+  const d = card.dataset;
+  const answerBody = d.answer
+    ? `<div class="pd-answer">${d.answer}</div>`
+    : `<div class="pd-answer pd-answer-empty">${pdNeed('primary finding — the strongest result, one sentence')}</div>`;
+  const conclusionBody = d.conclusion
+    ? `<p class="pd-problem-sub">${d.conclusion}</p>`
+    : `<p class="pd-problem-sub">${pdNeed('what the answer meant for users and the project')}</p>`;
+
+  const problemBody = pdProblemBody(d.problem, d.problemSub) +
+    (d.problemImages ? pdImageRowBody(d.problemImages) : '');
+
+  return pdDividerSection(d.problemLabel || 'Research Question', problemBody) +
+         pdDividerSection('Answer', answerBody) +
+         pdDividerSection(d.contributionsLabel || 'My Key Contributions', `<div class="pd-arguments">${pdResearchArgs(d)}</div>`) +
+         pdDividerSection('Conclusion', conclusionBody) +
+         pdDividerSection(d.impactLabel || 'Status', pdStatsBody(d.impact));
+}
+
 // Renders a work-card's full case study into descEl and sets up its video playback rate.
 function mountProjectDesc(descEl, card) {
-  descEl.innerHTML = (card.dataset.category === 'ux' && card.dataset.empathizeSays)
-    ? pdUXDesc(card)
-    : pdSWEDesc(card);
+  descEl.innerHTML =
+    (card.dataset.template === 'research') ? pdResearchDesc(card) :
+    (card.dataset.category === 'ux' && card.dataset.empathizeSays) ? pdUXDesc(card) :
+    pdSWEDesc(card);
 
   descEl.querySelectorAll('video').forEach(v => {
     v.playbackRate = 2;

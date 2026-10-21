@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WYX55VS86H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WYX55VS86H');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project — Sojin Oh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css?v=1781768619">
+  <link rel="stylesheet" href="css/nav.css?v=1781768619">
+  <link rel="stylesheet" href="css/cursor.css?v=1781768619">
+  <link rel="stylesheet" href="css/pages.css?v=1781768700">
+  <link rel="stylesheet" href="css/feedback.css?v=1781768619">
+</head>
+<body>
+
+<div id="cursor-heart">
+  <svg viewBox="0 0 64 64" fill="none">
+    <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+    <circle cx="26" cy="25" r="2" fill="white"/>
+    <circle cx="38" cy="25" r="2" fill="white"/>
+    <path d="M26 33 Q32 38.5 38 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </svg>
+</div>
+<canvas id="cursor-sparkle-canvas" width="90" height="90"></canvas>
+
+<nav class="nav">
+  <div class="nav-inner">
+  <a class="nav-brand" href="/">
+    <svg class="nav-heart-icon" viewBox="0 0 64 64" fill="none">
+      <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+      <circle cx="26" cy="25" r="2" fill="white"/>
+      <circle cx="38" cy="25" r="2" fill="white"/>
+      <path d="M26 33 Q32 38.5 38 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Sojin Oh</span>
+  </a>
+  <nav class="nav-links">
+    <a class="nav-img-link" href="/">Home</a>
+    <a class="nav-img-link" href="glance.html">At a Glance</a>
+    <a class="nav-img-link" href="about.html">About Me</a>
+    <a class="nav-img-link active" href="work.html">Projects</a>
+  </nav>
+  </div>
+</nav>
+
+<main class="page-main">
+  <section class="page-section">
+
+    <div id="project-loading" style="padding: 4rem 0; text-align: center; color: var(--muted); font-size: 0.95rem;">Loading…</div>
+
+    <div class="project-gate hidden" id="project-gate">
+      <div class="project-gate-inner">
+        <svg class="project-gate-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <p class="project-gate-title">Private Project</p>
+        <p class="project-gate-sub">Enter the password to view this case study.</p>
+        <div class="project-gate-field">
+          <input type="password" id="gate-input" class="project-gate-input" placeholder="Password" autocomplete="off">
+          <button id="gate-submit" class="project-gate-btn">Unlock</button>
+        </div>
+        <p class="project-gate-error hidden" id="gate-error">Wrong password. Try again.</p>
+      </div>
+    </div>
+
+    <div class="project-detail hidden" id="project-detail">
+      <div class="project-detail-header">
+        <div class="project-detail-heading">
+          <div class="project-detail-eyebrow">Project</div>
+          <h2 id="pd-title"></h2>
+          <div class="project-detail-meta-row">
+            <div class="project-detail-context" id="pd-context"></div>
+            <a class="pd-repo hidden" id="pd-repo" target="_blank" rel="noopener">
+              <span class="pd-repo-icon"></span>
+              <span class="pd-repo-label">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="project-detail-desc" id="pd-desc"></div>
+      <div class="work-card-tags" id="pd-tags"></div>
+      <div class="project-detail-footer">
+        <a class="project-detail-back" href="work.html">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 8H3M7 4 3 8l4 4"/>
+          </svg>
+          Back to projects
+        </a>
+      </div>
+    </div>
+
+    <div class="lightbox hidden" id="lightbox">
+      <div class="lightbox-toolbar">
+        <button class="lightbox-btn" id="lightbox-zoom-out" aria-label="Zoom out">−</button>
+        <button class="lightbox-btn" id="lightbox-zoom-in" aria-label="Zoom in">+</button>
+        <button class="lightbox-btn" id="lightbox-close" aria-label="Close">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M3 3l10 10M13 3 3 13"/>
+          </svg>
+        </button>
+      </div>
+      <div class="lightbox-stage" id="lightbox-stage">
+        <img id="lightbox-img" src="" alt="">
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<!-- Feedback bubble -->
+<div class="feedback-toggle-wrap">
+  <button class="feedback-toggle hidden" id="feedback-toggle" aria-label="Leave feedback">
+    <img class="feedback-icon" src="images/feedback-icon.png" alt="">
+  </button>
+  <button class="feedback-dismiss" id="feedback-dismiss" aria-label="Hide feedback button">
+    <svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <path d="M1 1l8 8M9 1l-8 8"/>
+    </svg>
+  </button>
+</div>
+
+<div class="feedback-card hidden" id="feedback-card">
+  <button class="feedback-close" id="feedback-close" aria-label="Minimize">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M3 13h10"/>
+    </svg>
+  </button>
+  <div class="feedback-question feedback-title">Did you find what you were looking for?</div>
+  <div class="feedback-emojis" id="feedback-emojis">
+    <button class="feedback-emoji" data-label="Lost me">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <path d="M24 23l4 4M24 27l4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <path d="M36 23l4 4M36 27l4-4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 35q2-2.4 4 0q2 2.4 4 0q2-2.4 4 0q2 2.4 4 0" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>Lost me</span>
+    </button>
+    <button class="feedback-emoji" data-label="Meh">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <path d="M24 25h4" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M36 25h4" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M26 35h12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span>Meh</span>
+    </button>
+    <button class="feedback-emoji" data-label="Decent">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <circle cx="26" cy="25" r="2" fill="white"/>
+        <circle cx="38" cy="25" r="2" fill="white"/>
+        <path d="M26 33Q32 38.5 38 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>Decent</span>
+    </button>
+    <button class="feedback-emoji" data-label="Loved it">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="white" transform="translate(26,24) scale(0.16) translate(-32,-30)"/>
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="white" transform="translate(38,24) scale(0.16) translate(-32,-30)"/>
+        <path d="M23 33Q32 42 41 33" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>Loved it</span>
+    </button>
+    <button class="feedback-emoji" data-label="Obsessed">
+      <svg class="feedback-emoji-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M32 52C32 52,9 37,9 22C9 14.5,15 9,21 9C26 9,30 12.5,32 16C34 12.5,38 9,43 9C49 9,55 14.5,55 22C55 37,32 52,32 52Z" fill="currentColor" opacity="0.9"/>
+        <path d="M26,21 L27.2,23.8 L30,25 L27.2,26.2 L26,29 L24.8,26.2 L22,25 L24.8,23.8 Z" fill="white"/>
+        <path d="M38,21 L39.2,23.8 L42,25 L39.2,26.2 L38,29 L36.8,26.2 L34,25 L36.8,23.8 Z" fill="white"/>
+        <ellipse cx="32" cy="36" rx="3.2" ry="4.4" fill="white"/>
+      </svg>
+      <span>Obsessed</span>
+    </button>
+  </div>
+  <hr class="feedback-divider">
+  <label class="feedback-question feedback-text-label" for="feedback-text">Anything I should do differently?</label>
+  <div class="feedback-quick-replies" id="feedback-quick-replies">
+    <button class="feedback-quick-reply" type="button">All good, loved it!</button>
+    <button class="feedback-quick-reply" type="button">More project details please</button>
+    <button class="feedback-quick-reply" type="button">More about your design process</button>
+  </div>
+  <textarea class="feedback-text" id="feedback-text" rows="3" placeholder="Type away, or tap a bubble above..."></textarea>
+  <button class="feedback-submit" id="feedback-submit" disabled>Send feedback 💌</button>
+</div>
+
+<footer class="page-footer">
+  <div class="page-footer-inner">
+    <div class="page-socials">
+      <a class="page-social-icon" href="https://www.linkedin.com/in/sojinoh/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M7 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="7" cy="7.5" r="1.1" fill="currentColor"/>
+          <path d="M11 17v-3.5a2.5 2.5 0 0 1 5 0V17M11 10v7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <a class="page-social-icon" href="https://github.com/sojinoh" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.49 2.87 8.3 6.84 9.64.5.1.68-.22.68-.49 0-.24-.01-1.05-.01-1.9-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.34-1.11.62-1.36-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.07.36.32.67.94.67 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/>
+        </svg>
+      </a>
+      <a class="page-social-icon" href="https://www.behance.net/sojinoh1" target="_blank" rel="noopener" aria-label="Behance">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/>
+        </svg>
+      </a>
+      <a class="page-social-link" href="Sojin_Oh_Resume.pdf" download aria-label="Download Resume">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v12M7.5 10.5 12 15l4.5-4.5"/>
+          <path d="M4 19h16"/>
+        </svg>
+        Resume
+      </a>
+      <button class="page-social-link copy-email-btn" data-email="sojinohh@gmail.com" aria-label="Copy email address">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2.5" y="5" width="19" height="14" rx="2.5"/>
+          <path d="M3.5 6.5 12 13l8.5-6.5"/>
+        </svg>
+        <span class="copy-email-label">Copy Email</span>
+      </button>
+    </div>
+    <span class="page-footer-copy">© 2026 Sojin Oh</span>
+  </div>
+</footer>
+
+<script src="js/cursor.js"></script>
+<script src="js/project-detail.js"></script>
+<script>
+  const slug = new URLSearchParams(window.location.search).get('slug');
+  if (!slug) {
+    window.location.replace('work.html');
+  } else {
+    fetch('work.html')
+      .then(r => r.text())
+      .then(html => new DOMParser().parseFromString(html, 'text/html'))
+      .then(doc => {
+        const card = doc.querySelector(`.work-card[data-slug="${slug}"]`);
+        if (!card) { window.location.replace('work.html'); return; }
+
+        const password = card.dataset.password;
+        if (password && sessionStorage.getItem('project-pw-' + slug) !== password) {
+          showGate(card, password, slug);
+          return;
+        }
+
+        renderProject(card);
+      })
+      .catch(() => { window.location.replace('work.html'); });
+  }
+
+  function showGate(card, password, slug) {
+    document.getElementById('project-loading').style.display = 'none';
+    document.getElementById('project-gate').classList.remove('hidden');
+
+    const input = document.getElementById('gate-input');
+    const error = document.getElementById('gate-error');
+
+    function tryUnlock() {
+      if (input.value === password) {
+        sessionStorage.setItem('project-pw-' + slug, password);
+        document.getElementById('project-gate').classList.add('hidden');
+        renderProject(card);
+      } else {
+        error.classList.remove('hidden');
+        input.classList.add('gate-shake');
+        setTimeout(() => input.classList.remove('gate-shake'), 400);
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    document.getElementById('gate-submit').addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+    setTimeout(() => input.focus(), 50);
+  }
+
+  function renderProject(card) {
+    document.title = card.dataset.title + ' — Sojin Oh';
+    document.getElementById('pd-title').textContent   = card.dataset.title;
+    document.getElementById('pd-context').textContent = card.dataset.context;
+    document.getElementById('pd-tags').innerHTML      = card.querySelector('.work-card-tags').innerHTML;
+
+    const pdDesc = document.getElementById('pd-desc');
+    mountProjectDesc(pdDesc, card);
+
+    const pdRepo = document.getElementById('pd-repo');
+    if (card.dataset.repo) {
+      pdRepo.href = card.dataset.repo;
+      pdRepo.classList.remove('hidden');
+    }
+
+    document.getElementById('project-loading').style.display = 'none';
+    document.getElementById('project-detail').classList.remove('hidden');
+
+    const lightbox = createLightbox();
+    lightbox.wireContainer(pdDesc);
+  }
+</script>
+<button class="scroll-hint hidden" id="scroll-hint" aria-label="Scroll down">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 6l5 5 5-5"/>
+  </svg>
+</button>
+<script src="js/feedback.js"></script>
+<script src="js/copy-email.js"></script>
+<script src="js/scroll-hint.js"></script>
+</body>
+</html>
