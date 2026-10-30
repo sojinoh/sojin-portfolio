@@ -238,7 +238,12 @@
 <script src="js/cursor.js"></script>
 <script src="js/project-detail.js"></script>
 <script>
-  const slug = new URLSearchParams(window.location.search).get('slug');
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  const fromCategory = params.get('from');
+  if (fromCategory) {
+    document.querySelector('.project-detail-back').href = 'work.html?category=' + fromCategory;
+  }
   if (!slug) {
     window.location.replace('work.html');
   } else {

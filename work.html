@@ -429,7 +429,8 @@
   const sortIcon  = document.getElementById('sort-icon');
   const tabs      = [...document.querySelectorAll('.work-tab')];
 
-  let activeCategory = 'ux';
+  const initCategory = new URLSearchParams(location.search).get('category') || 'ux';
+  let activeCategory = initCategory;
   let sortDir = 'desc';
 
   function applyFilters() {
@@ -466,11 +467,12 @@
     applyFilters();
   });
 
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.category === activeCategory));
   applyFilters();
 
   cards.forEach(card => {
     card.addEventListener('click', () => {
-      window.location.href = 'project.html?slug=' + card.dataset.slug;
+      window.location.href = 'project.html?slug=' + card.dataset.slug + '&from=' + card.dataset.category;
     });
   });
 
