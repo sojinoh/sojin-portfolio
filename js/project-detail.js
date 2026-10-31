@@ -227,8 +227,26 @@ function pdResearchDesc(card) {
 }
 
 // Renders a work-card's full case study into descEl and sets up its video playback rate.
+// Story template: the chapters are written as HTML inside a <template class="work-card-story">
+// in the card. This adds a jump list at the top built from each chapter's label.
+function pdStoryDesc(card) {
+  const tpl = card.querySelector('template.work-card-story');
+  if (!tpl) return '';
+  const wrap = document.createElement('div');
+  wrap.innerHTML = tpl.innerHTML;
+  const chapters = [...wrap.querySelectorAll('.pd-section[data-chapter]')];
+  chapters.forEach((sec, i) => { sec.id = 'chapter-' + (i + 1); });
+  const toc = chapters.length
+    ? `<nav class="pd-chapters" aria-label="Chapters"><div class="pd-chapters-label">In this story</div><ol>${
+        chapters.map((sec, i) => `<li><a href="#chapter-${i + 1}">${sec.dataset.chapter}</a></li>`).join('')
+      }</ol></nav>`
+    : '';
+  return toc + wrap.innerHTML;
+}
+
 function mountProjectDesc(descEl, card) {
   descEl.innerHTML =
+    (card.dataset.template === 'story') ? pdStoryDesc(card) :
     (card.dataset.template === 'research') ? pdResearchDesc(card) :
     (card.dataset.category === 'ux' && card.dataset.empathizeSays) ? pdUXDesc(card) :
     pdSWEDesc(card);

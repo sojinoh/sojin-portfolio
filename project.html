@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/base.css?v=1781768619">
   <link rel="stylesheet" href="css/nav.css?v=1781768619">
   <link rel="stylesheet" href="css/cursor.css?v=1781768619">
-  <link rel="stylesheet" href="css/pages.css?v=1781768700">
+  <link rel="stylesheet" href="css/pages.css?v=1781768900">
   <link rel="stylesheet" href="css/feedback.css?v=1781768619">
 </head>
 <body>
@@ -236,7 +236,7 @@
 </footer>
 
 <script src="js/cursor.js"></script>
-<script src="js/project-detail.js"></script>
+<script src="js/project-detail.js?v=2"></script>
 <script>
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('slug');
@@ -311,6 +311,15 @@
 
     const lightbox = createLightbox();
     lightbox.wireContainer(pdDesc);
+
+    // Content loads after the page, so jump to a #chapter link once it exists
+    // and the images above it have loaded (otherwise they push it down).
+    const target = location.hash && document.getElementById(location.hash.slice(1));
+    if (target) {
+      const pending = [...pdDesc.querySelectorAll('img')].filter(img => !img.complete)
+        .map(img => new Promise(r => { img.onload = img.onerror = r; }));
+      Promise.all(pending).then(() => target.scrollIntoView());
+    }
   }
 </script>
 <button class="scroll-hint hidden" id="scroll-hint" aria-label="Scroll down">
@@ -318,7 +327,7 @@
     <path d="M3 6l5 5 5-5"/>
   </svg>
 </button>
-<script src="js/feedback.js"></script>
+<script src="js/feedback.js?v=2"></script>
 <script src="js/copy-email.js"></script>
 <script src="js/scroll-hint.js"></script>
 </body>

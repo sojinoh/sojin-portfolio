@@ -87,28 +87,6 @@
     setTimeout(hideCard, 1800);
   });
 
-  // ── Auto-trigger 30s into the visit, tracked site-wide across pages ──
-  const VISIT_KEY   = 'feedbackVisitStart';
-  const DISMISS_KEY = 'feedbackDismissed';
-  const DELAY_MS    = 30 * 1000;
-
-  let visitStart = parseInt(sessionStorage.getItem(VISIT_KEY), 10);
-  if (!visitStart) {
-    visitStart = Date.now();
-    sessionStorage.setItem(VISIT_KEY, String(visitStart));
-  }
-
-  if (sessionStorage.getItem(DISMISS_KEY)) {
-    // Already seen the prompt this session — leave the bubble available to reopen anytime.
-    toggle.classList.remove('hidden');
-  } else {
-    const remaining = DELAY_MS - (Date.now() - visitStart);
-    if (remaining <= 0) {
-      showCard();
-    } else {
-      setTimeout(() => {
-        if (!sessionStorage.getItem(DISMISS_KEY)) showCard();
-      }, remaining);
-    }
-  }
+  // Only opens when the visitor clicks the bubble. No auto popup.
+  toggle.classList.remove('hidden');
 })();

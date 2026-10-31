@@ -193,43 +193,217 @@
         </div>
 
         <div class="work-card" data-category="ux" data-year="2026" data-slug="portfolio" data-featured="true"
-             data-template="research"
-             data-title="This Portfolio as Its Own Case Study"
+             data-template="story"
+             data-title="The Story Behind This Website"
              data-context="Personal · A UX Case Study"
-             data-problem-label="The Problem"
-             data-impact-label="Result"
-             data-contributions-label="What I Did"
+             data-repo="https://github.com/sojinoh/sojin-portfolio">
+          <template class="work-card-story">
 
-             data-problem="How do I design a portfolio that lets a time-pressured UX research recruiter quickly evaluate my research process and relevant experience?"
-             data-problem-sub="Building V1 through V3 by feel meant each version was a visual riff on the last one rather than a response to a real design problem. V1 started as a chat interface concept for the homepage. V2 iterated on that chat layout. V3 landed on a hand-drawn doodle aesthetic with a custom font built from my own handwriting, set on a dark green palette. Looking at V3 with fresh eyes, the low-contrast palette and handwriting font were genuinely hard to read. The problem was never the visuals. I had been designing for myself, not for someone trying to assess me in five minutes or less."
-             data-problem-images="images/portfolio-ux-v1-chat.jpg|V1, chat interface concept||images/portfolio-ux-v1-chat-v2.jpg|V2, chat layout iteration||images/portfolio-ux-v1-green.jpg|V3, doodle aesthetic with handwriting font"
+            <div class="pd-section">
+              <div class="pd-divider"><span>The Short Version</span></div>
+              <div class="pd-section-body">
+                <p class="pd-problem-lead">I built three versions of this site by feel before I asked who it was actually for.</p>
+                <p class="pd-problem-sub">Maybe you assume a site like this is just AI magic. It's not. There's real thought behind it, and a few wrong turns too. This is the story of four pivots. Going back to a UX process, rebuilding instead of patching, treating the live site as a prototype, and rethinking how I measure success when my first metric got zero responses.</p>
+              </div>
+            </div>
 
-             data-answer="Scrapping V1 and rebuilding from wireframes grounded in a real user produced a site with a built-in sentiment survey, which became the exact measurement tool the goal statement called for from the start."
+            <div class="pd-section" data-chapter="Three versions in">
+              <div class="pd-divider"><span>Chapter 1</span></div>
+              <div class="pd-section-body">
+                <h3 class="pd-chapter-title">Three versions in, I stopped</h3>
+                <p class="pd-problem-sub">Before any formal process, I had already shipped three versions of this site. Each one was me looking for a more creative way to do the same thing. V1 opened on a chat interface. V2 tried a different chat layout. V3 dropped chat for a hand-drawn doodle, a custom font built from my own handwriting, and a dark green palette.</p>
+                <div class="pd-image-row">
+                  <figure class="pd-image-row-item"><img src="images/portfolio-ux-v1-chat.jpg" alt="V1, chat interface concept"><figcaption>V1, chat interface concept</figcaption></figure>
+                  <figure class="pd-image-row-item"><img src="images/portfolio-ux-v1-chat-v2.jpg" alt="V2, a later chat layout"><figcaption>V2, a later chat layout</figcaption></figure>
+                  <figure class="pd-image-row-item"><img src="images/portfolio-ux-v1-green.jpg" alt="V3, doodle aesthetic, handwriting font, dark green palette"><figcaption>V3, doodle, handwriting font, dark green</figcaption></figure>
+                </div>
+                <div class="pd-pivot">
+                  <div class="pd-pivot-label">Pivot 1</div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">I thought</span><p>A more creative look would make a stronger portfolio.</p></div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">Then</span><p>Looking at V3 with fresh eyes, the handwriting font and low-contrast palette were hard to read. Each version was a riff on the last one, not an answer to a real problem. I had been designing for myself.</p></div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">So I</span><p>Stopped tweaking by feel and went back to the start of a UX process. Understand who I'm designing for before touching the UI.</p></div>
+                </div>
+              </div>
+            </div>
 
-             data-arg1-title="Mapping how a recruiter actually scans portfolios made it clear the design had to be built around speed, not self-expression"
-             data-arg1-body="Empathy mapped a proto-persona, Rachael, a time-pressured recruiter who scans the homepage for 10 seconds then goes straight to case studies before checking personality fit. No recruiters were actually interviewed for this exercise.||A competitive audit of five UX portfolios found that the ones that worked led with a clear greeting or concise self-description rather than a project grid, and never opened with an overwhelming full project list||A written problem statement locked in Rachael as the singular design target, and a goal statement defined an in-site sentiment survey as the only success metric before any wireframe was drawn"
-             data-arg1-images="images/portfolio-ux-journey-map.jpg|Rachael&apos;s 7-stage user journey"
+            <div class="pd-section" data-chapter="Who is actually reading">
+              <div class="pd-divider"><span>Chapter 2</span></div>
+              <div class="pd-section-body">
+                <h3 class="pd-chapter-title">Who is actually reading this?</h3>
+                <p class="pd-problem-sub">Meet Rachael, a time-pressured UX recruiter who reviews dozens of portfolios. She's a proto-persona, built from reasonable assumptions about how hiring works. I didn't interview real recruiters for this, so she was a starting point to design against, not a finding.</p>
+                <div class="pd-subhead">Empathy Map</div>
+                <div class="pd-quadrants">
+                  <div class="pd-quadrant"><div class="pd-quadrant-label">Says</div><ul class="pd-quadrant-list"><li>I need to understand your process, not just the final screens.</li><li>Where's the case study? I only see mockups.</li><li>I can't spend more than 5 minutes on each portfolio.</li><li>Show me the problem you were solving.</li><li>I need to see measurable impact or outcomes.</li></ul></div>
+                  <div class="pd-quadrant"><div class="pd-quadrant-label">Thinks</div><ul class="pd-quadrant-list"><li>Wants to justify the hire to a hiring manager</li><li>Hopes the portfolio matches the company's domain</li><li>Questions if the candidate can present work confidently</li><li>Needs to see the candidate's role in team projects</li><li>Wants a clear narrative from problem to solution</li><li>Pressed for time with too many portfolios to get through</li></ul></div>
+                  <div class="pd-quadrant"><div class="pd-quadrant-label">Does</div><ul class="pd-quadrant-list"><li>Scans the homepage for 10 to 15 seconds before diving in</li><li>Looks for 2 or 3 featured case studies up front</li><li>Clicks About to check background and personality fit</li><li>Skips projects with no context, labels, or outcomes</li><li>Takes notes on standout candidates for follow-up</li><li>Compares the portfolio against job description requirements</li></ul></div>
+                  <div class="pd-quadrant"><div class="pd-quadrant-label">Feels</div><ul class="pd-quadrant-list"><li>Overwhelmed by the volume of portfolios to review</li><li>Impressed when a portfolio tells a clear, focused story</li><li>Frustrated by slow-loading or hard-to-navigate sites</li><li>Uncertain when projects lack context or outcomes</li><li>Excited when a candidate shows initiative</li><li>Pressured to fill the role quickly and accurately</li></ul></div>
+                </div>
+                <div class="pd-subhead">User Journey Map</div>
+                <div class="pd-figure"><img src="images/portfolio-ux-journey-map.jpg" alt="Rachael's 7-stage journey map"><div class="pd-figure-caption">Rachael's 7 stages, from opening the site to deciding whether to move forward</div></div>
+                <div class="pd-insight">
+                  <div class="pd-insight-label">What this changed</div>
+                  <p>Rachael decides in about 10 to 15 seconds whether to keep reading. Every choice I made in V1 to V3 was about how the site looked. None of them were about how fast someone could find my process. The site had to be built for speed, not self-expression.</p>
+                </div>
+              </div>
+            </div>
 
-             data-arg2-title="Starting from scratch was faster than patching V1 because the structural problems ran too deep to fix incrementally"
-             data-arg2-body="Rapid Crazy 8s sketching explored eight layout concepts in eight minutes, from a sidebar table-of-contents to a chat-bubble greeting to a video-led About Me page, then pulled the strongest pieces into one direction||Paper wireframes for three pages exposed an information hierarchy problem that no visual tweak would have fixed. A rebuild was the only path.||Six digital wireframe screens settled the nav logic, project structure, and page layout before any code was written, then went straight to Claude Code to build from scratch"
-             data-arg2-images="images/portfolio-ux-user-flow.jpg|User flow||images/portfolio-ux-wireframes-1.jpg|Paper wireframes||images/portfolio-ux-digital-wireframe-collage.jpg|Digital wireframes, 6 screens"
-             data-arg2-images-row="true"
+            <div class="pd-section" data-chapter="Defining success first">
+              <div class="pd-divider"><span>Chapter 3</span></div>
+              <div class="pd-section-body">
+                <h3 class="pd-chapter-title">Deciding what success looks like, before designing</h3>
+                <p class="pd-problem-sub">With V1 to V3, I never knew if a change made things better. This time I wanted a way to know, so I wrote down the problem and picked a success metric before sketching anything.</p>
+                <div class="pd-quote"><div class="pd-quote-label">Problem Statement</div><p>Rachael is a time-pressured UX recruiter who reviews dozens of candidate portfolios. She needs a fast, structured way to assess a candidate's design process and relevant experience, because most portfolios are hard to scan quickly and lack the context to confidently shortlist candidates.</p></div>
+                <div class="pd-quote"><div class="pd-quote-label">User Story</div><p>As a recruiter hiring for a UX role, I want to quickly evaluate whether a candidate's portfolio demonstrates initiative and a structured design process, so that I can confidently shortlist candidates who are ready to contribute.</p></div>
+                <div class="pd-quote"><div class="pd-quote-label">Goal Statement</div><p>My UX portfolio website will let users quickly locate and evaluate design process and relevant experience, which will affect recruiters screening candidates by reducing the time they spend searching for key information. I'll measure effectiveness through sentiment survey responses collected from website visitors.</p></div>
+                <p class="pd-problem-sub">That last line, the sentiment survey, comes back at the end of this story.</p>
+              </div>
+            </div>
 
-             data-arg3-title="Using my own site every day produced better fixes than any one-time design review would have"
-             data-arg3-body="A missing scroll cue left content hidden below the footer on shorter pages. Adding a chevron above it was the only fix that made sense once I actually experienced it.||The nav active state was subtle enough to miss at a glance, so I gave the current page tab an underline||Sort and filter controls looked identical, so I gave sort a distinct visual style that reads differently from the tabs at a glance"
-             data-arg3-images="images/portfolio-ux-fix-scroll-cue.jpg|Scroll cue fix||images/portfolio-ux-fix-nav-state-2.jpg|Nav state fix||images/portfolio-ux-fix-sort-filter-2.jpg|Sort vs filter fix"
-             data-arg3-images-row="true"
+            <div class="pd-section" data-chapter="Learning from others">
+              <div class="pd-divider"><span>Chapter 4</span></div>
+              <div class="pd-section-body">
+                <h3 class="pd-chapter-title">Learning from other portfolios</h3>
+                <p class="pd-problem-sub">Before sketching, I looked at how other designers solved the same problem. I noted what I'd borrow and what I'd avoid.</p>
+                <div class="pd-audit-list">
+                  <div class="pd-audit-row"><span class="pd-audit-site"><a href="https://www.lisasuefischer.com/" target="_blank" rel="noopener">Lisa Fischer</a></span><span class="pd-audit-note">Liked the simple, muted footer with socials and contact info</span></div>
+                  <div class="pd-audit-row"><span class="pd-audit-site"><a href="https://www.pennybanks.com/" target="_blank" rel="noopener">Penny Banks</a></span><span class="pd-audit-note">Liked the minimalist styling and font choice</span></div>
+                  <div class="pd-audit-row"><span class="pd-audit-site"><a href="https://www.onyekachi.design/" target="_blank" rel="noopener">Onyekachi Nwabueze</a></span><span class="pd-audit-note">Stood out by greeting visitors directly instead of opening on a project grid</span></div>
+                  <div class="pd-audit-row"><span class="pd-audit-site"><a href="https://gabrianna.us/" target="_blank" rel="noopener">Gabi Dumaguin</a></span><span class="pd-audit-note">Liked the concise but detailed self-description</span></div>
+                  <div class="pd-audit-row"><span class="pd-audit-site">Most sites</span><span class="pd-audit-note">Disliked listing every project up front. It felt overwhelming</span></div>
+                </div>
+                <div class="pd-insight">
+                  <div class="pd-insight-label">What this changed</div>
+                  <p>The portfolios that worked best greeted the visitor and said who the person was before showing any work. That's why this site opens with a greeting and a short At a Glance page, not a wall of projects.</p>
+                </div>
+              </div>
+            </div>
 
-             data-conclusion="The rebuilt site gives recruiters a faster path to evaluating research process and relevant experience. The sentiment survey built into the page now collects ongoing visitor feedback, turning the portfolio itself into a running UX research artifact."
+            <div class="pd-section" data-chapter="Picking the right medium">
+              <div class="pd-divider"><span>Chapter 5</span></div>
+              <div class="pd-section-body">
+                <h3 class="pd-chapter-title">Eight ideas, then picking the right medium</h3>
+                <p class="pd-problem-sub">I sketched 8 rapid concepts in 8 minutes, from a sidebar table of contents to a chat-bubble greeting to a video-led About Me page.</p>
+                <div class="pd-subhead">Crazy 8s</div>
+                <div class="pd-image-grid" style="--pd-grid-cols:4">
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-crazy8-1.jpg" alt="Sidebar contents layout"><figcaption>1. Sidebar contents layout</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-crazy8-2.jpg" alt="Welcome split, At a Glance vs. Detailed"><figcaption>2. Welcome split, At a Glance vs. Detailed</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-crazy8-3.jpg" alt="Video-led About Me"><figcaption>3. Video-led About Me</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-crazy8-4.jpg" alt="Nav with chat-bubble Summary panel"><figcaption>4. Nav with chat-bubble Summary panel</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-crazy8-5.jpg" alt="Chat-bubble welcome greeting"><figcaption>5. Chat-bubble welcome greeting</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-crazy8-6.jpg" alt="Progress-bar onboarding flow"><figcaption>6. Progress-bar onboarding flow</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-crazy8-7.jpg" alt="Video-led portfolio projects"><figcaption>7. Video-led portfolio projects</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-crazy8-8.jpg" alt="Traditional website with lengthy text"><figcaption>8. Traditional site with lengthy text</figcaption></figure>
+                </div>
+                <p class="pd-problem-sub">I didn't pick one winner and throw the rest away. Once the wireframes existed, I pulled in whichever piece fit the flow and layout best. For each one I asked a single question. Is this the best medium to carry this information?</p>
+                <div class="pd-insight">
+                  <div class="pd-insight-label">Example</div>
+                  <p>A video could tell my story well, but viewers can't easily skip parts or see where they are in the whole story. Text is easier to skim. So my story stays in text, with a stepper that shows where you are.</p>
+                </div>
+                <p class="pd-problem-sub">The sidebar from sketch 1 became the At a Glance page. The welcome split from sketch 2 shaped the homepage greeting. The progress bar from sketch 6 became the stepper on the About page.</p>
+              </div>
+            </div>
 
-             data-impact="Restarted Once|Scrapped V1 entirely when the UX process pointed to a clearer direction||Found By Using It|Every fix in the polish passes came from spotting friction on my own site, not from a planned redesign||Feedback Loop Shipped|The in-site sentiment survey is the exact tool the goal statement defined as the success metric">
+            <div class="pd-section" data-chapter="Patch it or start over">
+              <div class="pd-divider"><span>Chapter 6</span></div>
+              <div class="pd-section-body">
+                <h3 class="pd-chapter-title">Patch it, or start over?</h3>
+                <p class="pd-problem-sub">I mapped the full click path, then drew paper wireframes for 5 screens. Homepage, At a Glance, About Me, My Work with filters, and a project detail view.</p>
+                <div class="pd-figure pd-figure-small"><img src="images/portfolio-ux-user-flow.jpg" alt="User flow showing the full click path"><div class="pd-figure-caption">User flow, the full click path</div></div>
+                <div class="pd-image-row">
+                  <figure class="pd-image-row-item"><img src="images/portfolio-ux-wireframes-1.jpg" alt="Paper wireframes, Homepage and At a Glance"><figcaption>Homepage and At a Glance</figcaption></figure>
+                  <figure class="pd-image-row-item"><img src="images/portfolio-ux-wireframes-2.jpg" alt="Paper wireframes, At a Glance continued and About Me"><figcaption>At a Glance (cont.) and About Me</figcaption></figure>
+                  <figure class="pd-image-row-item"><img src="images/portfolio-ux-wireframes-3.jpg" alt="Paper wireframes, My Work and detail view"><figcaption>My Work and detail view</figcaption></figure>
+                </div>
+                <div class="pd-pivot">
+                  <div class="pd-pivot-label">Pivot 2</div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">I thought</span><p>I could keep V3 and fix it piece by piece.</p></div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">Then</span><p>The wireframes showed the real problem was the information hierarchy, meaning what lives where and what a visitor sees first. No color or font change would fix that.</p></div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">So I</span><p>Scrapped V3 and rebuilt the whole site from scratch. Starting over was faster than patching.</p></div>
+                </div>
+                <div class="pd-subhead">Digital Wireframes</div>
+                <p class="pd-problem-sub">I turned the paper sketches into six clean digital screens. These became the spec I handed to Claude Code, so the nav logic, project structure, and page layout were settled before any code was written.</p>
+                <div class="pd-image-grid" style="--pd-grid-cols:3">
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-digital-wireframe-1.jpg" alt="Homepage"><figcaption>Homepage</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-digital-wireframe-2.jpg" alt="At a Glance"><figcaption>At a Glance</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-digital-wireframe-3.jpg" alt="My Work"><figcaption>My Work</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-digital-wireframe-4.jpg" alt="About Me"><figcaption>About Me</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-digital-wireframe-5.jpg" alt="My Work, filtered grid"><figcaption>My Work, filtered grid</figcaption></figure>
+                  <figure class="pd-image-grid-item"><img src="images/portfolio-ux-digital-wireframe-6.jpg" alt="Project detail view"><figcaption>Project detail view</figcaption></figure>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-section" data-chapter="Living in it">
+              <div class="pd-divider"><span>Chapter 7</span></div>
+              <div class="pd-section-body">
+                <h3 class="pd-chapter-title">Using it taught me more than reviewing it</h3>
+                <p class="pd-problem-sub">After the rebuild, I used the live site day to day and kept a running list of friction points. Daily use surfaces problems a one-time design review never catches. Here are three from that list, each fixed in its own focused pass.</p>
+                <div class="pd-steps">
+                  <div class="pd-step"><div class="pd-step-num">01</div><div class="pd-step-text"><span class="pd-fix-label">No scroll cue</span><span class="pd-fix-pair"><strong>Problem.</strong> On shorter pages the sticky footer sat over the last line of content, with nothing to signal more was below. <strong>Fix.</strong> A chevron above the footer that shows the page keeps going.</span><div class="pd-fix-shot"><img src="images/portfolio-ux-fix-scroll-cue.jpg" alt="Scroll cue chevron above the footer"></div></div></div>
+                  <div class="pd-step"><div class="pd-step-num">02</div><div class="pd-step-text"><span class="pd-fix-label">Unclear nav state</span><span class="pd-fix-pair"><strong>Problem.</strong> The active page indicator was easy to miss, so it was hard to tell which page you were on. <strong>Fix.</strong> An underline on the current tab.</span><div class="pd-fix-shot"><img src="images/portfolio-ux-fix-nav-state-2.jpg" alt="Nav bar with underline on the active tab"></div></div></div>
+                  <div class="pd-step"><div class="pd-step-num">03</div><div class="pd-step-text"><span class="pd-fix-label">Sort looked like a filter</span><span class="pd-fix-pair"><strong>Problem.</strong> On the Projects page, the sort control had the same style as the category tabs, so it read as one more filter. <strong>Fix.</strong> A distinct style for sort so it reads as a separate control.</span><div class="pd-fix-shot"><img src="images/portfolio-ux-fix-sort-filter-2.jpg" alt="Sort control styled differently from the filter tabs"></div></div></div>
+                </div>
+                <div class="pd-pivot">
+                  <div class="pd-pivot-label">Pivot 3</div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">I thought</span><p>Launching the rebuild meant the design work was done.</p></div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">Then</span><p>Actually living in the site kept showing me small moments of friction I never saw in the wireframes.</p></div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">So I</span><p>Treated the live site as an ongoing prototype. Every fix came from real use, not a planned redesign.</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-section" data-chapter="The metric that didn't work">
+              <div class="pd-divider"><span>Chapter 8</span></div>
+              <div class="pd-section-body">
+                <h3 class="pd-chapter-title">The metric that didn't work</h3>
+                <p class="pd-problem-sub">Back in Chapter 3, I picked a sentiment survey as my one success metric. I built it into the site as a pop-up that opened 30 seconds into a visit. It got zero responses.</p>
+                <p class="pd-problem-sub">Looking back, that makes sense. I close pop-ups on other websites too, because they get in the way. I should have checked the metric against my own behavior before betting on it.</p>
+                <div class="pd-pivot">
+                  <div class="pd-pivot-label">Pivot 4</div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">I thought</span><p>Asking visitors directly was the best way to know if the site worked.</p></div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">Then</span><p>No one answered. After adding Google Analytics, I saw that indirect signals, like how long someone stays on a page and where they go next, show what people do without asking them for anything.</p></div>
+                  <div class="pd-pivot-row"><span class="pd-pivot-key">So I</span><p>Made the feedback bubble open only when someone clicks it, so it's there for anyone who wants to share a thought. Google Analytics is now how I measure whether the site works.</p></div>
+                </div>
+                <div class="pd-subhead">What the data shows</div>
+                <p class="pd-problem-sub">From September to late October 2026, 32 people visited the site, mostly from the United States. That's a small sample, and it includes some of my own visits, so I read it as early signals, not proof. Still, three patterns stood out.</p>
+                <div class="pd-stats">
+                  <div class="pd-stat"><span class="pd-stat-num">18 sec</span><span class="pd-stat-caption">Average time on the homepage before moving on</span></div>
+                  <div class="pd-stat"><span class="pd-stat-num">6 in 10</span><span class="pd-stat-caption">Visitors who went from the homepage to At a Glance or Projects</span></div>
+                  <div class="pd-stat"><span class="pd-stat-num">~3 min</span><span class="pd-stat-caption">Average time spent once someone opened a case study</span></div>
+                </div>
+                <div class="pd-steps">
+                  <div class="pd-step"><div class="pd-step-num">01</div><div class="pd-step-text"><span class="pd-fix-label">The homepage is a doorway</span><span class="pd-fix-pair">Visitors spent about 18 seconds there, close to the 10 to 15 second scan I assumed for Rachael back in Chapter 2. An assumption I couldn't test then now has some real behavior behind it.</span></div></div>
+                  <div class="pd-step"><div class="pd-step-num">02</div><div class="pd-step-text"><span class="pd-fix-label">People go straight to the work</span><span class="pd-fix-pair">More visitors opened Projects (19) and At a Glance (18) than About Me (14). That matches the order I designed for. Show the work and the summary first, and the personal story after.</span></div></div>
+                  <div class="pd-step"><div class="pd-step-num">03</div><div class="pd-step-text"><span class="pd-fix-label">Fewer people open case studies, but they stay</span><span class="pd-fix-pair">Only 9 visitors opened a full case study, but they spent about 3 minutes on average, the longest of any page. Getting more people from the Projects grid into a case study is my next thing to improve.</span></div></div>
+                </div>
+                <div class="pd-insight">
+                  <div class="pd-insight-label">What I'm doing next</div>
+                  <p>Filtering out my own visits so the numbers only reflect real visitors, and tracking which chapters people jump to in case studies like this one.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-section" data-chapter="Looking back">
+              <div class="pd-divider"><span>Looking Back</span></div>
+              <div class="pd-section-body">
+                <p class="pd-problem-lead">It was messy, and I learned by making mistakes. Every step mattered because of that.</p>
+                <p class="pd-problem-sub">The three versions built by feel are why I trust the process now. The survey nobody answered is why I measure behavior instead of asking for opinions. This site is still a prototype, and I'll keep changing it as I learn how people use it.</p>
+                <div class="pd-stats">
+                  <div class="pd-stat"><span class="pd-stat-num">Restarted Once</span><span class="pd-stat-caption">Scrapped V3 entirely when the UX process pointed to a clearer direction</span></div>
+                  <div class="pd-stat"><span class="pd-stat-num">Found By Using It</span><span class="pd-stat-caption">Every polish fix came from friction I felt on my own site</span></div>
+                  <div class="pd-stat"><span class="pd-stat-num">Metric Rethought</span><span class="pd-stat-caption">Zero survey replies led me to measure behavior with Google Analytics instead</span></div>
+                </div>
+              </div>
+            </div>
+
+          </template>
           <img class="work-card-image" src="images/portfolio-ux-digital-wireframe-collage.jpg" alt="Grid of the 6 digital wireframe screens, homepage, at a glance, my work, about me, filtered work grid, and project detail view">
           <div class="work-card-body">
             <div class="work-card-eyebrow">Personal · 2026</div>
             <div class="work-card-info">
-              <span class="work-card-title">This Portfolio as Its Own Case Study</span>
+              <span class="work-card-title">The Story Behind This Website</span>
             </div>
-            <p class="work-card-featured-desc">A UX case study where the portfolio itself is the artifact. Empathy mapping and wireframing led to a full rebuild, then daily use surfaced every fix worth making.</p>
+            <p class="work-card-featured-desc">I built three versions of this site by feel before asking who it was for. Four pivots followed, from a full rebuild to swapping a survey nobody answered for Google Analytics.</p>
             <div class="work-card-tags">
               <span class="work-tag">UX Research</span>
               <span class="work-tag">Wireframing</span>
@@ -487,7 +661,7 @@
     <path d="M3 6l5 5 5-5"/>
   </svg>
 </button>
-<script src="js/feedback.js"></script>
+<script src="js/feedback.js?v=2"></script>
 <script src="js/copy-email.js"></script>
 <script src="js/scroll-hint.js"></script>
 </body>
