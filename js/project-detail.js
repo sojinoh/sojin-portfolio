@@ -242,6 +242,7 @@ function pdStoryDesc(card) {
     timeline.className = 'pd-timeline';
     timeline.innerHTML = '<div class="pd-timeline-base"></div><div class="pd-timeline-progress"></div>';
     steps[0].before(timeline);
+    timeline.insertAdjacentHTML('beforebegin', '<div class="pd-divider"><span>How It Unfolded</span></div>');
     steps.forEach(sec => {
       sec.classList.add('pd-timeline-step');
       sec.insertAdjacentHTML('afterbegin', '<span class="pd-timeline-node" aria-hidden="true"></span>');
