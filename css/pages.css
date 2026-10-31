@@ -85,28 +85,28 @@ body { overflow-y: auto; }
   padding: 8px 8px;
   border: none;
   border-radius: 4px;
-  background: var(--text);
+  background: var(--btn-bg);
   font-family: 'League Spartan', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--on-accent);
+  color: var(--btn-text);
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 3px 3px 0 var(--heart-color);
+  box-shadow: 3px 3px 0 var(--btn-shadow);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .intro-cta-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--heart-color);
+  box-shadow: 5px 5px 0 var(--btn-shadow);
 }
 
 .intro-cta-btn:active, .intro-cta-btn.copied {
   transform: translate(0, 0);
-  box-shadow: 1px 1px 0 var(--heart-color);
+  box-shadow: 1px 1px 0 var(--btn-shadow);
 }
 
 .intro-text-group {
@@ -1746,27 +1746,27 @@ h2.timeline-title {
   padding: 10px 12px;
   border: none;
   border-radius: 4px;
-  background: var(--text);
+  background: var(--btn-bg);
   font-family: 'League Spartan', sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--on-accent);
+  color: var(--btn-text);
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 3px 3px 0 var(--heart-color);
+  box-shadow: 3px 3px 0 var(--btn-shadow);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .glance-resume-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 var(--heart-color);
+  box-shadow: 5px 5px 0 var(--btn-shadow);
 }
 
 .glance-resume-btn:active {
   transform: translate(0, 0);
-  box-shadow: 1px 1px 0 var(--heart-color);
+  box-shadow: 1px 1px 0 var(--btn-shadow);
 }
 
 .glance-toc-mobile { display: none; }

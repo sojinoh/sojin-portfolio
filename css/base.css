@@ -12,6 +12,9 @@
   --card-elevated: #E6DBE6;
   --chip-bg:      rgba(26, 34, 51, 0.06);
   --on-accent:    #FFFFFF;
+  --btn-bg:       #1A2233;
+  --btn-text:     #FFFFFF;
+  --btn-shadow:   #9B6F9B;
   --tint:         rgba(26, 34, 51, 0.06);
   --tint-soft:    rgba(26, 34, 51, 0.04);
   --shadow-rgb:   26, 34, 51;
@@ -39,6 +42,9 @@
     --card-elevated: #1F3A30;
     --chip-bg:      rgba(207, 227, 217, 0.07);
     --on-accent:    #0F1F1A;
+  --btn-bg:       #338068;
+  --btn-text:     #FFFFFF;
+  --btn-shadow:   #5BBF98;
     --tint:         rgba(207, 227, 217, 0.06);
     --tint-soft:    rgba(207, 227, 217, 0.04);
     --shadow-rgb:   0, 0, 0;
@@ -63,6 +69,9 @@
   --card-elevated: #1F3A30;
   --chip-bg:      rgba(207, 227, 217, 0.07);
   --on-accent:    #0F1F1A;
+  --btn-bg:       #338068;
+  --btn-text:     #FFFFFF;
+  --btn-shadow:   #5BBF98;
   --tint:         rgba(207, 227, 217, 0.06);
   --tint-soft:    rgba(207, 227, 217, 0.04);
   --shadow-rgb:   0, 0, 0;
