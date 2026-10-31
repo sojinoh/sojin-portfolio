@@ -18,6 +18,7 @@
   <script src="js/theme.js?v=2"></script>
   <link rel="stylesheet" href="css/base.css?v=1781900900">
   <link rel="stylesheet" href="css/nav.css?v=1781768619">
+  <link rel="preload" href="fonts/Sojin-Hangul.ttf?v=2" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="css/hero.css?v=1781900600">
   <link rel="stylesheet" href="css/cursor.css?v=1781900000">
   <link rel="stylesheet" href="css/feedback.css?v=1781900007">
@@ -196,6 +197,8 @@
       for (const char of seg.text) allChars.push({ char, hi: seg.hi });
     }
     const names = ['Sojin', '소진'];
+    // Load the Korean handwriting now so 소진 never flashes in the fallback font
+    if (document.fonts) document.fonts.load('1em "Sojin Hand"', '소진');
 
     const cursor = document.createElement('span');
     cursor.className = 'type-cursor';
