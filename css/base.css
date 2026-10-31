@@ -148,6 +148,9 @@ a:not([class]):hover {
 
 .scroll-hint.hidden { opacity: 0; pointer-events: none; }
 
+.scroll-hint svg { flex-shrink: 0; transition: transform 0.3s ease; }
+.scroll-hint.to-top svg { transform: rotate(180deg); }
+
 @media (max-width: 700px) {
   .scroll-hint { right: 1.2rem; bottom: 5.6rem; width: 34px; height: 34px; }
 }
