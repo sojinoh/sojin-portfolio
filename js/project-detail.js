@@ -228,20 +228,68 @@ function pdResearchDesc(card) {
 
 // Renders a work-card's full case study into descEl and sets up its video playback rate.
 // Story template: the chapters are written as HTML inside a <template class="work-card-story">
-// in the card. This adds a jump list at the top built from each chapter's label.
+// in the card. Chapters without a divider label (everything between The Short Version and
+// Looking Back) are wrapped in a timeline rail that fills in as you scroll.
 function pdStoryDesc(card) {
   const tpl = card.querySelector('template.work-card-story');
   if (!tpl) return '';
   const wrap = document.createElement('div');
   wrap.innerHTML = tpl.innerHTML;
-  const chapters = [...wrap.querySelectorAll('.pd-section[data-chapter]')];
-  chapters.forEach((sec, i) => { sec.id = 'chapter-' + (i + 1); });
-  const toc = chapters.length
-    ? `<nav class="pd-chapters" aria-label="Chapters"><div class="pd-chapters-label">In this story</div><ol>${
-        chapters.map((sec, i) => `<li><a href="#chapter-${i + 1}">${sec.dataset.chapter}</a></li>`).join('')
-      }</ol></nav>`
-    : '';
-  return toc + wrap.innerHTML;
+  const steps = [...wrap.querySelectorAll('.pd-section[data-chapter]')]
+    .filter(sec => !sec.querySelector('.pd-divider span'));
+  if (steps.length) {
+    const timeline = document.createElement('div');
+    timeline.className = 'pd-timeline';
+    timeline.innerHTML = '<div class="pd-timeline-base"></div><div class="pd-timeline-progress"></div>';
+    steps[0].before(timeline);
+    steps.forEach(sec => {
+      sec.classList.add('pd-timeline-step');
+      sec.insertAdjacentHTML('afterbegin', '<span class="pd-timeline-node" aria-hidden="true"></span>');
+      timeline.appendChild(sec);
+    });
+  }
+  return wrap.innerHTML;
+}
+
+// Fills the story timeline down to a point 35% from the top of the screen and lights up
+// each dot once the fill reaches it. Measured on every update, since images loading in
+// later change the section heights.
+function initStoryTimeline(root) {
+  const timeline = root.querySelector('.pd-timeline');
+  if (!timeline) return;
+  const base = timeline.querySelector('.pd-timeline-base');
+  const progress = timeline.querySelector('.pd-timeline-progress');
+  const steps = [...timeline.querySelectorAll('.pd-timeline-step')];
+  const PLAYHEAD = 0.35;
+  let ticking = false;
+
+  function centerOf(step, top) {
+    const n = step.querySelector('.pd-timeline-node').getBoundingClientRect();
+    return n.top - top + n.height / 2;
+  }
+
+  function update() {
+    ticking = false;
+    const top = timeline.getBoundingClientRect().top;
+    const first = centerOf(steps[0], top);
+    const last = centerOf(steps[steps.length - 1], top);
+    base.style.top = progress.style.top = first + 'px';
+    base.style.height = (last - first) + 'px';
+    const fill = Math.max(0, Math.min(window.innerHeight * PLAYHEAD - top, last) - first);
+    progress.style.height = fill + 'px';
+    steps.forEach(step => step.classList.toggle('active', centerOf(step, top) <= first + fill + 0.5));
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  root.querySelectorAll('img').forEach(img => { if (!img.complete) img.addEventListener('load', onScroll); });
+  update();
 }
 
 function mountProjectDesc(descEl, card) {
@@ -250,6 +298,8 @@ function mountProjectDesc(descEl, card) {
     (card.dataset.template === 'research') ? pdResearchDesc(card) :
     (card.dataset.category === 'ux' && card.dataset.empathizeSays) ? pdUXDesc(card) :
     pdSWEDesc(card);
+
+  initStoryTimeline(descEl);
 
   descEl.querySelectorAll('video').forEach(v => {
     v.playbackRate = 2;

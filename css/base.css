@@ -11,6 +11,71 @@
   --heart-color:  #9B6F9B;
   --card-elevated: #E6DBE6;
   --chip-bg:      rgba(26, 34, 51, 0.06);
+  --on-accent:    #FFFFFF;
+  --tint:         rgba(26, 34, 51, 0.06);
+  --tint-soft:    rgba(26, 34, 51, 0.04);
+  --shadow-rgb:   26, 34, 51;
+  --warn-text:    #92400E;
+  --footer-bg:    #FFFFFF;
+  --error:        #CC4444;
+  color-scheme: light;
+}
+
+/* ── Dark mode ──────────────────────────────────────────────────
+   Follows the system setting unless the visitor picks one with the
+   nav toggle, which sets data-theme on <html>. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:           #0F1F1A;
+    --text:         #CFE3D9;
+    --accent:       #5BBF98;
+    --sky:          #152A23;
+    --sky-deep:     #13261F;
+    --nav-bg:       #1D4A3C;
+    --nav-text:     #CFE3D9;
+    --muted:        rgba(207, 227, 217, 0.62);
+    --border:       rgba(207, 227, 217, 0.14);
+    --heart-color:  #5BBF98;
+    --card-elevated: #1F3A30;
+    --chip-bg:      rgba(207, 227, 217, 0.07);
+    --on-accent:    #0F1F1A;
+    --tint:         rgba(207, 227, 217, 0.06);
+    --tint-soft:    rgba(207, 227, 217, 0.04);
+    --shadow-rgb:   0, 0, 0;
+    --warn-text:    #FBBF24;
+    --footer-bg:    #0B1814;
+    --error:        #F07070;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg:           #0F1F1A;
+  --text:         #CFE3D9;
+  --accent:       #5BBF98;
+  --sky:          #152A23;
+  --sky-deep:     #13261F;
+  --nav-bg:       #1D4A3C;
+  --nav-text:     #CFE3D9;
+  --muted:        rgba(207, 227, 217, 0.62);
+  --border:       rgba(207, 227, 217, 0.14);
+  --heart-color:  #5BBF98;
+  --card-elevated: #1F3A30;
+  --chip-bg:      rgba(207, 227, 217, 0.07);
+  --on-accent:    #0F1F1A;
+  --tint:         rgba(207, 227, 217, 0.06);
+  --tint-soft:    rgba(207, 227, 217, 0.04);
+  --shadow-rgb:   0, 0, 0;
+  --warn-text:    #FBBF24;
+  --footer-bg:    #0B1814;
+  --error:        #F07070;
+  color-scheme: dark;
+}
+
+/* Smooth swap when the toggle is clicked (class added only during the switch) */
+html.theme-switching,
+html.theme-switching * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
@@ -47,7 +112,7 @@ a:not([class]):hover {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: var(--nav-bg);
+  background: var(--footer-bg);
   padding: 1.4rem 3.5rem;
   flex-shrink: 0;
   z-index: 10;
@@ -133,7 +198,7 @@ a:not([class]):hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--nav-bg);
+  background: var(--bg);
   border: 1.5px solid var(--border);
   display: flex;
   align-items: center;
@@ -168,8 +233,54 @@ a:not([class]):hover {
   -webkit-mask-image: linear-gradient(to right, black 0%, black 88%, transparent 100%);
 }
 #doodle-hover { opacity: 0; }
+
+/* Doodles are drawn on solid white. In dark mode, invert them (hue-rotate
+   keeps the colors close) and use screen so the black backdrop disappears. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .doodle {
+    filter: invert(1) hue-rotate(180deg) brightness(0.85);
+    mix-blend-mode: screen;
+  }
+}
+:root[data-theme="dark"] .doodle {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85);
+  mix-blend-mode: screen;
+}
 body.doodle-reacting #doodle-default { opacity: 0; }
 body.doodle-reacting #doodle-hover   { opacity: 1; }
+/* ── Theme toggle (nav) ──────────────────────────────────────── */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  align-self: center;
+  margin: -8px -6px -8px 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--nav-text);
+  opacity: 0.75;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.theme-toggle:hover { opacity: 1; background: var(--chip-bg); transform: rotate(-15deg); }
+.theme-toggle:focus-visible { outline: 2px solid var(--heart-color); outline-offset: 2px; }
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+@media (max-width: 700px) {
+  .theme-toggle { width: 30px; height: 30px; }
+  .theme-toggle svg { width: 16px; height: 16px; }
+}
+
 html { font-size: 16px; }
 @media (max-width: 700px) { html { font-size: 15px; } }
 html, body { height: 100%; }

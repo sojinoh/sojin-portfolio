@@ -91,7 +91,7 @@ body { overflow-y: auto; }
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--on-accent);
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
@@ -391,9 +391,9 @@ h2.timeline-title {
 
 .resume-btn:hover {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(26, 34, 51, 0.25);
+  box-shadow: 0 6px 20px rgba(var(--shadow-rgb), 0.25);
 }
 
 /* ── Experience / Education entries ─────────────────────────── */
@@ -1060,7 +1060,7 @@ h2.timeline-title {
   background: var(--nav-bg);
   border-radius: 18px;
   padding: 1.8rem 2rem 2.2rem;
-  box-shadow: 0 16px 48px rgba(26, 34, 51, 0.14);
+  box-shadow: 0 16px 48px rgba(var(--shadow-rgb), 0.14);
   animation: pdAppear 0.22s ease;
 }
 
@@ -1133,7 +1133,7 @@ h2.timeline-title {
   border-color: var(--accent);
   color: var(--accent);
   transform: scale(1.08) rotate(90deg);
-  box-shadow: 0 4px 14px rgba(26, 34, 51, 0.12);
+  box-shadow: 0 4px 14px rgba(var(--shadow-rgb), 0.12);
 }
 
 .project-detail-close:active {
@@ -1220,7 +1220,7 @@ h2.timeline-title {
 }
 .pd-figure img:hover {
   transform: scale(1.008);
-  box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
+  box-shadow: 0 6px 20px rgba(var(--shadow-rgb), 0.18);
 }
 .pd-figure-caption {
   font-size: 0.78rem;
@@ -1293,7 +1293,7 @@ h2.timeline-title {
   margin-top: 0.55rem;
   max-width: 100%;
   border-radius: 6px;
-  border: 1px solid var(--color-border, #e5e5e5);
+  border: 1px solid var(--border);
 }
 
 /* ── Result: by-the-numbers strip ────────────────────────────── */
@@ -1548,7 +1548,7 @@ h2.timeline-title {
 }
 .pd-image-grid-item img:hover {
   transform: scale(1.015);
-  box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
+  box-shadow: 0 6px 20px rgba(var(--shadow-rgb), 0.18);
 }
 
 .pd-image-grid-item figcaption {
@@ -1581,7 +1581,7 @@ h2.timeline-title {
 }
 .pd-image-row-item img:hover {
   transform: scale(1.015);
-  box-shadow: 0 6px 20px rgba(26, 34, 51, 0.18);
+  box-shadow: 0 6px 20px rgba(var(--shadow-rgb), 0.18);
 }
 
 .pd-image-row-item figcaption {
@@ -1654,7 +1654,7 @@ h2.timeline-title {
   text-align: left;
   padding: 0 0 1.2rem 0;
   margin-bottom: 1.2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid var(--border);
 }
 
 .glance-profile-photo {
@@ -1729,7 +1729,7 @@ h2.timeline-title {
 
 .glance-toc-link.active {
   background: var(--bg);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(var(--shadow-rgb), 0.1);
   color: var(--heart-color);
   opacity: 1;
 }
@@ -1750,7 +1750,7 @@ h2.timeline-title {
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--on-accent);
   text-decoration: none;
   cursor: pointer;
   box-shadow: 3px 3px 0 var(--heart-color);
@@ -1982,7 +1982,7 @@ h2.timeline-title {
   border: 1px dashed rgba(245, 158, 11, 0.45);
   border-radius: 4px;
   padding: 3px 9px;
-  color: #92400e;
+  color: var(--warn-text);
   font-size: 0.82rem;
   font-style: italic;
 }
@@ -1993,7 +1993,7 @@ h2.timeline-title {
   font-weight: 500;
   line-height: 1.55;
   color: var(--text);
-  background: rgba(26, 34, 51, 0.06);
+  background: var(--tint);
   border-left: 3px solid var(--accent);
   border-radius: 0 8px 8px 0;
   padding: 1rem 1.2rem;
@@ -2089,7 +2089,7 @@ h2.timeline-title {
 .pd-argument-inner .pd-image-row--tiles .pd-image-row-item {
   flex: 1;
   min-width: 0;
-  background: rgba(26, 34, 51, 0.04);
+  background: var(--tint-soft);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -2178,7 +2178,7 @@ h2.timeline-title {
 
 .project-gate-input.gate-shake {
   animation: gate-shake 0.35s ease;
-  border-color: #c44;
+  border-color: var(--error);
 }
 
 @keyframes gate-shake {
@@ -2205,21 +2205,13 @@ h2.timeline-title {
 
 .project-gate-error {
   font-size: 0.82rem;
-  color: #c44;
+  color: var(--error);
   margin: 0.65rem 0 0;
 }
 
 .project-gate-error.hidden { display: none; }
 
-/* ── Story case study: chapter jump list, pivots, insights ──── */
-.pd-chapters {
-  background: var(--chip-bg);
-  border-radius: 8px;
-  padding: 1rem 1.2rem;
-  margin: 0.6rem 0 1rem;
-}
-
-.pd-chapters-label,
+/* ── Story case study: pivots, insights ──────────────────────── */
 .pd-pivot-label,
 .pd-insight-label {
   font-family: 'League Spartan', sans-serif;
@@ -2231,34 +2223,65 @@ h2.timeline-title {
   margin-bottom: 0.5rem;
 }
 
-.pd-chapters ol {
-  margin: 0;
-  padding-left: 1.3rem;
-  columns: 2;
-  column-gap: 2rem;
+/* ── Story case study: timeline rail through the chapters ───── */
+.pd-timeline {
+  position: relative;
+  padding-left: 2.2rem;
+  margin-top: 1rem;
 }
 
-.pd-chapters li {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  padding: 0.15rem 0;
-  break-inside: avoid;
-  color: var(--muted);
+.pd-timeline-base,
+.pd-timeline-progress {
+  position: absolute;
+  left: 6px;
+  top: 0;
+  width: 0;
+  pointer-events: none;
 }
 
-.pd-chapters a {
-  color: var(--text);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border);
+.pd-timeline-base { border-left: 2px dashed var(--border); }
+
+.pd-timeline-progress {
+  width: 2px;
+  height: 0;
+  background: var(--heart-color);
+  z-index: 1;
+  animation: timeline-ambient-glow 3.5s ease-in-out infinite;
 }
 
-.pd-chapters a:hover { border-bottom-color: var(--text); }
+@media (prefers-reduced-motion: reduce) {
+  .pd-timeline-progress { animation: none; }
+}
+
+.pd-timeline-step { position: relative; margin: 0 0 3.2rem; }
+.pd-timeline-step:last-child { margin-bottom: 1rem; }
+.pd-timeline-step .pd-divider { display: none; }
+.pd-timeline-step .pd-section-body { padding-left: 0; }
+
+.pd-timeline-node {
+  position: absolute;
+  left: -2.2rem;
+  top: 7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  z-index: 2;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pd-timeline-step.active .pd-timeline-node {
+  background: var(--heart-color);
+  border-color: var(--heart-color);
+  box-shadow: 0 0 6px 1px color-mix(in srgb, var(--heart-color) 55%, transparent);
+  transform: scale(1.2);
+}
 
 @media (max-width: 700px) {
-  .pd-chapters ol { columns: 1; }
+  .pd-timeline { padding-left: 1.6rem; }
+  .pd-timeline-node { left: -1.6rem; }
 }
-
-.pd-section[data-chapter] { scroll-margin-top: 6rem; }
 
 .pd-chapter-title {
   font-family: 'League Spartan', sans-serif;
@@ -2310,7 +2333,7 @@ h2.timeline-title {
 }
 
 .pd-insight {
-  background: rgba(26, 34, 51, 0.06);
+  background: var(--tint);
   border-left: 3px solid var(--accent);
   border-radius: 0 8px 8px 0;
   padding: 1rem 1.2rem;

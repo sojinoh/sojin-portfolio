@@ -21,13 +21,13 @@
   height: 42px;
   border-radius: 50%;
   background: var(--heart-color);
-  color: #fff;
+  color: var(--on-accent);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(26, 34, 51, 0.22);
+  box-shadow: 0 6px 20px rgba(var(--shadow-rgb), 0.22);
   transition: transform 0.2s ease;
 }
 
@@ -43,7 +43,7 @@
   border-radius: 50%;
   background: var(--bg);
   border: none;
-  box-shadow: 0 2px 6px rgba(26, 34, 51, 0.25);
+  box-shadow: 0 2px 6px rgba(var(--shadow-rgb), 0.25);
   color: var(--muted);
   display: flex;
   align-items: center;
@@ -56,7 +56,7 @@
 
 .feedback-dismiss:hover, .feedback-dismiss:focus-visible {
   color: var(--accent);
-  box-shadow: 0 2px 8px rgba(26, 34, 51, 0.35);
+  box-shadow: 0 2px 8px rgba(var(--shadow-rgb), 0.35);
 }
 
 .feedback-dismiss.hidden,
@@ -73,7 +73,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.2rem 1.2rem 1.1rem;
-  box-shadow: 0 16px 48px rgba(26, 34, 51, 0.22);
+  box-shadow: 0 16px 48px rgba(var(--shadow-rgb), 0.22);
 }
 
 .feedback-card.hidden { display: none; }
@@ -214,7 +214,7 @@
 
 .feedback-submit:not(:disabled) {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   cursor: pointer;
 }
 

@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Sojin Hand';
+  src: url('../fonts/Sojin-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* 소진 traced from Sojin's handwriting (the English font has no Korean letters) */
+@font-face {
+  font-family: 'Sojin Hand';
+  src: url('../fonts/Sojin-Hangul.ttf?v=2') format('truetype');
+  unicode-range: U+AC00-D7A3;
+  font-display: swap;
+}
+
 .hero {
   flex: 1;
   display: flex;
@@ -23,6 +37,12 @@
   transition: transform 0.6s ease-out;
   will-change: transform;
 }
+
+/* V3 dark mode had no glow behind the hero */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero::before { opacity: 0; }
+}
+:root[data-theme="dark"] .hero::before { opacity: 0; }
 
 .hero-inner {
   max-width: 1200px;
@@ -53,9 +73,9 @@
 
 .heading-text {
   display: block;
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 600;
-  font-size: 56px;
+  font-family: 'Sojin Hand', 'League Spartan', sans-serif;
+  font-weight: 400;
+  font-size: 76px;
   line-height: 1.1;
   color: var(--text);
   white-space: nowrap;
@@ -88,7 +108,7 @@
   font-family: 'League Spartan', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #fff;
+  color: var(--on-accent);
   background: var(--accent);
   border-radius: 24px;
   padding: 9px 20px;
@@ -123,13 +143,13 @@
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(26, 34, 51, 0.12);
+  box-shadow: 0 8px 24px rgba(var(--shadow-rgb), 0.12);
 }
 
 .cta:hover {
   filter: brightness(0.88);
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(26, 34, 51, 0.12);
+  box-shadow: 0 8px 24px rgba(var(--shadow-rgb), 0.12);
 }
 
 .socials {
@@ -156,7 +176,7 @@
   .hero { align-items: center; justify-content: center; padding: 1rem 1.5rem 3rem; }
   .hero-content { align-items: center; text-align: center; }
   .doodle { width: min(220px, 55vw); opacity: 0.5; bottom: 3.5rem; }
-  .heading-text { font-size: clamp(32px, 9vw, 44px); white-space: normal; text-align: center; }
+  .heading-text { font-size: clamp(38px, 11vw, 58px); white-space: normal; text-align: center; }
   .hero-caption { text-align: center; }
   .cta-row { justify-content: center; }
   .cta { font-size: 13px; padding: 9px 18px; }
@@ -165,6 +185,6 @@
 }
 
 @media (max-width: 480px) {
-  .heading-text { font-size: clamp(28px, 9vw, 36px); }
+  .heading-text { font-size: clamp(34px, 11vw, 46px); }
   .cta { font-size: 13px; padding: 9px 18px; }
 }
