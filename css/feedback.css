@@ -9,29 +9,32 @@
 .feedback-toggle-wrap.hidden { display: none; }
 
 .feedback-icon {
-  width: 19px;
-  height: 19px;
-  filter: brightness(0) invert(1);
-  transform: translate(1px, 1px);
+  display: block;
+  width: 22px;
+  height: 22px;
+  color: var(--heart-color);
+  transform: translateY(1px);
 }
 
+/* Soft tint of the accent instead of a solid fill */
 .feedback-toggle {
   position: relative;
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--heart-color);
-  color: var(--on-accent);
+  background: color-mix(in srgb, var(--heart-color) 22%, var(--bg));
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(var(--shadow-rgb), 0.22);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.feedback-toggle:hover { transform: scale(1.08); }
+.feedback-toggle:hover {
+  transform: scale(1.08);
+  background: color-mix(in srgb, var(--heart-color) 32%, var(--bg));
+}
 .feedback-toggle.hidden { display: none; }
 
 .feedback-dismiss {
