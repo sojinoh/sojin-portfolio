@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/base.css?v=1781900900">
   <link rel="stylesheet" href="css/nav.css?v=1781768619">
   <link rel="stylesheet" href="css/cursor.css?v=1781900000">
-  <link rel="stylesheet" href="css/pages.css?v=1781901300">
+  <link rel="stylesheet" href="css/pages.css?v=1781901400">
   <link rel="stylesheet" href="css/feedback.css?v=1781900007">
 </head>
 <body>
@@ -59,7 +59,8 @@
   <section class="page-section work-layout">
 
     <div class="work-tabs" id="work-tabs">
-      <button class="work-tab active" data-category="ux">UX</button>
+      <span class="work-tabs-thumb" aria-hidden="true"></span>
+      <button class="work-tab active" data-category="ux">UX Research</button>
       <button class="work-tab" data-category="swe">Software Engineering</button>
     </div>
 
@@ -339,12 +340,11 @@
               <div class="pd-divider"></div>
               <div class="pd-section-body">
                 <h3 class="pd-chapter-title">Using it taught me more than reviewing it</h3>
-                <p class="pd-problem-sub">After the rebuild, I used the live site day to day and kept a running list of friction points. Daily use surfaces problems a one-time design review never catches. Here are four from that list, each fixed in its own focused pass. The last one is a fix to one of my own fixes.</p>
+                <p class="pd-problem-sub">After the rebuild, I used the live site day to day and kept a running list of friction points. Daily use surfaces problems a one-time design review never catches. Here are three from that list, each fixed in its own focused pass. The last one is a fix to one of my own fixes.</p>
                 <div class="pd-steps">
                   <div class="pd-step"><div class="pd-step-num">01</div><div class="pd-step-text"><span class="pd-fix-label">No scroll cue</span><span class="pd-fix-pair"><strong>Problem.</strong> On shorter pages the sticky footer sat over the last line of content, with nothing to signal more was below. <strong>Fix.</strong> A chevron above the footer that shows the page keeps going.</span><div class="pd-fix-shot"><img src="images/portfolio-ux-fix-scroll-cue.jpg" alt="Scroll cue chevron above the footer"></div></div></div>
                   <div class="pd-step"><div class="pd-step-num">02</div><div class="pd-step-text"><span class="pd-fix-label">Unclear nav state</span><span class="pd-fix-pair"><strong>Problem.</strong> The active page indicator was easy to miss, so it was hard to tell which page you were on. <strong>Fix.</strong> An underline on the current tab.</span><div class="pd-fix-shot"><img src="images/portfolio-ux-fix-nav-state-2.jpg" alt="Nav bar with underline on the active tab"></div></div></div>
-                  <div class="pd-step"><div class="pd-step-num">03</div><div class="pd-step-text"><span class="pd-fix-label">Sort looked like a filter</span><span class="pd-fix-pair"><strong>Problem.</strong> On the Projects page, the sort control had the same style as the category tabs, so it read as one more filter. <strong>Fix.</strong> A distinct style for sort so it reads as a separate control.</span><div class="pd-fix-shot"><img src="images/portfolio-ux-fix-sort-filter-2.jpg" alt="Sort control styled differently from the filter tabs"></div></div></div>
-                  <div class="pd-step"><div class="pd-step-num">04</div><div class="pd-step-text"><span class="pd-fix-label">No way back to the top</span><span class="pd-fix-pair"><strong>Problem.</strong> Months after fix 01, I kept finishing long pages like this one and scrolling all the way back up to reach the nav. The chevron only pointed down, and most sites offer a back to top button for exactly this. <strong>Fix.</strong> Once you start reading, the same chevron now flips into an up arrow, so the way back to the top is always one click away. One button, two jobs, and no new clutter.</span><div class="pd-fix-shot"><img src="images/portfolio-ux-fix-back-to-top.jpg?v=3" style="width:220px" alt="Chevron flipped into a back to top arrow above the footer"></div></div></div>
+                  <div class="pd-step"><div class="pd-step-num">03</div><div class="pd-step-text"><span class="pd-fix-label">No way back to the top</span><span class="pd-fix-pair"><strong>Problem.</strong> Months after fix 01, I kept finishing long pages like this one and scrolling all the way back up to reach the nav. The chevron only pointed down, and most sites offer a back to top button for exactly this. <strong>Fix.</strong> Once you start reading, the same chevron now flips into an up arrow, so the way back to the top is always one click away. One button, two jobs, and no new clutter.</span><div class="pd-fix-shot"><img src="images/portfolio-ux-fix-back-to-top.jpg?v=3" style="width:220px" alt="Chevron flipped into a back to top arrow above the footer"></div></div></div>
                 </div>
                 <div class="pd-pivot">
                   <div class="pd-pivot-label">Pivot 3</div>
@@ -601,6 +601,7 @@
   const sortLabel = document.getElementById('sort-label');
   const sortIcon  = document.getElementById('sort-icon');
   const tabs      = [...document.querySelectorAll('.work-tab')];
+  const tabsEl    = document.getElementById('work-tabs');
 
   const initCategory = new URLSearchParams(location.search).get('category') || 'ux';
   let activeCategory = initCategory;
@@ -627,6 +628,7 @@
       if (tab.dataset.category === activeCategory) return;
       activeCategory = tab.dataset.category;
       tabs.forEach(t => t.classList.toggle('active', t === tab));
+      tabsEl.classList.toggle('right', activeCategory === 'swe');
       applyFilters();
     });
   });
@@ -641,6 +643,7 @@
   });
 
   tabs.forEach(t => t.classList.toggle('active', t.dataset.category === activeCategory));
+  tabsEl.classList.toggle('right', activeCategory === 'swe');
   applyFilters();
 
   cards.forEach(card => {
