@@ -194,10 +194,10 @@
           </div>
         </div>
 
-        <div class="work-card" data-category="ux" data-year="2026" data-slug="portfolio" data-featured="true"
+        <div class="work-card" data-category="ux" data-year="2026" data-order="1" data-slug="portfolio" data-featured="true"
              data-template="story"
              data-title="The Story Behind This Website"
-             data-context="Personal · A UX Case Study">
+             data-context="Personal · A UX Case Study · Jun - Aug 2026">
           <template class="work-card-story">
 
             <div class="pd-section">
@@ -398,7 +398,7 @@
           </template>
           <img class="work-card-image" src="images/portfolio-ux-digital-wireframe-collage.jpg" alt="Grid of the 6 digital wireframe screens, homepage, at a glance, my work, about me, filtered work grid, and project detail view">
           <div class="work-card-body">
-            <div class="work-card-eyebrow">Personal · 2026</div>
+            <div class="work-card-eyebrow">Personal · Jun - Aug 2026</div>
             <div class="work-card-info">
               <span class="work-card-title">The Story Behind This Website</span>
             </div>
@@ -412,9 +412,9 @@
           </div>
         </div>
 
-        <div class="work-card" data-category="ux" data-year="2026" data-slug="housing" data-template="story"
+        <div class="work-card" data-category="ux" data-year="2026" data-order="2" data-slug="housing" data-template="story"
              data-title="Housing That Feels Like Home"
-             data-context="Mixed-Methods UX Research · University of Washington, Fall 2026">
+             data-context="Mixed-Methods UX Research · University of Washington · Oct - Dec 2026">
           <template class="work-card-story">
 
             <div class="pd-section">
@@ -595,7 +595,7 @@
           </template>
           <img class="work-card-image" src="images/housing-storyboard-future.jpg" alt="Storyboard of an international student celebrating Lunar New Year with nearby friends">
           <div class="work-card-body">
-            <div class="work-card-eyebrow">Mixed-Methods Research · University of Washington · 2026</div>
+            <div class="work-card-eyebrow">Mixed-Methods Research · University of Washington · Oct - Dec 2026</div>
             <div class="work-card-info">
               <span class="work-card-title">Housing That Feels Like Home</span>
             </div>
@@ -609,9 +609,9 @@
           </div>
         </div>
 
-        <div class="work-card" data-category="ux" data-year="2026" data-slug="transit" data-template="research" data-password="wip"
+        <div class="work-card" data-category="ux" data-year="2026" data-order="3" data-slug="transit" data-template="research" data-password="wip"
              data-title="Why Seattle Riders Choose Public Transportation"
-             data-context="Graduate Qualitative Research · University of Washington, Fall 2026"
+             data-context="Graduate Qualitative Research · University of Washington · Oct - Dec 2026"
              data-problem="How do people in Seattle make decisions about using public transit?"
              data-problem-sub="A graduate qualitative research methods course at UW, fall 2026. I worked on a team, originating the research topic and leading development of the research question."
              data-arg1-title="Originated and grounded the research topic in a real-world observation"
@@ -630,7 +630,7 @@
             </svg>
           </div>
           <div class="work-card-body">
-            <div class="work-card-eyebrow">Qualitative Research Methods · UW · In Progress</div>
+            <div class="work-card-eyebrow">Qualitative Research Methods · UW · Oct - Dec 2026</div>
             <div class="work-card-info">
               <span class="work-card-title">Why Seattle Riders Choose Public Transportation</span>
             </div>
@@ -772,11 +772,10 @@
   let sortDir = 'desc';
 
   function applyFilters() {
+    // data-order breaks ties between projects from the same year (higher = newer)
+    const age = c => +c.dataset.year * 100 + (+c.dataset.order || 0);
     [...cards]
-      .sort((a, b) => sortDir === 'desc'
-        ? +b.dataset.year - +a.dataset.year
-        : +a.dataset.year - +b.dataset.year
-      )
+      .sort((a, b) => sortDir === 'desc' ? age(b) - age(a) : age(a) - age(b))
       .forEach(c => grid.appendChild(c));
 
     cards.forEach(card => {
